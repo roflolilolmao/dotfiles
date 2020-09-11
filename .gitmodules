@@ -1,0 +1,57 @@
+[submodule "external/zsh-vim-mode"]
+	path = external/zsh-vim-mode
+	url = git@github.com:softmoth/zsh-vim-mode
+[submodule "external/fzf"]
+	path = external/fzf
+	url = git@github.com:junegunn/fzf
+[submodule "external/zsh-syntax-highlighting"]
+	path = external/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting
+[submodule "external/zsh-bd"]
+	path = external/zsh-bd
+	url = git@github.com:Tarrasch/zsh-bd
+[submodule "external/powerlevel10k"]
+	path = external/powerlevel10k
+	url = git@github.com:romkatv/powerlevel10k
+[submodule "nvim/pack/plugins/start/oceanic-next-nvim"]
+	path = nvim/pack/plugins/start/oceanic-next-nvim
+	url = git@github.com:roflolilolmao/oceanic-next-nvim
+[submodule "nvim/pack/plugins/start/vim-fugitive"]
+	path = nvim/pack/plugins/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive
+[submodule "nvim/pack/plugins/start/nvim-lspconfig"]
+	path = nvim/pack/plugins/start/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig
+[submodule "nvim/pack/plugins/start/popfix"]
+	path = nvim/pack/plugins/start/popfix
+	url = git@github.com:RishabhRD/popfix
+[submodule "nvim/pack/plugins/start/nvim-lsputils"]
+	path = nvim/pack/plugins/start/nvim-lsputils
+	url = git@github.com:RishabhRD/nvim-lsputils
+[submodule "nvim/pack/plugins/start/plenary.nvim"]
+	path = nvim/pack/plugins/start/plenary.nvim
+	url = git@github.com:nvim-lua/plenary.nvim
+[submodule "nvim/pack/plugins/start/popup.nvim"]
+	path = nvim/pack/plugins/start/popup.nvim
+	url = git@github.com:nvim-lua/popup.nvim
+[submodule "nvim/pack/plugins/start/telescope.nvim"]
+	path = nvim/pack/plugins/start/telescope.nvim
+	url = git@github.com:nvim-telescope/telescope.nvim
+[submodule "nvim/pack/plugins/start/nvim-compe"]
+	path = nvim/pack/plugins/start/nvim-compe
+	url = git@github.com:hrsh7th/nvim-compe.git
+[submodule "nvim/pack/plugins/start/nvim-web-devicons"]
+	path = nvim/pack/plugins/start/nvim-web-devicons
+	url = git@github.com:kyazdani42/nvim-web-devicons.git
+[submodule "nvim/pack/plugins/start/lualine.nvim"]
+	path = nvim/pack/plugins/start/lualine.nvim
+	url = git@github.com:hoob3rt/lualine.nvim.git
+[submodule "nvim/pack/plugins/start/nvim-colorizer.lua"]
+	path = nvim/pack/plugins/start/nvim-colorizer.lua
+	url = git@github.com:norcalli/nvim-colorizer.lua.git
+[submodule "nvim/pack/plugins/start/vim-python-pep8-indent"]
+	path = nvim/pack/plugins/start/vim-python-pep8-indent
+	url = git@github.com:Vimjas/vim-python-pep8-indent
+[submodule "nvim/pack/plugins/start/lightspeed.nvim"]
+	path = nvim/pack/plugins/start/lightspeed.nvim
+	url = git@github.com:ggandor/lightspeed.nvim.git

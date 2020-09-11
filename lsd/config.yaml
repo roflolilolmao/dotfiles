@@ -1,0 +1,9 @@
+# https://github.com/Peltoche/lsd/issues/218
+
+ignore-globs:
+  - .git
+  - undo
+  - swap
+  - plugged
+  - pack
+  - external
