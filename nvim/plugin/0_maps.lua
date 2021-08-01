@@ -7,7 +7,8 @@ Q.m('n', '<C-q>', '<C-w><C-q>')
 Q.m('i', '<C-u>', '<C-g>u<C-u>')  -- undo friendly C-u
 Q.m('i', '<C-w>', '<C-g>u<C-w>')  -- undo friendly C-w
 
-Q.m('n', '<C-/>', '<Cmd>noh<CR>')  -- clear highlights
+-- Enter clears highlight in normal mode
+Q.m('n', '<CR>', '{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()', {expr = true, silent = true})
 
 Q.m('n', 'Y', 'y$')
 Q.m('n', '<leader>y', '"+y')
@@ -40,7 +41,7 @@ Q.m('n', '<Leader>2h', [[<Cmd>call jobstart([lua Q.to_html())]<CR>]])
 Q.m('n', 'gx', [[<Cmd>call jobstart('$BROWSER <cWORD>')<CR>]])
 
 -- TODO: this does not work
-Q.m('n', '<F12>', [[<Cmd>luafile $MYVIMRC<CR><Cmd>e<CR>]])
+Q.m('n', '<F12>', [[<Cmd>luafile %<CR>]])
 
 Q.m('n', '<F5>', '<Cmd>lua Q.save_all()<CR>')
 Q.m('i', '<F5>', '<Cmd>lua Q.save_all()<CR>')
@@ -81,6 +82,7 @@ Q.m('x', 'a_', 'f.oF.o')
 Q.m('x', 'i_', 't.oT.o')
 
 Q.m('n', 'R', [[<Cmd>set opfunc=Q_Replace<CR>g@]])
+Q.m('n', 'RR', [[<Cmd>set opfunc=Q_Replace<CR>g@_]])
 
 Q.m('n', '<Leader>h', [[Q_ToggleComment() .. '_']], {expr = true})
 

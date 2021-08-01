@@ -115,19 +115,25 @@ Q.dirs = {
 }
 
 Q.replace = function(arg)
-  -- v forces the d operator to be charwise inclusive
+  local selection = {
+    line = "'[V']\\\"zygv\\\"vp",
+    char = '`[v`]\\"zc',
+    block = '`[\\<C-v>`]\\"zc',
+  }
+
   c([[let @v=@"]])
-  c([[normal! `["zdv`]"vP]])
+  c('exe "normal! ' .. selection[arg] .. [[\<C-r>v\<Esc>"]])
   c([[let @"=@z]])
 end
 
 Q.toggle_comment = function()
-  local comment_string = vim.o.commentstring:gsub('%%s', '')
+  local comment_string = vim.o.commentstring:gsub(vim.pesc('%s'), '')
   local start_line = f.line("'[")
 
   for index, line in ipairs(f.getline("'[", "']")) do
     local current_line = start_line + index - 1
-    local new_line, found = line:gsub(comment_string, '', 1)
+
+    local new_line, found = line:gsub(vim.pesc(comment_string), '', 1)
 
     if found == 0 then
       new_line = vim.o.commentstring:format(line)
@@ -139,11 +145,11 @@ end
 
 a.nvim_exec(
   [[
-  function Q_Replace(arg)
-    lua Q.replace(arg)
+  function! Q_Replace(type)
+    exe "lua Q.replace('" .. a:type .. "')"
   endfunction
 
-  function Q_ToggleComment(type = '')
+  function! Q_ToggleComment(type = '')
     if a:type == ''
       set opfunc=Q_ToggleComment
       return 'g@'

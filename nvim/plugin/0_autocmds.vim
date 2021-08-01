@@ -1,7 +1,11 @@
 " Highlight yanks
-augroup highlight yanks
+augroup highlight_yanks
   autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  autocmd TextYankPost * lua vim.highlight.on_yank {
+        \ higroup = "Substitute",
+        \ timeout = 150,
+        \ on_macro = true
+        \ }
 augroup END
 
 " Remove trailing spaces and lines on write
@@ -20,4 +24,10 @@ augroup END
 augroup restore_cursor
   autocmd!
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
+augroup END
+
+" Avoids the syntax being funky when entering a file.
+augroup syntax_sync
+  autocmd!
+  autocmd BufEnter * :syntax sync fromstart
 augroup END
