@@ -35,9 +35,18 @@ map_function('git_commits', 'gc')
 map_function('git_branches', 'gb')
 map_function('git_bcommits', 'gg')
 
+local actions = require "telescope.actions"
+
 require'telescope'.setup{
   defaults = {
-    winblend = 0,
+    mappings = {
+      n = {
+        ['<Leader>n'] = actions.send_selected_to_qflist + actions.open_qflist,
+      },
+      i = {
+        ['<C-Space>'] = actions.send_selected_to_qflist + actions.open_qflist,
+      },
+    },
   },
   pickers = {
     commands = require'telescope.themes'.get_dropdown {},

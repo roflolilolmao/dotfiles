@@ -26,8 +26,6 @@ choco install -y streamdeck
 choco install -y rust
 choco install -y nodejs -y
 
-npm install -g eslint_d
-
 cargo install -y ripgrep
 cargo install -y fd-find
 cargo install -y lsd
@@ -126,7 +124,8 @@ mv efm-langserver_v0.0.36_linux_amd64/efm-langserver ~/.local/bin
 rm efm.tar.gz
 rm -r efm-langserver_v0.0.36_linux_amd64
 
-sudo npm i -g install markdownlint-cli
+sudo npm i -g markdownlint-cli
+sudo npm i -g eslint_d
 
 pipx install 'python-lsp-server[all]'
 pipx inject python-lsp-server python-lsp-black pyls-isort
