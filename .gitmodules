@@ -65,3 +65,6 @@
 [submodule "nvim/pack/plugins/start/nvim-ts-context-commentstring"]
 	path = nvim/pack/plugins/start/nvim-ts-context-commentstring
 	url = git@github.com:JoosepAlviste/nvim-ts-context-commentstring.git
+[submodule "nvim/pack/plugins/start/nvim-ts-autotag"]
+	path = nvim/pack/plugins/start/nvim-ts-autotag
+	url = git@github.com:windwp/nvim-ts-autotag.git
