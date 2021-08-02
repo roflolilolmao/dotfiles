@@ -44,7 +44,7 @@ Q.m('n', 'gx', [[<Cmd>call jobstart('$BROWSER <cWORD>')<CR>]])
 Q.m('n', '<F12>', [[<Cmd>luafile %<CR>]])
 
 Q.m('n', '<F5>', '<Cmd>lua Q.save_all()<CR>')
-Q.m('i', '<F5>', '<Cmd>lua Q.save_all()<CR>')
+Q.m('i', '<F5>', '<Esc><Cmd>lua Q.save_all()<CR>')
 
 Q.m('n', '<Leader>z', '<Cmd>lua Q.get_highlight()<CR>')
 

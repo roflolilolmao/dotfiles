@@ -45,7 +45,7 @@
 	url = git@github.com:kyazdani42/nvim-web-devicons.git
 [submodule "nvim/pack/plugins/start/lualine.nvim"]
 	path = nvim/pack/plugins/start/lualine.nvim
-	url = git@github.com:hoob3rt/lualine.nvim.git
+	url = git@github.com:shadmansaleh/lualine.nvim.git
 [submodule "nvim/pack/plugins/start/nvim-colorizer.lua"]
 	path = nvim/pack/plugins/start/nvim-colorizer.lua
 	url = git@github.com:norcalli/nvim-colorizer.lua.git
