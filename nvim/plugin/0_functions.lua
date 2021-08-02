@@ -127,7 +127,9 @@ Q.replace = function(arg)
 end
 
 Q.toggle_comment = function()
+  require('ts_context_commentstring.internal').update_commentstring()
   local comment_string = vim.o.commentstring:gsub(vim.pesc('%s'), '')
+
   local start_line = f.line("'[")
 
   for index, line in ipairs(f.getline("'[", "']")) do

@@ -56,6 +56,8 @@ for name, table in pairs(Q.dirs) do
   )
 end
 
+Q.m('n', '<Leader>aa', '<Cmd>pwd<CR>')
+
 -- https://stackoverflow.com/questions/7292052/vim-select-inside-dots/7292271#7292271
 Q.m('o', ',', '<Cmd>exec "normal! v" . v:count1 . ","<CR>')
 Q.m('o', 'a,', '<Cmd>exec "normal! v" . v:count1 . "a,"<CR>')

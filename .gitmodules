@@ -62,3 +62,6 @@
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = git@github.com:nvim-treesitter/nvim-treesitter
     branch = 0.5-compat
+[submodule "nvim/pack/plugins/start/nvim-ts-context-commentstring"]
+	path = nvim/pack/plugins/start/nvim-ts-context-commentstring
+	url = git@github.com:JoosepAlviste/nvim-ts-context-commentstring.git
