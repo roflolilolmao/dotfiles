@@ -55,3 +55,6 @@
 [submodule "nvim/pack/plugins/start/lightspeed.nvim"]
 	path = nvim/pack/plugins/start/lightspeed.nvim
 	url = git@github.com:ggandor/lightspeed.nvim.git
+[submodule "nvim/pack/plugins/start/neuron.nvim"]
+	path = nvim/pack/plugins/start/neuron.nvim
+	url = git@github.com:oberblastmeister/neuron.nvim.git
