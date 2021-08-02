@@ -70,7 +70,7 @@ end
 
 Q.get_highlight = function()
   local id = f.synID(f.line('.'), f.col('.'), 1)
-  print(
+  return (
     f.synIDattr(id, 'name')
     .. ' -> '
     .. f.synIDattr(f.synIDtrans(id), 'name')

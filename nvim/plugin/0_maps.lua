@@ -46,7 +46,7 @@ Q.m('n', '<F12>', [[<Cmd>luafile %<CR>]])
 Q.m('n', '<F5>', '<Cmd>lua Q.save_all()<CR>')
 Q.m('i', '<F5>', '<Esc><Cmd>lua Q.save_all()<CR>')
 
-Q.m('n', '<Leader>z', '<Cmd>lua Q.get_highlight()<CR>')
+Q.m('n', '<Leader>/', '<Cmd>lua Q.get_highlight()<CR>')
 
 for name, table in pairs(Q.dirs) do
   Q.m(
