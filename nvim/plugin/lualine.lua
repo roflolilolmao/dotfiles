@@ -35,6 +35,7 @@ lualine.setup{
       {
         'filename',
         path = 0,
+        separator = '',
       },
       {
         'filetype',
@@ -44,6 +45,7 @@ lualine.setup{
       {
         'encoding',
         right_padding = 0,
+        separator = '',
       },
       {
         'fileformat',
