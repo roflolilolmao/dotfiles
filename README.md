@@ -104,13 +104,13 @@ cargo install git-delta
 
 cd ~/dotfiles
 
-./external/fzf/install --bin --64
+./external/fzf/install --bin
 
 yay -S neovim python-pynvim unzip nodejs npm
 
 python -m ensurepip
 python -m pip install --upgrade pip
-python -m pip install pipx pipenv
+python -m pip install pipx pipenv rich
 
 # Clipboard provider for nvim: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
