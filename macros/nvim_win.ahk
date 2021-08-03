@@ -1,3 +1,4 @@
+#SingleInstance
 SetWorkingDir EnvGet("LocalAppData") "/Microsoft/WindowsApps"
 
 Run("wt --title nvim-win -p Windows -d " EnvGet("UserProfile") "/dotfiles")

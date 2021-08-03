@@ -1,2 +1,9 @@
+#SingleInstance
+#WinActivateForce
+
 F13::
-Send("{F22}k{Enter}{F20}")
+{
+    current_id := WinGetID("A")
+    RunWait(A_ScriptDir "/commander.ahk")
+    WinActivate(current_id)
+}
