@@ -16,7 +16,6 @@ lualine.setup{
     lualine_b = {
       {
         'branch',
-        right_padding = 0,
       },
       {
         'diff',
@@ -29,20 +28,21 @@ lualine.setup{
     lualine_x = {},
     lualine_y = {
       {
-        'filename',
-        path = 0,
-        separator = '',
-      },
-      {
         'diagnostics',
         sources = {'nvim_lsp'},
         symbols = Q.lsp_signs,
+      },
+      {
+        'filename',
+        path = 0,
+      },
+      {
+        'filetype',
       },
     },
     lualine_z = {
       {
         'encoding',
-        separator = '',
         right_padding = 0,
       },
       {
