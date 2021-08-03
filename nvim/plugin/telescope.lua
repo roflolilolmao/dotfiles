@@ -5,35 +5,47 @@ local function map_function(name, key, arg)
 
   Q.m(
     'n',
-    '<Leader>t' .. key,
+    '<Leader>' .. key,
     [[<Cmd>lua require'telescope.builtin'.]] .. name .. '(' .. arg .. ')<CR>'
   )
 end
 
-map_function('file_browser', 'f')
-map_function('find_files', 's')
-map_function('grep_string', 'G')
-map_function('live_grep', 'g')
-map_function('buffers', 'x')
-map_function('help_tags', 'h')
-map_function('current_buffer_fuzzy_find', 't')
-map_function('oldfiles', 'o', '{cwd_only = true}')
-map_function('oldfiles', 'O')
-map_function('registers', 'r')
-map_function('loclist', 'l')
-map_function('quickfix', 'q')
+map_function('file_browser', 'tf')
+map_function('find_files', 'ts')
+map_function('grep_string', 'tG')
+map_function('live_grep', 'tg')
+map_function('buffers', 'tx')
+map_function('help_tags', 'th')
+map_function('current_buffer_fuzzy_find', 'tt')
+map_function('oldfiles', 'to', '{cwd_only = true}')
+map_function('oldfiles', 'tO')
+map_function('registers', 'tr')
+map_function('loclist', 'tl')
+map_function('quickfix', 'tq')
 map_function('command_history', ';')
 map_function('commands', ':')
-map_function('builtin', 'z')
-map_function('keymaps', 'm')
-map_function('highlights', 'i')
+map_function('builtin', 'tz')
+map_function('keymaps', 'tm')
+map_function('highlights', 'ti')
 
 map_function('git_stash', 'gx')
 map_function('git_files', 'gf')
 map_function('git_status', 'gs')
-map_function('git_commits', 'gc')
+map_function('git_commits', 'gC')
 map_function('git_branches', 'gb')
-map_function('git_bcommits', 'gg')
+map_function('git_bcommits', 'gc')
+
+map_function('lsp_references', 'dr')
+map_function('lsp_definitions', 'dd')
+map_function('lsp_code_actions', 'da')
+map_function('lsp_code_actions', 'dA')
+
+map_function('lsp_document_symbols', 'ds')
+map_function('lsp_document_diagnostics', 'do')
+
+map_function('lsp_workspace_symbols', 'dws')
+map_function('lsp_dynamic_workspace_symbols', 'dwS')
+map_function('lsp_workspace_diagnostics', 'dwo')
 
 local actions = require "telescope.actions"
 

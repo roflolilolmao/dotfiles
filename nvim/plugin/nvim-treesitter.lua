@@ -18,9 +18,6 @@ require'nvim-treesitter.configs'.setup {
       scope_incremental = "<Leader>z",
     },
   },
-  indent = {
-    enable = true,
-  },
   textobjects = {
     select = {
       enable = true,

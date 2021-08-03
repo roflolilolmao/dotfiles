@@ -24,27 +24,27 @@ Q.lsp_on_attach = function()
   -- buf_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- buf_set_keymap('n', '<Leader>D', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<Leader>fs', '<Cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
+--  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+--  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+--  buf_set_keymap('n', '<Leader>fs', '<Cmd> lua vim.lsp.buf.document_symbol()<CR>', opts)
 
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+--  buf_set_keymap('n', '<C-k>', '<Cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-  buf_set_keymap('n', '<Leader>wa', '<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<Leader>wr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<Leader>wl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<Leader>ws', '<Cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
+  buf_set_keymap('n', '<Leader>dwa', '<Cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<Leader>dwr', '<Cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<Leader>dwl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+--  buf_set_keymap('n', '<Leader>ws', '<Cmd> lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 
   buf_set_keymap('n', '<F2>', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', '<Leader>f', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+--  buf_set_keymap('n', '<Leader>ca', '<Cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', '<Leader>df', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-  buf_set_keymap('n', '<Leader>e', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<Leader>de', '<Cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '<Leader>q', '<Cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
-  buf_set_keymap('n', '<Leader>d', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<Leader>D', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', '<Leader>dn', '<Cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<Leader>dp', '<Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
@@ -94,16 +94,17 @@ end
 vim.lsp.handlers['textDocument/publishDiagnostics'] =
   function(_, _, params, client_id, _)
     local config = {
-      underline = true,
-      virtual_text = function ()
-        if vim.fn.mode() ~= 'n' then
-          return false
-        end
-        return {
-          prefix = '■ ',
-          spacing = 4,
-        }
-      end,
+      underline = false,
+      virtual_text = false,
+--      function ()
+--        if vim.fn.mode() ~= 'n' then
+--          return false
+--        end
+--        return {
+--          prefix = '■ ',
+--          spacing = 4,
+--        }
+--      end,
       signs = true,
       update_in_insert = false,
       severity_sort = true,
