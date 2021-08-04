@@ -12,27 +12,27 @@ Set-ExecutionPolicy RemoteSigned -Scope User
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+choco install git.install --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
+
+choco install -y mingw
+choco install -y rust
+choco install -y nodejs -y
+choco install -y bat -y
+choco install -y delta -y
+choco install -y streamdeck
+
+cargo install ripgrep
+cargo install fd-find
+cargo install lsd
+
 git clone --recursive git@github.com:roflolilolmao/dotfiles
 
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target ./nvim
+New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$Home\dotfiles\nvim"
 New-Item `
     -ItemType SymbolicLink `
     -Force `
     -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" `
     -Target ./terminal/settings.json
-
-choco install -y streamdeck
-
-choco install -y mingw
-choco install -y rust
-choco install -y nodejs -y
-
-cargo install -y ripgrep
-cargo install -y fd-find
-cargo install -y lsd
-
-choco install -y bat -y
-choco install -y delta -y
 ```
 
 ### Environment Variables
