@@ -1,3 +1,7 @@
+if vim.fn.has('win32') then
+  return
+end
+
 require'neuron'.setup {
   neuron_dir = '~/neuron',
   mappings = true,

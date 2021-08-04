@@ -23,6 +23,7 @@ New-Item `
 
 choco install -y streamdeck
 
+choco install -y mingw
 choco install -y rust
 choco install -y nodejs -y
 
