@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#BF616A",
+          "properties": {
+            "prefix": "",
+            "root_icon": "Admin"
+          },
+          "style": "plain",
+          "type": "root"
+        },
+        {
+          "foreground": "#81A1C1",
+          "properties": {
+            "prefix": "",
+            "style": "full"
+          },
+          "style": "plain",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#6C6C6C",
+          "properties": {
+            "branch_ahead_icon": "<#88C0D0>⇡ </>",
+            "branch_behind_icon": "<#88C0D0>⇣ </>",
+            "branch_icon": "",
+            "display_stash_count": true,
+            "display_status": true,
+            "display_status_detail": true,
+            "display_upstream_icon": true,
+            "github_icon": "",
+            "local_working_icon": "<#FFAFD7>*</>",
+            "prefix": ""
+          },
+          "style": "plain",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#A3BE8C",
+          "properties": {
+            "style": "austin"
+          },
+          "style": "plain",
+          "type": "executiontime"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#B48EAD",
+          "properties": {
+            "always_enabled": true,
+            "display_exit_code": false,
+            "error_color": "#BF616A",
+            "prefix": "❯"
+          },
+          "style": "plain",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "transient_prompt": {
+      "background": "transparent",
+      "foreground": "#B48EAD",
+      "template": "❯ {{ .Command }}"
+  },
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{if .Root}}(Admin){{end}} {{.Path}}"
+}

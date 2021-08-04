@@ -12,7 +12,7 @@ Set-ExecutionPolicy RemoteSigned -Scope User
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install git.install --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
+choco install -y git.install --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
 
 choco install -y mingw
 choco install -y rust
@@ -33,6 +33,15 @@ New-Item `
     -Force `
     -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" `
     -Target ./terminal/settings.json
+
+Install-Module posh-git -Scope CurrentUser
+Install-Module oh-my-posh -Scope CurrentUser
+
+New-Item `
+    -ItemType SymbolicLink `
+    -Force `
+    -Path "$PROFILE" `
+    -Target ./powershell/profile.ps1
 ```
 
 ### Environment Variables
