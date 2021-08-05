@@ -83,8 +83,8 @@ Q.m('x', '_', 'f.oT.o')
 Q.m('x', 'a_', 'f.oF.o')
 Q.m('x', 'i_', 't.oT.o')
 
-Q.m('n', 'R', [[<Cmd>set opfunc=Q_Replace<CR>g@]])
-Q.m('n', 'RR', [[<Cmd>set opfunc=Q_Replace<CR>g@_]])
+Q.m('n', 'R', [[Q_Replace()]], {expr = true})
+Q.m('n', 'RR', [[Q_Replace() .. '_']], {expr = true})
 
 Q.m('n', '<Leader>h', [[Q_ToggleComment() .. '_']], {expr = true})
 

@@ -137,6 +137,7 @@ Q.toggle_comment = function()
 
     local new_line, found = line:gsub(vim.pesc(comment_string), '', 1)
 
+    -- TODO: comment from ^, not 0
     if found == 0 then
       new_line = vim.o.commentstring:format(line)
     end
@@ -147,7 +148,12 @@ end
 
 a.nvim_exec(
   [[
-  function! Q_Replace(type)
+  function! Q_Replace(type = '')
+    if a:type == ''
+      set opfunc=Q_Replace
+      return 'g@'
+    endif
+
     exe "lua Q.replace('" .. a:type .. "')"
   endfunction
 
