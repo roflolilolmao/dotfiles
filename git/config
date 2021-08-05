@@ -44,3 +44,7 @@
 	stat = true
 [branch]
 	autoSetupMerge = always
+[checkout]
+	defaultRemote = origin
+[remote]
+	pushDefault = origin
