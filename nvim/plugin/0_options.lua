@@ -18,6 +18,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+vim.opt.showbreak = ' ↳ '
+
 vim.opt.textwidth = 79
 vim.opt.formatoptions = vim.opt.formatoptions
   - 't'

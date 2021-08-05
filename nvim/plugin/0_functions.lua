@@ -19,6 +19,10 @@ function Q.dump(...)
   return ...
 end
 
+function Q.set_wrap()
+  vim.wo.wrap = not vim.wo.wrap
+end
+
 Q.cn = function(direction)
   local index = f.getqflist{idx=0}.idx
   if index == 0 then

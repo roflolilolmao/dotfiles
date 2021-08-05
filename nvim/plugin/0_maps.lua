@@ -90,3 +90,5 @@ Q.m('n', '<Leader>h', [[Q_ToggleComment() .. '_']], {expr = true})
 
 Q.m('n', 'r', 's')
 Q.m('v', 'r', 's')
+
+Q.m('n', '<Leader><Leader>w', '<Cmd>lua Q.set_wrap()<CR>')
