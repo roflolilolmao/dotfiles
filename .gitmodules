@@ -75,3 +75,6 @@
 [submodule ".\\nvim\\pack\\plugins\\start\\firenvim"]
 	path = .\\nvim\\pack\\plugins\\start\\firenvim
 	url = git@github.com:glacambre/firenvim.git
+[submodule "nvim/pack/plugins/start/LuaSnip"]
+	path = nvim/pack/plugins/start/LuaSnip
+	url = git@github.com:L3MON4D3/LuaSnip.git

@@ -3,13 +3,15 @@ local t = function(str)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+  local col = vim.fn.col('.') - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-n>'
+  elseif require'luasnip'.expand_or_jumpable() then
+    return t [[<Cmd>lua require'luasnip'.expand_or_jump()<CR>]]
   elseif check_back_space() then
     return t '<Tab>'
   else
@@ -20,6 +22,8 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-p>'
+  elseif require'luasnip'.jumpable(-1) then
+    return t [[<Cmd>lua require'luasnip'.jump(-1)<CR>]]
   else
     return t '<S-Tab>'
   end
@@ -34,6 +38,8 @@ Q.m('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
 
 -- compe will autoselect the first item
 Q.m('i', '<C-Space>', 'compe#complete()', opts)
+Q.m('i', '<CR>', [[compe#confirm('<CR>')]], opts)
+Q.m('i', '<C-e>', [[compe#close('<C-e>')]], opts)
 
 require'compe'.setup{
   enabled = true;
@@ -57,6 +63,6 @@ require'compe'.setup{
     nvim_lua = true;
     vsnip = false;
     ultisnips = false;
-    luasnip = false;
+    luasnip = true;
   };
 }

@@ -68,7 +68,7 @@ Q.save_all = function()
   view = f.winsaveview()
   c('mark Z')
   c('bufdo lua Q.save_if_file_exists()')
-  c('silent norm `Z')
+  c('silent! normal! `Z')
   f.winrestview(view)
 end
 

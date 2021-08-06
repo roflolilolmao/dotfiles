@@ -1,7 +1,3 @@
-alias cc='cargo clippy --all-targets --all-features -- -D warnings'
-alias ct='cargo test'
-alias cf='cargo fmt --all --verbose -- --check --verbose'
-
 alias ggg='watch -c git log --color --graph --exclude=refs/stash --all --oneline --decorate'
 alias grc='git rebase --continue'
 alias gg='git log --color --graph --all --oneline --decorate'

@@ -5,9 +5,23 @@ local lualine = require'lualine'
 
 local oceanic_next = require'lualine.themes.oceanicnext'
 
+oceanic_next['insert']['b']['bg'] = nil
+oceanic_next['normal']['b']['bg'] = nil
+oceanic_next['inactive']['b']['bg'] = nil
+oceanic_next['visual']['b']['bg'] = nil
+oceanic_next['replace']['b']['bg'] = nil
+
+oceanic_next['insert']['c']['bg'] = nil
+oceanic_next['normal']['c']['bg'] = nil
+oceanic_next['inactive']['c']['bg'] = nil
+oceanic_next['visual']['c']['bg'] = nil
+oceanic_next['replace']['c']['bg'] = nil
+
 lualine.setup{
   options = {
     theme = oceanic_next,
+    padding = 1,
+    section_separators = {'', ''},
   },
   sections = {
     lualine_a = {

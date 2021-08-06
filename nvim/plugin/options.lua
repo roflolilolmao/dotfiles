@@ -4,6 +4,7 @@ vim.opt.history = 200
 vim.opt.hidden = true
 vim.opt.updatetime = 200
 vim.opt.autowrite = true
+vim.opt.modeline = false
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -51,8 +52,6 @@ vim.opt.scrolloff = 5
 
 vim.opt.inccommand = 'nosplit'
 vim.opt.incsearch = true
-
-vim.g.netrw_banner = 0
 
 -- Required by compe
 vim.opt.completeopt = {'menuone', 'noselect'}
