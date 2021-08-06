@@ -114,9 +114,9 @@ cargo install git-delta
 
 cd ~/dotfiles
 
-./external/fzf/install --bin
+./zsh/plugins/fzf/install --bin
 
-yay -S neovim python-pynvim unzip nodejs npm
+yay -S man unzip neovim python-pynvim nodejs npm
 
 python -m ensurepip
 python -m pip install --upgrade pip
@@ -175,7 +175,7 @@ yay](https://averagelinuxuser.com/which-aur-helper-yay/#how-to-use-yay).
 
 ```powershell
 git submodule foreach --recursive git config core.filemode false
-git submodule deinit -f external/zsh-bd external/zsh-syntax-highlighting
+git submodule deinit -f zsh/plugins/zsh-bd zsh/plugins/zsh-syntax-highlighting
 ```
 
 ### Update Submodules

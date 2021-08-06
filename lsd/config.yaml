@@ -4,6 +4,5 @@ ignore-globs:
   - .git
   - undo
   - swap
-  - plugged
   - pack
-  - external
+  - plugins

@@ -32,11 +32,19 @@ autoload -Uz compinit; compinit
 _comp_options+=(globdots) # With hidden files
 source "$ZDOTDIR/completion.zsh"
 
-source "$XDG_CONFIG_EXTERNAL/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+export COLORTERM=truecolor
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+export MANPAGER="nvim --cmd 'runtime! plugin/man.vim' +Man!"
+export BROWSER="wslview"
+export OPENER="$BROWSER"
 
 source "$ZDOTDIR/vim.zsh"
 source "$ZDOTDIR/aliases.zsh"
-source "$XDG_CONFIG_EXTERNAL/zsh-bd/bd.zsh"
+source "$ZDOTDIR/plugins/zsh-bd/bd.zsh"
 
 # Handling SSH keys.
 eval $(ssh-agent -s) > /dev/null
@@ -45,17 +53,13 @@ ssh-add ~/.ssh/id_ed25519 2> /dev/null
 # Handling GPG keys.
 export GPG_TTY=$(tty)
 
-source $XDG_CONFIG_EXTERNAL/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # Setup fzf
-if [[ ! "$PATH" == */$XDG_CONFIG_EXTERNAL/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}$XDG_CONFIG_EXTERNAL/fzf/bin"
-fi
-[[ $- == *i* ]] && source "$XDG_CONFIG_EXTERNAL/fzf/shell/completion.zsh" 2> /dev/null
-source "$XDG_CONFIG_EXTERNAL/fzf/shell/key-bindings.zsh"
+[[ $- == *i* ]] && source "$ZDOTDIR/plugins/fzf/shell/completion.zsh" 2> /dev/null
+source "$ZDOTDIR/plugins/fzf/shell/key-bindings.zsh"
 source "$ZDOTDIR/fzf.zsh"
 
 vim-mode-bindkey viins vicmd -- fzf-history-widget '^R'

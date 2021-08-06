@@ -14,4 +14,4 @@ MODE_CURSOR_SEARCH="steady underline"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL"
 
-source "$XDG_CONFIG_EXTERNAL/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+source "$ZDOTDIR/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
