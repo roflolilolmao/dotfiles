@@ -6,3 +6,4 @@ ignore-globs:
   - swap
   - pack
   - plugins
+  - node_modules

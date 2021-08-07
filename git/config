@@ -48,3 +48,5 @@
 	defaultRemote = origin
 [remote]
 	pushDefault = origin
+[init]
+	defaultBranch = main

@@ -4,10 +4,10 @@ alias gg='git log --color --graph --all --oneline --decorate'
 alias gd='git show'
 
 alias l='lsd'
-alias ls='lsd *'
+alias ls='lsd'
 alias ll='lsd -l'
-alias la='lsd -a'
-alias lla='lsd -la'
+alias la='lsd -a --ignore-config'
+alias lla='lsd -la --ignore-config'
 alias lt='lsd --tree'
 
 alias b='cd -1'
