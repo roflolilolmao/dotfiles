@@ -127,14 +127,14 @@ Q.dirs = {
 
 Q.replace = function(arg)
   local selection = {
-    line = "'[V']\\\"zygv\\\"vp",
-    char = '`[v`]\\"zc',
-    block = '`[\\<C-v>`]\\"zc',
+    line = [['[V']\"zygv\"vp]],
+    char = [[`[v`]\"zc]],
+    block = [[`[\<C-v>`]\"zc]],
   }
 
   c([[let @v=@"]])
   c('exe "normal! ' .. selection[arg] .. [[\<C-r>v\<Esc>"]])
-  c([[let @"=@z]])
+  c([[let @"=@v]])
 end
 
 Q.toggle_comment = function()
