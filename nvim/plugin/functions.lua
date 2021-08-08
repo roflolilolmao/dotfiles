@@ -4,9 +4,9 @@ local f = vim.fn
 
 local config = f.stdpath('config') .. '/'
 
-local wsl = '~/'
+local home = '~/'
 if f.has('win32') ~= 0 then
-  wsl = '\\\\wsl$/q/home/q/'  -- TODO: use wslpath+wslenv
+  home = '\\\\wsl$/q/home/q/'  -- TODO: use wslpath+wslenv
 end
 
 local set_dir = function(directory)
@@ -99,14 +99,21 @@ Q.dirs = {
   open_dev = {
     key = 'd',
     func = function()
-      set_dir(wsl .. 'dev')
+      set_dir(home .. 'dev')
+    end,
+  },
+
+  open_tree_sitter_markdown = {
+    key = 't',
+    func = function()
+      set_dir(home .. 'dev/tree-sitter-markdown')
     end,
   },
 
   open_valo = {
     key = 'v',
     func = function()
-      set_dir(wsl .. 'dev/Valo')
+      set_dir(home .. 'dev/Valo')
     end,
   },
 
