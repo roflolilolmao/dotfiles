@@ -48,11 +48,11 @@ Q.m('i', '<F5>', '<Esc><Cmd>lua Q.save_all()<CR>')
 
 Q.m('n', '<Leader>/', '<Cmd>lua Q.get_highlight()<CR>')
 
-for name, table in pairs(Q.dirs) do
+for key, _function in pairs(Q.dirs) do
   Q.m(
     'n',
-    '<Leader>a' .. table.key,
-    [[<Cmd>lua Q.dirs.]] .. name .. [[.func()<CR>]]
+    '<Leader>a' .. key,
+    [[<Cmd>lua Q.dirs.]] .. key .. [[()<CR>]]
   )
 end
 

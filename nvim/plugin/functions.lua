@@ -82,47 +82,29 @@ Q.get_highlight = function()
 end
 
 Q.dirs = {
-  open_config = {
-    key = 'c',
-    func = function()
-      set_dir(config .. '..')
-    end,
-  },
+  c = function()
+    set_dir(config .. '..')
+  end;
 
-  open_nvim_config = {
-    key = 'n',
-    func = function()
-      set_dir(config)
-    end,
-  },
+  n = function()
+    set_dir(config)
+  end;
 
-  open_dev = {
-    key = 'd',
-    func = function()
-      set_dir(home .. 'dev')
-    end,
-  },
+  d = function()
+    set_dir(home .. 'dev')
+  end;
 
-  open_tree_sitter_markdown = {
-    key = 't',
-    func = function()
-      set_dir(home .. 'dev/tree-sitter-markdown')
-    end,
-  },
+  t = function()
+    set_dir(home .. 'dev/tree-sitter-markdown')
+  end;
 
-  open_valo = {
-    key = 'v',
-    func = function()
-      set_dir(home .. 'dev/Valo')
-    end,
-  },
+  v = function()
+    set_dir(home .. 'dev/Valo')
+  end;
 
-  open_oceanic = {
-    key = 'o',
-    func = function()
-      set_dir(config .. 'pack/plugins/start/oceanic-next-nvim')
-    end,
-  },
+  o = function()
+    set_dir(config .. 'pack/plugins/start/oceanic-next-nvim')
+  end;
 }
 
 Q.replace = function(arg)
