@@ -73,12 +73,16 @@ Q.save_all = function()
 end
 
 Q.get_highlight = function()
+  -- TODO: this doesn't seem to work with tree-sitter highlighting
+
   local id = f.synID(f.line('.'), f.col('.'), 1)
-  return (
+  local highlight = (
     f.synIDattr(id, 'name')
     .. ' -> '
     .. f.synIDattr(f.synIDtrans(id), 'name')
   )
+  Q.dump(highlight)
+  return highlight
 end
 
 Q.dirs = {

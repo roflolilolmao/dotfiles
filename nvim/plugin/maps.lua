@@ -38,9 +38,8 @@ Q.m('n', '<Leader>n', [[<Cmd>lua Q.cn(0)<CR>]])
 Q.m('n', '<Leader>N', [[<Cmd>lua Q.cn(-1)<CR>]])
 
 Q.m('n', '<Leader>2h', [[<Cmd>call jobstart([lua Q.to_html())]<CR>]])
-Q.m('n', 'gx', [[<Cmd>call jobstart('$BROWSER <cWORD>')<CR>]])
+Q.m('n', 'gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
--- TODO: this does not work
 Q.m('n', '<F12>', [[<Cmd>luafile %<CR>]])
 
 Q.m('n', '<F5>', '<Cmd>lua Q.save_all()<CR>')
@@ -88,7 +87,7 @@ Q.m('n', 'RR', [[Q_Replace() .. '_']], {expr = true})
 
 Q.m('n', '<Leader>h', [[Q_ToggleComment() .. '_']], {expr = true})
 
-Q.m('n', 'r', 's')
-Q.m('v', 'r', 's')
+Q.m('n', '<Leader>r', 's')
+Q.m('v', '<Leader>r', 's')
 
 Q.m('n', '<Leader><Leader>w', '<Cmd>lua Q.set_wrap()<CR>')

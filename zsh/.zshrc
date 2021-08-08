@@ -39,7 +39,8 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export MANPAGER="nvim --cmd 'runtime! plugin/man.vim' +Man!"
-export BROWSER="wslview"
+
+export BROWSER="/mnt/c/Users/kelst/AppData/Local/BraveSoftware/Brave-Browser/Application/brave.exe"
 export OPENER="$BROWSER"
 
 source "$ZDOTDIR/vim.zsh"
