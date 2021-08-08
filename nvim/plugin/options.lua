@@ -78,6 +78,7 @@ vim.opt.lazyredraw = true
 
 vim.cmd 'colorscheme OceanicNext'
 
+vim.opt.list = true
 vim.opt.fillchars = { vert = ' ', eob = ' ' }
 
 vim.cmd 'highlight VertSplit gui=NONE guifg=NONE guibg=NONE'
