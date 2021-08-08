@@ -148,9 +148,9 @@ Q.toggle_comment = function()
 
     local new_line, found = line:gsub(vim.pesc(comment_string), '', 1)
 
-    -- TODO: comment from ^, not 0
     if found == 0 then
-      new_line = vim.o.commentstring:format(line)
+      local indent, text = line:match('^(%s*)(.*)$')
+      new_line = indent .. vim.o.commentstring:format(text)
     end
 
     f.setline(current_line, new_line)
