@@ -31,13 +31,12 @@ lualine.setup{
       {
         'branch',
       },
---      leaks file descriptors
---      {
---        'diff',
---        color_modified = '#ffffff',
---        color_added = '#00ff00',
---        color_removed = '#ff0000',
---      },
+      {
+        'diff',
+        color_modified = '#ffffff',
+        color_added = '#00ff00',
+        color_removed = '#ff0000',
+      },
     },
     lualine_c = {},
     lualine_x = {},
