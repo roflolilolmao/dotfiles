@@ -51,7 +51,7 @@ Q.to_html = function()
   local filename = '"/tmp/' .. f.expand('%:t') .. '.html"'
 
   c('runtime! syntax/to_html.vim')
-  c('write! ' .. filename)
+  c('write! /mnt/c' .. filename)
   c('!$BROWSER ' .. filename)
   c('bdelete')
 end

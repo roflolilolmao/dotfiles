@@ -36,6 +36,7 @@
 	rebase = true
 [fetch]
 	prune = true
+	defaultremote = origin
 [help]
 	autoCorrect = 1
 [push]
