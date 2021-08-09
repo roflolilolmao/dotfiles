@@ -38,7 +38,7 @@ map_function('git_bcommits', 'gc')
 map_function('lsp_references', 'dr')
 map_function('lsp_definitions', 'dd')
 map_function('lsp_code_actions', 'da')
-map_function('lsp_code_actions', 'dA')
+map_function('lsp_range_code_actions', 'dA')
 
 map_function('lsp_document_symbols', 'ds')
 map_function('lsp_document_diagnostics', 'do')
@@ -47,7 +47,7 @@ map_function('lsp_workspace_symbols', 'dws')
 map_function('lsp_dynamic_workspace_symbols', 'dwS')
 map_function('lsp_workspace_diagnostics', 'dwo')
 
-local actions = require "telescope.actions"
+local actions = require 'telescope.actions'
 
 require'telescope'.setup{
   defaults = {
@@ -59,11 +59,19 @@ require'telescope'.setup{
         ['<C-Space>'] = actions.send_selected_to_qflist + actions.open_qflist,
       },
     },
+    layout_strategy = 'flex',
   },
   pickers = {
     commands = require'telescope.themes'.get_dropdown {},
     command_history = require'telescope.themes'.get_dropdown {},
     current_buffer_fuzzy_find = require'telescope.themes'.get_dropdown {},
+    loclist = require'telescope.themes'.get_dropdown {},
+    quickfix = require'telescope.themes'.get_dropdown {},
+    builtin = require'telescope.themes'.get_dropdown {
+      previewer = false,
+    },
+    lsp_code_action = require'telescope.themes'.get_cursor{},
+    lsp_range_code_action = require'telescope.themes'.get_cursor{},
     buffers = {
       sort_lastused = true,
       mappings = {

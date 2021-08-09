@@ -12,10 +12,10 @@ end
 
 map_function('g', 'vertical topleft +0G')
 map_function('l', 'vertical botright G log --graph --all --oneline --decorate')
-map_function('s', 'G show --oneline --compact-summary')
+--map_function('s', 'G show --oneline --compact-summary')
 
 Q.m(
   'n',
   '<Leader>gf',
-  ':G show <C-r><C-g><CR>' -- <Cmd> escapes the <C- > mappings.
+  '<Cmd>G blame<CR>'
 )

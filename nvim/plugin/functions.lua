@@ -114,6 +114,29 @@ Q.replace = function(arg)
   c([[let @"=@v]])
 end
 
+Q.I = function (arg)
+  local insert = f.input('Insert: ')
+
+  local start_line = f.line("'[")
+
+  for index, line in ipairs(f.getline("'[", "']")) do
+    local current_line = start_line + index - 1
+    local indent, text = line:match('^(%s*)(.*)$')
+    f.setline(current_line, indent .. insert .. text)
+  end
+end
+
+Q.A = function (arg)
+  local append = f.input('Append:')
+
+  local start_line = f.line("'[")
+
+  for index, line in ipairs(f.getline("'[", "']")) do
+    local current_line = start_line + index - 1
+    f.setline(current_line, line .. append)
+  end
+end
+
 Q.toggle_comment = function()
   require('ts_context_commentstring.internal').update_commentstring()
   local comment_string = vim.o.commentstring:gsub(vim.pesc('%s'), '')
@@ -152,6 +175,24 @@ a.nvim_exec(
     endif
 
     exe "lua Q.toggle_comment()"
+  endfunction
+
+  function! Q_I(type = '')
+    if a:type == ''
+      set opfunc=Q_I
+      return 'g@'
+    endif
+
+    exe "lua Q.I('" .. a:type .. "')"
+  endfunction
+
+  function! Q_A(type = '')
+    if a:type == ''
+      set opfunc=Q_A
+      return 'g@'
+    endif
+
+    exe "lua Q.A('" .. a:type .. "')"
   endfunction
   ]],
   false
