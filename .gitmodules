@@ -22,12 +22,6 @@
 [submodule "nvim/pack/plugins/start/nvim-lspconfig"]
 	path = nvim/pack/plugins/start/nvim-lspconfig
 	url = git@github.com:neovim/nvim-lspconfig
-[submodule "nvim/pack/plugins/start/popfix"]
-	path = nvim/pack/plugins/start/popfix
-	url = git@github.com:RishabhRD/popfix
-[submodule "nvim/pack/plugins/start/nvim-lsputils"]
-	path = nvim/pack/plugins/start/nvim-lsputils
-	url = git@github.com:RishabhRD/nvim-lsputils
 [submodule "nvim/pack/plugins/start/plenary.nvim"]
 	path = nvim/pack/plugins/start/plenary.nvim
 	url = git@github.com:nvim-lua/plenary.nvim
