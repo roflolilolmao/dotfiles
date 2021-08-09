@@ -47,15 +47,6 @@ Q.cn = function(direction)
   c(index + direction .. 'cc')
 end
 
-Q.to_html = function()
-  local filename = '"/tmp/' .. f.expand('%:t') .. '.html"'
-
-  c('runtime! syntax/to_html.vim')
-  c('write! /mnt/c' .. filename)
-  c('!$BROWSER ' .. filename)
-  c('bdelete')
-end
-
 Q.save_if_file_exists = function()
   filename = a.nvim_buf_get_name(0)
 

@@ -37,7 +37,6 @@ Q.m('c', '<C-r><C-p>', [[<C-r>=expand('%:h')<CR>/]])
 Q.m('n', '<Leader>n', [[<Cmd>lua Q.cn(0)<CR>]])
 Q.m('n', '<Leader>N', [[<Cmd>lua Q.cn(-1)<CR>]])
 
-Q.m('n', '<Leader>2h', [[<Cmd>lua Q.to_html()<CR>]])
 Q.m('n', 'gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
 Q.m('n', '<F12>', [[<Cmd>luafile %<CR>]])
