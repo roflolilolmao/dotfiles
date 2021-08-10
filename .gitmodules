@@ -69,6 +69,6 @@
 [submodule "nvim/pack/plugins/start/LuaSnip"]
 	path = nvim/pack/plugins/start/LuaSnip
 	url = git@github.com:L3MON4D3/LuaSnip.git
-[submodule "nvim/pack/plugins/start/nvim-lightbulb"]
-	path = nvim/pack/plugins/start/nvim-lightbulb
-	url = https://github.com/kosayoda/nvim-lightbulb
+[submodule "nvim/pack/plugins/start/gitsigns.nvim"]
+	path = nvim/pack/plugins/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim.git
