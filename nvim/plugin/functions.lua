@@ -127,6 +127,8 @@ Q.I = function (arg)
 end
 
 Q.A = function (arg)
+  -- Idea: this could work charwise; for example: `<Leader>AiW`.
+
   local append = f.input('Append:')
 
   local start_line = f.line("'[")
@@ -177,18 +179,18 @@ a.nvim_exec(
     exe "lua Q.toggle_comment()"
   endfunction
 
-  function! Q_I(type = '')
+  function! Q_Insert(type = '')
     if a:type == ''
-      set opfunc=Q_I
+      set opfunc=Q_Insert
       return 'g@'
     endif
 
     exe "lua Q.I('" .. a:type .. "')"
   endfunction
 
-  function! Q_A(type = '')
+  function! Q_Append(type = '')
     if a:type == ''
-      set opfunc=Q_A
+      set opfunc=Q_Append
       return 'g@'
     endif
 

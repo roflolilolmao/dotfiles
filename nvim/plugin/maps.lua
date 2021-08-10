@@ -83,10 +83,10 @@ Q.m('x', 'i_', 't_oT_o')
 
 Q.m('n', 'R', [[Q_Replace()]], {expr = true})
 Q.m('n', 'RR', [[Q_Replace() .. '_']], {expr = true})
-Q.m('n', 'A', [[Q_A()]], {expr = true})
-Q.m('n', 'AA', [[Q_A() .. '_']], {expr = true})
-Q.m('n', 'I', [[Q_I()]], {expr = true})
-Q.m('n', 'II', [[Q_I() .. '_']], {expr = true})
+Q.m('n', '<Leader>A', [[Q_Append()]], {expr = true})
+Q.m('n', '<Leader>AA', [[Q_Append() .. '_']], {expr = true})
+Q.m('n', '<Leader>I', [[Q_Insert()]], {expr = true})
+Q.m('n', '<Leader>II', [[Q_Insert() .. '_']], {expr = true})
 
 Q.m('n', '<Leader>h', [[Q_ToggleComment() .. '_']], {expr = true})
 
