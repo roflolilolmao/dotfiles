@@ -37,11 +37,27 @@ Q.mm('i', '<Tab>', 'v:lua.tab_complete()', opts)
 Q.mm('s', '<Tab>', 'v:lua.tab_complete()', opts)
 Q.mm('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
 Q.mm('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
+Q.mm('i', '<C-Tab>', '<Plug>luasnip-expand-or-jump', {})
 
 Q.mm('i', '<C-Space>', 'compe#complete()', opts)
 -- compe will autoselect the first item
 Q.mm('i', '<CR>', [[compe#confirm({'keys': '<CR>', 'select': v:true})]], opts)
 Q.mm('i', '<C-e>', [[compe#close('<C-e>')]], opts)
+
+Q.mm(
+  'i',
+  '<C-e>',
+  [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
+  opts
+)
+
+Q.mm(
+  's',
+  '<C-e>',
+  [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
+  opts
+)
+
 
 require'compe'.setup{
   enabled = true;
@@ -61,11 +77,9 @@ require'compe'.setup{
     path = true;
     luasnip = true;
     nvim_lsp = true;
-    nvim_lua = true;
+    treesitter = true;
+    --nvim_lua = true;
 
     buffer = false;
-    calc = false;
-    vsnip = false;
-    ultisnips = false;
   };
 }

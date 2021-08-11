@@ -3,37 +3,21 @@
 
 local luasnip = require("luasnip")
 
-local expr_opts = {silent = true, expr = true}
-
-Q.mm(
-  'i',
-  '<C-e>',
-  [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
-  expr_opts
-)
-
-Q.mm(
-  's',
-  '<C-e>',
-  [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
-  expr_opts
-)
-
 -- some shorthands...
 local s = luasnip.snippet
 local sn = luasnip.snippet_node
 local t = luasnip.text_node
 local i = luasnip.insert_node
-local f = luasnip.function_node
+--local f = luasnip.function_node
 local c = luasnip.choice_node
 local d = luasnip.dynamic_node
 
-local l = require('luasnip.extras').lambda
-local r = require('luasnip.extras').rep
-local p = require('luasnip.extras').partial
-local m = require('luasnip.extras').match
-local n = require('luasnip.extras').nonempty
-local dl = require('luasnip.extras').dynamic_lambda
+--local l = require('luasnip.extras').lambda
+--local r = require('luasnip.extras').rep
+--local p = require('luasnip.extras').partial
+--local m = require('luasnip.extras').match
+--local n = require('luasnip.extras').nonempty
+--local dl = require('luasnip.extras').dynamic_lambda
 
 -- Every unspecified option will be set to the default.
 luasnip.config.set_config({
