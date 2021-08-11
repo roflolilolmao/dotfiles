@@ -140,7 +140,7 @@ rm -r efm-langserver_v0.0.36_linux_amd64
 sudo npm i -g markdownlint-cli
 sudo npm i -g write-good
 
-pipx install 'python-lsp-server[all]'
+pipx install jedi-language-server
 
 pipx install black
 pipx install isort
