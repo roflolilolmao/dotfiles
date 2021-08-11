@@ -31,7 +31,7 @@ Q.cn = function(direction)
 
   local filtered = f.filter(
     f.getqflist(),
-    function(i, v)
+    function(i)
       return i ~= index - 1
     end
   )
@@ -48,7 +48,7 @@ Q.cn = function(direction)
 end
 
 Q.save_if_file_exists = function()
-  filename = a.nvim_buf_get_name(0)
+  local filename = a.nvim_buf_get_name(0)
 
   if filename ~= nil and filename ~= ''  then
     c('update')
@@ -56,7 +56,7 @@ Q.save_if_file_exists = function()
 end
 
 Q.save_all = function()
-  view = f.winsaveview()
+  local view = f.winsaveview()
   c('mark Z')
   c('bufdo lua Q.save_if_file_exists()')
   c('silent! normal! `Z')
@@ -114,7 +114,7 @@ Q.replace = function(arg)
   c([[let @"=@v]])
 end
 
-Q.I = function (arg)
+Q.I = function ()
   local insert = f.input('Insert: ')
 
   local start_line = f.line("'[")
@@ -126,7 +126,7 @@ Q.I = function (arg)
   end
 end
 
-Q.A = function (arg)
+Q.A = function ()
   -- Idea: this could work charwise; for example: `<Leader>AiW`.
 
   local append = f.input('Append:')

@@ -7,7 +7,7 @@ local check_back_space = function()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
-luasnip = require'luasnip'
+local luasnip = require'luasnip'
 
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then

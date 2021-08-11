@@ -4,7 +4,6 @@
 local luasnip = require("luasnip")
 
 local expr_opts = {silent = true, expr = true}
-local opts = {silent = true, noremap = true}
 
 Q.mm(
   'i',
@@ -73,9 +72,9 @@ local function char_count_same(c1, c2)
   return ct1 == ct2
 end
 
-local function even_count(c)
+local function even_count(arg)
   local line = vim.api.nvim_get_current_line()
-  local _, ct = string.gsub(line, c, '')
+  local _, ct = string.gsub(line, arg, '')
   return ct % 2 == 0
 end
 

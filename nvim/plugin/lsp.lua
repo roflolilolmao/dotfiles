@@ -8,7 +8,7 @@ Q.lsp_capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-Q.lsp_on_attach = function()
+Q.lsp_on_attach = function(client, bufnr)
   local opts = {noremap=true, silent=true}
 
   local function buf_map(map, func)
