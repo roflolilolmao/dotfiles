@@ -30,6 +30,14 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 Q = {
+  mm = function(mode, lhs, rhs, opts)
+    if not opts then
+      opts = {}
+    end
+
+    vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+  end;
+
   m = function(mode, lhs, rhs, opts)
     local options = {noremap = true}
 

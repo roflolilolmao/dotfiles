@@ -7,11 +7,13 @@ local check_back_space = function()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 
+luasnip = require'luasnip'
+
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-n>'
-  elseif require'luasnip'.expand_or_jumpable() then
-    return t [[<Cmd>lua require'luasnip'.expand_or_jump()<CR>]]
+  elseif luasnip.expand_or_jumpable() then
+    return t '<Plug>luasnip-expand-or-jump'
   elseif check_back_space() then
     return t '<Tab>'
   else
@@ -22,8 +24,8 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-p>'
-  elseif require'luasnip'.jumpable(-1) then
-    return t [[<Cmd>lua require'luasnip'.jump(-1)<CR>]]
+  elseif luasnip.jumpable(-1) then
+    return t '<Plug>luasnip-jump-prev'
   else
     return t '<S-Tab>'
   end
@@ -31,15 +33,15 @@ end
 
 local opts = {expr = true}
 
-Q.m('i', '<Tab>', 'v:lua.tab_complete()', opts)
-Q.m('s', '<Tab>', 'v:lua.tab_complete()', opts)
-Q.m('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
-Q.m('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
+Q.mm('i', '<Tab>', 'v:lua.tab_complete()', opts)
+Q.mm('s', '<Tab>', 'v:lua.tab_complete()', opts)
+Q.mm('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
+Q.mm('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
 
+Q.mm('i', '<C-Space>', 'compe#complete()', opts)
 -- compe will autoselect the first item
-Q.m('i', '<C-Space>', 'compe#complete()', opts)
-Q.m('i', '<CR>', [[compe#confirm('<CR>')]], opts)
-Q.m('i', '<C-e>', [[compe#close('<C-e>')]], opts)
+Q.mm('i', '<CR>', [[compe#confirm({'keys': '<CR>', 'select': v:true})]], opts)
+Q.mm('i', '<C-e>', [[compe#close('<C-e>')]], opts)
 
 require'compe'.setup{
   enabled = true;
@@ -57,12 +59,13 @@ require'compe'.setup{
 
   source = {
     path = true;
-    buffer = false;
-    calc = true;
+    luasnip = true;
     nvim_lsp = true;
     nvim_lua = true;
+
+    buffer = false;
+    calc = false;
     vsnip = false;
     ultisnips = false;
-    luasnip = true;
   };
 }
