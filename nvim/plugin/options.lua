@@ -53,9 +53,6 @@ vim.opt.scrolloff = 5
 vim.opt.inccommand = 'nosplit'
 vim.opt.incsearch = true
 
--- Required by compe
-vim.opt.completeopt = {'menuone', 'noselect'}
-
 vim.opt.wildmenu = true
 vim.opt.wildignorecase = true
 vim.opt.wildmode = 'full'

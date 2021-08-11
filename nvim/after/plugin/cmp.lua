@@ -1,3 +1,35 @@
+local cmp = require'cmp'
+
+cmp.setup{
+  snippet = {
+    expand = function(args)
+      require'luasnip'.lsp_expand(args.body)
+    end
+  },
+
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll.up(),
+    ['<C-f>'] = cmp.mapping.scroll.down(),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm{
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+  },
+
+  sources = {
+    { name = 'path' },
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    --{ name = 'buffer' },
+    --{ name = 'treesitter' }
+  };
+}
+
+require('cmp_nvim_lsp').setup{}
+require'cmp_luasnip'
+
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -17,7 +49,7 @@ _G.tab_complete = function()
   elseif check_back_space() then
     return t '<Tab>'
   else
-    return vim.fn['compe#complete']()
+    return t [[<Cmd>lua require'cmp'.mapping.complete()<CR>]]
   end
 end
 
@@ -39,11 +71,6 @@ Q.mm('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
 Q.mm('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
 Q.mm('i', '<C-Tab>', '<Plug>luasnip-expand-or-jump', {})
 
-Q.mm('i', '<C-Space>', 'compe#complete()', opts)
--- compe will autoselect the first item
-Q.mm('i', '<CR>', [[compe#confirm({'keys': '<CR>', 'select': v:true})]], opts)
-Q.mm('i', '<C-e>', [[compe#close('<C-e>')]], opts)
-
 Q.mm(
   'i',
   '<C-e>',
@@ -57,29 +84,3 @@ Q.mm(
   [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
   opts
 )
-
-
-require'compe'.setup{
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-
-  source = {
-    path = true;
-    luasnip = true;
-    nvim_lsp = true;
-    treesitter = true;
-    --nvim_lua = true;
-
-    buffer = false;
-  };
-}
