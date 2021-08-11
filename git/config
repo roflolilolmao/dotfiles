@@ -1,53 +1,45 @@
 [alias]
-  f = fetch --all
-	co = checkout
+    f = fetch --all
+    co = checkout
 [user]
-	email = qjeanmon@gmail.com
-	name = roflolilolmao
-	signingkey = F0A03764
+    email = qjeanmon@gmail.com
+    name = roflolilolmao
 [core]
-	autocrlf = input
-	eol = lf
-	pager = delta
+    autocrlf = input
+    eol = lf
+    pager = delta
 [delta]
-	dark = true
-	whitespace-error-style = 22 reverse
-	syntax-theme = Monokai Extended
-	minus-style = syntax "#330000"
-	plus-style = syntax "#003300"
-	whitespace-error-style = reverse purple
-	line-numbers = true
-	line-numbers-minus-style = "#444444"
-	line-numbers-zero-style = "#444444"
-	line-numbers-plus-style = "#444444"
-	line-numbers-left-format = "{nm:>4}┊"
-	line-numbers-right-format = "{np:>4}│"
-	line-numbers-left-style = blue
-	line-numbers-right-style = blue
-	commit-decoration-style = bold yellow box ul
-	file-style = bold yellow ul
-	file-decoration-style = none
-	hunk-header-decoration-style = yellow box
+    dark = true
+    whitespace-error-style = 22 reverse
+    syntax-theme = Monokai Extended
+    minus-style = syntax "#330000"
+    plus-style = syntax "#003300"
+    whitespace-error-style = reverse purple
+    line-numbers = true
+    line-numbers-minus-style = "#444444"
+    line-numbers-zero-style = "#444444"
+    line-numbers-plus-style = "#444444"
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
 [interactive]
-	diffFilter = delta --color-only
-[gpg]
-	program = gpg
+    diffFilter = delta --color-only
 [pull]
-	rebase = true
-[fetch]
-	prune = true
-	defaultremote = origin
+    rebase = true
 [help]
-	autoCorrect = 1
+    autoCorrect = 1
 [push]
-	default = current
-[rebase]
-	stat = true
+    default = current
 [branch]
-	autoSetupMerge = always
+    autoSetupMerge = always
 [checkout]
-	defaultRemote = origin
+    defaultRemote = origin
 [remote]
-	pushDefault = origin
+    pushDefault = origin
 [init]
-	defaultBranch = main
+    defaultBranch = main
