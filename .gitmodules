@@ -72,3 +72,6 @@
 [submodule "nvim/pack/plugins/start/gitsigns.nvim"]
 	path = nvim/pack/plugins/start/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim.git
+[submodule "nvim/pack/plugins/start/nvim-lspinstall"]
+	path = nvim/pack/plugins/start/nvim-lspinstall
+	url = https://github.com/kabouzeid/nvim-lspinstall
