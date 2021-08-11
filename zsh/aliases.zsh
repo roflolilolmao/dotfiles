@@ -1,6 +1,7 @@
-alias ggg='watch -c git log --color --graph --exclude=refs/stash --all --oneline --decorate'
+GIT_LOG_ALL='git log --color --graph --oneline --decorate --branches --remotes'
+alias ggg="watch -c $GIT_LOG_ALL"
 alias grc='git rebase --continue'
-alias gg='git log --color --graph --all --oneline --decorate'
+alias gg=$GIT_LOG_ALL
 alias gd='git show'
 
 alias l='lsd'
