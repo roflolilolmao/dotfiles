@@ -75,3 +75,6 @@
 [submodule "nvim/pack/plugins/start/nvim-lspinstall"]
 	path = nvim/pack/plugins/start/nvim-lspinstall
 	url = https://github.com/kabouzeid/nvim-lspinstall
+[submodule "nvim/pack/plugins/start/null-ls.nvim"]
+	path = nvim/pack/plugins/start/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim

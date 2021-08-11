@@ -138,10 +138,12 @@ rm -r efm-langserver_v0.0.36_linux_amd64
 # TODO: neuron
 
 sudo npm i -g markdownlint-cli
-sudo npm i -g eslint_d
+sudo npm i -g write-good
 
 pipx install 'python-lsp-server[all]'
-pipx inject python-lsp-server python-lsp-black pyls-isort
+
+pipx install black
+pipx install isort
 
 cd ~
 rm .bash*
@@ -169,7 +171,6 @@ restart](https://www.fonts.com/support/faq/fonts-disappear-on-restart).
 
 Some [article about
 yay](https://averagelinuxuser.com/which-aur-helper-yay/#how-to-use-yay).
-
 
 ### Fix Diffs in Submodule on Windows
 
