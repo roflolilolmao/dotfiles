@@ -33,9 +33,9 @@ lualine.setup{
       },
       {
         'diff',
-        color_modified = '#ffffff',
-        color_added = '#00ff00',
-        color_removed = '#ff0000',
+        color_modified = { fg = '#ffffff'},
+        color_added = { fg = '#00ff00'},
+        color_removed = { fg = '#ff0000'},
       },
     },
     lualine_c = {},
