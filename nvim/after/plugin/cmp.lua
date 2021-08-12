@@ -8,8 +8,8 @@ cmp.setup{
   },
 
   mapping = {
-    ['<C-d>'] = cmp.mapping.scroll.up(),
-    ['<C-f>'] = cmp.mapping.scroll.down(),
+    ['<C-d>'] = cmp.mapping.scroll(-4),
+    ['<C-f>'] = cmp.mapping.scroll(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm{
