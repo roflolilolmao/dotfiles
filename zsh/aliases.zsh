@@ -1,8 +1,10 @@
 GIT_LOG_ALL='git log --color --graph --oneline --decorate --branches --remotes'
 alias ggg="watch -c $GIT_LOG_ALL"
-alias grc='git rebase --continue'
 alias gg=$GIT_LOG_ALL
+
 alias gd='git show'
+alias gf='git fetch --prune --all'
+alias gs='git status'
 
 alias l='lsd'
 alias ls='lsd'

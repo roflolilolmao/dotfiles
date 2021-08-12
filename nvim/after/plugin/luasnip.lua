@@ -200,19 +200,6 @@ luasnip.snippets = {
     pair('"', '"', neg, even_count),
     pair("`", "`", neg, even_count),
   },
-  lua = {
-    s({trig='if', wordTrig=true}, {
-      t({'if '}),
-      i(1),
-      t({' then', '\t'}),
-      i(0),
-      t({'', 'end'})
-    }),
-    s({trig='ee', wordTrig=true}, {
-      t({'else', '\t'}),
-      i(0),
-    })
-  },
   markdown = {
     s('table', {
       t({ '| ' }),
@@ -224,20 +211,9 @@ luasnip.snippets = {
     }),
   },
   python = {
-    s({trig='if', wordTrig=true}, {
-      t({'if '}),
-      i(1),
-      t({':', '\t'}),
+    s('rich', {
+      t('from rich import inspect, print', ''),
       i(0),
-    }),
-    s({trig='ee', wordTrig=true}, {
-      t({'else:', '\t'}),
-      i(0),
-    }),
-    s('print', {
-      t('print('),
-      i(0),
-      t(')'),
     }),
   },
 }
