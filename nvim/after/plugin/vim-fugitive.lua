@@ -11,8 +11,8 @@ local function map_function(key, command)
 end
 
 map_function('g', 'vertical topleft +0G')
-map_function('l', 'vertical botright G log --graph --all --oneline --decorate')
---map_function('s', 'G show --oneline --compact-summary')
+map_function('l', 'vertical botright G log --graph --oneline --decorate --branches --remotes')
+map_function('S', 'G show --oneline --compact-summary')
 
 Q.m(
   'n',
