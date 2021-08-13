@@ -43,3 +43,7 @@
     pushDefault = origin
 [init]
     defaultBranch = main
+[merge]
+    tool = nvimdiff1
+[mergetool]
+    keepBackup = false
