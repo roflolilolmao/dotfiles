@@ -23,6 +23,7 @@ lualine.setup{
     padding = 1,
     section_separators = {'', ''},
   },
+  extensions = {'quickfix'},
   sections = {
     lualine_a = {
       'mode',
