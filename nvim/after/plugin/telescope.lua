@@ -59,6 +59,11 @@ require'telescope'.setup{
         ['<C-Space>'] = actions.send_selected_to_qflist + actions.open_qflist,
       },
     },
+    layout_config = {
+      flex = {
+        flip_columns = 140,
+      },
+    },
     layout_strategy = 'flex',
   },
   pickers = {
