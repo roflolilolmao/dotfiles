@@ -88,7 +88,8 @@ Q.m('n', '<Leader>AA', [[Q_Append() .. '_']], {expr = true})
 Q.m('n', '<Leader>I', [[Q_Insert()]], {expr = true})
 Q.m('n', '<Leader>II', [[Q_Insert() .. '_']], {expr = true})
 
-Q.m('n', '<Leader>c', [[Q_ToggleComment() .. '_']], {expr = true})
+Q.m('n', '<Leader>c', [[Q_ToggleComment()]], {expr = true})
+Q.m('n', '<Leader>cc', [[Q_ToggleComment() .. '_']], {expr = true})
 
 Q.m('n', '<Leader>r', 's')
 Q.m('v', '<Leader>r', 's')

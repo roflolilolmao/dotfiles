@@ -143,19 +143,32 @@ Q.toggle_comment = function()
   require('ts_context_commentstring.internal').update_commentstring()
   local comment_string = vim.o.commentstring:gsub(vim.pesc('%s'), '')
 
-  local start_line = f.line("'[")
+  local start_line_number = f.line("'[")
+  local start_line = f.getline(start_line_number)
+  local indent = start_line:match('^(%s*).*$')
+
+  local change
+
+  if start_line:match('^%s*' .. vim.pesc(comment_string)) ~= nil then
+    change = function(line)
+      local new_line = line:gsub(vim.pesc(comment_string), '', 1)
+      return new_line
+    end
+  else
+    change = function(line)
+      local text = line:match('^' .. indent .. '(.*)$')
+      if text == nil then
+        text = line:match('^%s*(.*)$')
+      end
+      if text == '' then
+        return ''
+      end
+      return indent .. vim.o.commentstring:format(text)
+    end
+  end
 
   for index, line in ipairs(f.getline("'[", "']")) do
-    local current_line = start_line + index - 1
-
-    local new_line, found = line:gsub(vim.pesc(comment_string), '', 1)
-
-    if found == 0 then
-      local indent, text = line:match('^(%s*)(.*)$')
-      new_line = indent .. vim.o.commentstring:format(text)
-    end
-
-    f.setline(current_line, new_line)
+    f.setline(start_line_number + index - 1, change(line))
   end
 end
 
