@@ -95,3 +95,4 @@ Q.m('n', '<Leader>r', 's')
 Q.m('v', '<Leader>r', 's')
 
 Q.m('n', '<Leader><Leader>w', '<Cmd>lua Q.set_wrap()<CR>')
+Q.m('n', '<Leader><Leader>s', '<Cmd>lua Q.syntax_sync()<CR>')

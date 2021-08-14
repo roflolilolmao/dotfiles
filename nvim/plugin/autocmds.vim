@@ -25,9 +25,3 @@ augroup restore_cursor
   autocmd!
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
 augroup END
-
-" Avoids the syntax being funky when entering a file.
-augroup syntax_sync
-  autocmd!
-  autocmd BufEnter * :syntax sync fromstart
-augroup END
