@@ -90,3 +90,6 @@
 [submodule "nvim/pack/plugins/start/cmp-path"]
 	path = nvim/pack/plugins/start/cmp-path
 	url = https://github.com/hrsh7th/cmp-path
+[submodule "nvim/pack/plugins/start/nvim-gitlog"]
+	path = nvim/pack/plugins/start/nvim-gitlog
+	url = git@github.com:roflolilolmao/nvim-gitlog

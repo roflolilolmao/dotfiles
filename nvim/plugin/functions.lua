@@ -2,16 +2,9 @@ local a = vim.api
 local c = vim.cmd
 local f = vim.fn
 
-local config = f.stdpath('config') .. '/'
-
 local home = '~/'
 if f.has('win32') ~= 0 then
   home = '\\\\wsl$/q/home/q/'  -- TODO: use wslpath+wslenv
-end
-
-local set_dir = function(directory)
-  a.nvim_set_current_dir(directory)
-  c('pwd')
 end
 
 function Q.dump(...)
@@ -74,6 +67,13 @@ Q.get_highlight = function()
   )
   Q.dump(highlight)
   return highlight
+end
+
+local config = f.stdpath('config') .. '/'
+
+local set_dir = function(directory)
+  a.nvim_set_current_dir(directory)
+  c('pwd')
 end
 
 Q.dirs = {
