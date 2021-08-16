@@ -41,6 +41,8 @@ vim.opt.wrapmargin = 0
 vim.opt.wrap = false
 
 vim.opt.showmode = false
+vim.opt.showcmd = false
+vim.opt.ruler = false
 
 vim.opt.equalalways = true
 vim.opt.splitright = true

@@ -12,6 +12,11 @@ function Q.dump(...)
   return ...
 end
 
+function Q.reload()
+  require'plenary.reload'.reload_module('fixity', true)
+  require'fixity'.show()
+end
+
 function Q.set_wrap()
   vim.wo.wrap = not vim.wo.wrap
 end
@@ -103,6 +108,10 @@ Q.dirs = {
 
   o = function()
     set_dir(config .. 'pack/plugins/start/oceanic-next-nvim')
+  end;
+
+  g = function()
+    set_dir(config .. 'pack/plugins/start/nvim-fixity')
   end;
 }
 
