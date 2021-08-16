@@ -3,7 +3,7 @@ require'plenary.reload'.reload_module('lualine')
 
 local lualine = require'lualine'
 
-local oceanic_next = require'lualine.themes.oceanicnext'
+local oceanic_next = require'lualine.themes.OceanicNext'
 
 oceanic_next['insert']['b']['bg'] = nil
 oceanic_next['normal']['b']['bg'] = nil
@@ -49,7 +49,8 @@ lualine.setup{
       },
       {
         'filename',
-        path = 0,
+        path = 1,
+        shorting_target = 40,
         separator = '',
       },
       {

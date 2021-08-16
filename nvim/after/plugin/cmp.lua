@@ -7,6 +7,17 @@ cmp.setup{
     end
   },
 
+  formatting = {
+    format = function(entry, item)
+      item.kind = string.format('%s [%s]', item.kind, entry.source.name)
+      return item
+    end
+  },
+
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
+
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll(-4),
     ['<C-f>'] = cmp.mapping.scroll(4),
