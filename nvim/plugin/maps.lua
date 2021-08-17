@@ -98,3 +98,16 @@ Q.m('n', '<Leader><Leader>w', '<Cmd>lua Q.set_wrap()<CR>')
 Q.m('n', '<Leader><Leader>s', '<Cmd>lua Q.syntax_sync()<CR>')
 
 Q.m('n', '<Leader>,', [[<Cmd>lua Q.reload()<CR>]])
+
+Q.diff_mode = function()
+  if vim.wo.diff then
+    Q.m('n', 'n', ']czz')
+    Q.m('n', 'N', '[czz')
+    Q.m('n', 'o', 'do')
+    Q.m('n', 'O', '<Cmd>.diffget<CR>')
+    Q.m('n', 'p', 'dp')
+    Q.m('n', 'P', '<Cmd>.diffput<CR>')
+  end
+end
+
+Q.m('n', '<leader><leader>d', '<Cmd>lua Q.diff_mode()<CR>')
