@@ -12,11 +12,6 @@ function Q.dump(...)
   return ...
 end
 
-function Q.reload()
-  require'plenary.reload'.reload_module('fixity', true)
-  require'fixity'.show()
-end
-
 function Q.set_wrap()
   vim.wo.wrap = not vim.wo.wrap
 end
