@@ -1,6 +1,7 @@
 vim.opt.ff = 'unix'
 vim.opt.undofile = true
-vim.opt.history = 200
+vim.opt.swapfile = false
+vim.opt.shada = {'!', "'1000", '<50', 's10', 'h'}
 vim.opt.hidden = true
 vim.opt.updatetime = 200
 vim.opt.autowrite = true
@@ -52,12 +53,10 @@ vim.opt.pumblend = 20
 
 vim.opt.scrolloff = 5
 
-vim.opt.inccommand = 'nosplit'
+vim.opt.inccommand = 'split'
 vim.opt.incsearch = true
 
-vim.opt.wildmenu = true
-vim.opt.wildignorecase = true
-vim.opt.wildmode = 'full'
+vim.opt.wildmode = 'longest,full'
 vim.opt.wildoptions = ''
 
 vim.opt.wildignore:append {

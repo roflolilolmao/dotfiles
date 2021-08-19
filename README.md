@@ -69,7 +69,6 @@ wsl -d q
 
 cd ~
 
-sudo pacman -Syyu
 sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
 
 sudo pacman -S --needed git base-devel
