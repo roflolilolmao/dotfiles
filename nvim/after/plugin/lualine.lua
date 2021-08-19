@@ -73,7 +73,18 @@ lualine.setup{
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = {
+      {
+        'filename',
+        path = 1,
+        shorting_target = 40,
+        separator = '',
+      },
+      {
+        'filetype',
+        right_padding = 10,
+      },
+    },
     lualine_z = {},
   },
 }
