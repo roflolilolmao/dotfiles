@@ -23,7 +23,13 @@ lualine.setup{
     padding = 1,
     section_separators = {'', ''},
   },
-  extensions = {'quickfix'},
+  extensions = {
+    'quickfix',
+    {
+      sections = {lualine_a = {'mode'}},
+      filetypes = {'gitcommit'},
+    },
+  },
   sections = {
     lualine_a = {
       'mode',

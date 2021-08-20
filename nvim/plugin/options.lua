@@ -48,12 +48,22 @@ vim.opt.ruler = false
 vim.opt.equalalways = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.switchbuf = 'uselast'
 
 vim.opt.pumblend = 20
 
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 1
+vim.opt.sidescrolloff = 5
+vim.opt.listchars = { -- '‹ ›⊳⋙⨌⨞⨠⩥⩤⨵⨴⪢⫸⫷⇶◁▷',
+  tab = '⇤ ⇥',
+  trail = '·',
+  precedes = '◁',
+  extends = '▷',
+  nbsp = '▢',
+  conceal = '◌',
+}
 
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = 'nosplit'
 vim.opt.incsearch = true
 
 vim.opt.wildmode = 'longest,full'
@@ -87,3 +97,4 @@ vim.cmd 'highlight Normal guibg=NONE'
 vim.cmd 'highlight LineNr guibg=NONE'
 vim.cmd 'highlight SignColumn guibg=NONE'
 vim.cmd 'highlight EndOfBuffer guibg=NONE'
+vim.cmd 'highlight NonText guifg=#C594C5'

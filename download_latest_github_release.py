@@ -9,7 +9,11 @@ import pathlib
 
 from rich import print
 
-url = f'https://api.github.com/repos/{sys.argv[1]}/releases/latest'
+release = 'latest'
+if len(sys.argv) > 2:
+    release = sys.argv[2]
+
+url = f'https://api.github.com/repos/{sys.argv[1]}/releases/{release}'
 
 data = json.loads(urllib.request.urlopen(url).read().decode('utf-8'))
 
@@ -30,9 +34,14 @@ filename = asset['name']
 
 print(f'downloading {url} from {filename}')
 
-path = pathlib.Path.home() / '.local/bin'
-with urllib.request.urlopen(url) as response:
-    with tarfile.open(fileobj=io.BytesIO(response.read())) as tar:
-        tar.extractall(path)
-
-print(f'sent to {path}')
+if 'tar.gz' in filename:
+    path = pathlib.Path.home() / '.local/bin'
+    with urllib.request.urlopen(url) as response:
+        with tarfile.open(fileobj=io.BytesIO(response.read())) as tar:
+            tar.extractall(path)
+    print(f'sent to {path}')
+else:
+    with urllib.request.urlopen(url) as response:
+        with open(filename, 'wb') as output:
+            output.write(response.read())
+    print('downloaded file')
