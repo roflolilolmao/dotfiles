@@ -20,16 +20,16 @@ cmp.setup{
   },
 
   mapping = {
-    ['<Tab>'] = cmp.mapping.mode({'i', 's'}, function (_, fallback)
+    ['<Tab>'] = function (fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(escape'<C-n>', 'n')
       elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(escape'<Plug>luasnip-expand-or-jump', 'n')
+        vim.fn.feedkeys(escape'<Plug>luasnip-expand-or-jump', '')
       else
         fallback()
       end
-    end),
-    ['<S-Tab>'] = cmp.mapping.mode({'i', 's'}, function (_, fallback)
+    end,
+    ['<S-Tab>'] = function (fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(escape'<C-p>', 'n')
       elseif luasnip.jumpable(-1) then
@@ -37,10 +37,8 @@ cmp.setup{
       else
         fallback()
       end
-    end),
+    end,
     ['<CR>'] = cmp.mapping.confirm(),
-    ['<C-d>'] = cmp.mapping.scroll(-4),
-    ['<C-f>'] = cmp.mapping.scroll(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
   },
