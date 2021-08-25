@@ -53,10 +53,10 @@ require'telescope'.setup{
   defaults = {
     mappings = {
       n = {
-        ['<Leader>n'] = actions.send_selected_to_qflist + actions.open_qflist,
+        ['<C-CR>'] = actions.smart_send_to_qflist + actions.open_qflist,
       },
       i = {
-        ['<C-Space>'] = actions.send_selected_to_qflist + actions.open_qflist,
+        ['<C-CR>'] = actions.smart_send_to_qflist + actions.open_qflist,
       },
     },
     layout_config = {

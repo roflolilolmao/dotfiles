@@ -46,7 +46,7 @@ Q.m('i', '<F5>', '<Esc><Cmd>lua Q.save_all()<CR>')
 
 Q.m('n', '<Leader>/', '<Cmd>lua Q.get_highlight()<CR>')
 
-for key, _function in pairs(Q.dirs) do
+for key, _ in pairs(Q.dirs) do
   Q.m(
     'n',
     '<Leader>a' .. key,
