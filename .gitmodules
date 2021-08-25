@@ -93,3 +93,6 @@
 [submodule "nvim/pack/plugins/start/nvim-gitlog"]
 	path = nvim/pack/plugins/start/nvim-fixity
 	url = git@github.com:roflolilolmao/nvim-gitlog
+[submodule "nvim/pack/plugins/start/zen-mode.nvim"]
+	path = nvim/pack/plugins/start/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim.git
