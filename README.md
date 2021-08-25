@@ -117,24 +117,19 @@ cd ~/dotfiles
 
 yay -S man unzip neovim python-pynvim nodejs npm
 
-python -m ensurepip
-python -m pip install --upgrade pip
-python -m pip install pipx pipenv rich
-
 # Clipboard provider for nvim: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
 unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 chmod +x /tmp/win32yank.exe
 mv /tmp/win32yank.exe ~/.local/bin
 
-# TODO: I wrote a script that should be able to do that
-curl -L -o efm.tar.gz https://github.com/mattn/efm-langserver/releases/download/v0.0.36/efm-langserver_v0.0.36_linux_amd64.tar.gz
-tar -xzf efm.tar.gz
-mv efm-langserver_v0.0.36_linux_amd64/efm-langserver ~/.local/bin
-rm efm.tar.gz
-rm -r efm-langserver_v0.0.36_linux_amd64
+(cd $(git config -f .gitmodules --get submodule.telescope-fzf-native.path); make)
 
 # TODO: neuron
+
+python -m ensurepip
+python -m pip install --upgrade pip
+python -m pip install pipx pipenv rich
 
 sudo npm i -g markdownlint-cli
 sudo npm i -g write-good
