@@ -47,3 +47,7 @@
     tool = nvimdiff1
 [mergetool]
     keepBackup = false
+[submodule]
+	recurse = true
+[status]
+	submodulesummary = 1
