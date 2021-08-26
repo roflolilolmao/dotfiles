@@ -39,7 +39,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = 'number'
 
 vim.opt.wrapmargin = 0
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.showmode = false
 vim.opt.showcmd = false
