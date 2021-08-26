@@ -1,24 +1,24 @@
 vim.g['python3_host_prog'] = 'python'
 
 local disabled_built_ins = {
-  'netrw',
-  'netrwPlugin',
-  'netrwSettings',
-  'netrwFileHandlers',
-  'gzip',
-  'zip',
-  'zipPlugin',
-  'tar',
-  'tarPlugin',
+  '2html_plugin',
   'getscript',
   'getscriptPlugin',
-  'vimball',
-  'vimballPlugin',
-  '2html_plugin',
+  'gzip',
   'logipat',
+  'matchit',
+  'netrw',
+  'netrwFileHandlers',
+  'netrwPlugin',
+  'netrwSettings',
   'rrhelper',
   'spellfile_plugin',
-  'matchit',
+  'tar',
+  'tarPlugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
 }
 
 for _, plugin in pairs(disabled_built_ins) do

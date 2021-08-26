@@ -53,7 +53,7 @@ vim.opt.switchbuf = 'uselast'
 vim.opt.pumblend = 20
 
 vim.opt.scrolloff = 1
-vim.opt.sidescrolloff = 5
+vim.opt.sidescrolloff = 2
 vim.opt.listchars = { -- '‹ ›⊳⋙⨌⨞⨠⩥⩤⨵⨴⪢⫸⫷⇶◁▷',
   tab = '⇤ ⇥',
   trail = '·',
