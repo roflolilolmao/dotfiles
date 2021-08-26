@@ -1,8 +1,3 @@
--- Reloading the config makes lualine disappear without reloading it.
-require'plenary.reload'.reload_module('lualine')
-
-local lualine = require'lualine'
-
 local oceanic_next = require'lualine.themes.OceanicNext'
 
 oceanic_next['insert']['b']['bg'] = nil
@@ -17,11 +12,9 @@ oceanic_next['inactive']['c']['bg'] = nil
 oceanic_next['visual']['c']['bg'] = nil
 oceanic_next['replace']['c']['bg'] = nil
 
-lualine.setup{
+require'lualine'.setup{
   options = {
     theme = oceanic_next,
-    padding = 1,
-    section_separators = {'', ''},
   },
   extensions = {
     'quickfix',
@@ -32,9 +25,13 @@ lualine.setup{
   },
   sections = {
     lualine_a = {
-      'mode',
+      {
+        'mode',
+        left_padding = 4,
+      },
     },
-    lualine_b = {
+    lualine_b = {},
+    lualine_c = {
       {
         'branch',
       },
@@ -45,9 +42,7 @@ lualine.setup{
         color_removed = { fg = '#ff0000'},
       },
     },
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {
+    lualine_x = {
       {
         'diagnostics',
         sources = {'nvim_lsp'},
@@ -63,6 +58,7 @@ lualine.setup{
         'filetype',
       },
     },
+    lualine_y = {},
     lualine_z = {
       {
         'encoding',
@@ -77,9 +73,13 @@ lualine.setup{
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {
+    lualine_c = {
+      {
+        left_padding = 12,
+        'branch',
+      },
+    },
+    lualine_x = {
       {
         'filename',
         path = 1,
@@ -88,9 +88,16 @@ lualine.setup{
       },
       {
         'filetype',
-        right_padding = 10,
+        separator = '',
+      },
+      {
+        -- empty components are ignored, an empty string will force lualine to
+        -- use the padding regardless of the presence of a file type or not
+        '" "',
+        right_padding = 7,
       },
     },
+    lualine_y = {},
     lualine_z = {},
   },
 }
