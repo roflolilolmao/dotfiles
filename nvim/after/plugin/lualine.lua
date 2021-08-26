@@ -1,5 +1,7 @@
 local oceanic_next = require'lualine.themes.OceanicNext'
 
+oceanic_next['inactive']['a']['bg'] = nil
+
 oceanic_next['insert']['b']['bg'] = nil
 oceanic_next['normal']['b']['bg'] = nil
 oceanic_next['inactive']['b']['bg'] = nil
@@ -12,6 +14,8 @@ oceanic_next['inactive']['c']['bg'] = nil
 oceanic_next['visual']['c']['bg'] = nil
 oceanic_next['replace']['c']['bg'] = nil
 
+local empty = {{'""', padding = 0}}
+
 require'lualine'.setup{
   options = {
     theme = oceanic_next,
@@ -19,7 +23,9 @@ require'lualine'.setup{
   extensions = {
     'quickfix',
     {
-      sections = {lualine_a = {'mode'}},
+      sections = {
+        lualine_a = {'mode'},
+      },
       filetypes = {'gitcommit'},
     },
   },
@@ -30,7 +36,7 @@ require'lualine'.setup{
         left_padding = 4,
       },
     },
-    lualine_b = {},
+    lualine_b = empty,
     lualine_c = {
       {
         'branch',
@@ -58,7 +64,7 @@ require'lualine'.setup{
         'filetype',
       },
     },
-    lualine_y = {},
+    lualine_y = empty,
     lualine_z = {
       {
         'encoding',
@@ -71,8 +77,8 @@ require'lualine'.setup{
     },
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
+    lualine_a = empty,
+    lualine_b = empty,
     lualine_c = {
       {
         left_padding = 12,
@@ -90,6 +96,9 @@ require'lualine'.setup{
         'filetype',
         separator = '',
       },
+    },
+    lualine_y = empty,
+    lualine_z = {
       {
         -- empty components are ignored, an empty string will force lualine to
         -- use the padding regardless of the presence of a file type or not
@@ -97,7 +106,5 @@ require'lualine'.setup{
         right_padding = 7,
       },
     },
-    lualine_y = {},
-    lualine_z = {},
   },
 }
