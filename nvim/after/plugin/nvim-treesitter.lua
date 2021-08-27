@@ -9,15 +9,6 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<Leader>v',
-      node_incremental = '<Leader>m',
-      node_decremental = '<Leader>w',
-      scope_incremental = '<Leader>z',
-    },
-  },
   textobjects = {
     select = {
       enable = true,
@@ -56,8 +47,5 @@ require'nvim-treesitter.configs'.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
-  },
-  autotag = {
-    enable = true,
   },
 }

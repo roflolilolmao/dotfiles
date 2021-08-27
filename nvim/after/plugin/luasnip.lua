@@ -1,9 +1,8 @@
 local luasnip = require("luasnip")
 
 luasnip.config.set_config{
-  enable_autosnippets = false,
   history = false,
-  updateevents = 'TextChanged,TextChangedI',
+  region_check_events = 'InsertEnter',
 }
 
 luasnip.snippets = {

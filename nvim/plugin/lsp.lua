@@ -1,13 +1,13 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown' }
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
+Q.capabilities = vim.lsp.protocol.make_client_capabilities()
+Q.capabilities.textDocument.completion.completionItem.documentationFormat = {'markdown'}
+Q.capabilities.textDocument.completion.completionItem.snippetSupport = true
+Q.capabilities.textDocument.completion.completionItem.preselectSupport = true
+Q.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+Q.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+Q.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+Q.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+Q.capabilities.textDocument.completion.completionItem.tagSupport = {valueSet = {1}}
+Q.capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
     'documentation',
     'detail',
@@ -15,9 +15,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-Q.lsp_capabilities = capabilities
-
-Q.lsp_on_attach = function(_client, bufnr)
+Q.lsp_on_attach = function(_, bufnr)
   local opts = {noremap=true, silent=true}
 
   local function buf_map(map, func)
@@ -96,17 +94,16 @@ for i, kind in ipairs(kinds) do
   kinds[i] = icons[kind] or kind
 end
 
-local lsp_symbols = Q.lsp_signs
-local signs = {
-  Error = lsp_symbols.error,
-  Warning = lsp_symbols.warn,
-  Hint = lsp_symbols.hint,
-  Information = lsp_symbols.info,
+Q.lsp_signs = {
+  Error = '⁉',
+  Warn = '🚭',
+  Hint = '💯',
+  Info = '🚮',
 }
 
-for type, icon in pairs(signs) do
+for type, icon in pairs(Q.lsp_signs) do
   local hl = 'LspDiagnosticsSign' .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ''})
 end
 
 -- Show diagnostics source

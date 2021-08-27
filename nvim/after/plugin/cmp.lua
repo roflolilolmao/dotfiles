@@ -44,35 +44,11 @@ cmp.setup{
   },
 
   sources = {
-    { name = 'path' },
-    { name = 'luasnip' },
-    { name = 'nvim_lsp' },
-    --{ name = 'buffer' },
-    --{ name = 'treesitter' }
+    {name = 'path'},
+    {name = 'luasnip'},
+    {name = 'nvim_lsp'},
   };
 }
 
-require('cmp_nvim_lsp').setup{}
+require'cmp_nvim_lsp'.setup{}
 require'cmp_luasnip'
-
--- local opts = {expr = true}
-
--- Q.mm('i', '<Tab>', 'v:lua.tab_complete()', opts)
--- Q.mm('s', '<Tab>', 'v:lua.tab_complete()', opts)
--- Q.mm('i', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
--- Q.mm('s', '<S-Tab>', 'v:lua.s_tab_complete()', opts)
--- Q.mm('i', '<C-Tab>', '<Plug>luasnip-expand-or-jump', {})
-
--- Q.mm(
---   'i',
---   '<C-e>',
---   [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
---   opts
--- )
-
--- Q.mm(
---   's',
---   '<C-e>',
---   [[luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-e>']],
---   opts
--- )
