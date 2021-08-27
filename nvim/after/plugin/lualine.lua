@@ -14,7 +14,7 @@ oceanic_next['inactive']['c']['bg'] = nil
 oceanic_next['visual']['c']['bg'] = nil
 oceanic_next['replace']['c']['bg'] = nil
 
-local empty = {{'""', padding = 0}}
+local empty = {{'" "', padding = 0}}
 
 require'lualine'.setup{
   options = {
@@ -43,9 +43,9 @@ require'lualine'.setup{
       },
       {
         'diff',
-        color_modified = { fg = '#ffffff'},
-        color_added = { fg = '#00ff00'},
-        color_removed = { fg = '#ff0000'},
+        color_modified = {fg = '#ffffff'},
+        color_added = {fg = '#00ff00'},
+        color_removed = {fg = '#ff0000'},
       },
     },
     lualine_x = {
@@ -81,7 +81,7 @@ require'lualine'.setup{
     lualine_b = empty,
     lualine_c = {
       {
-        left_padding = 12,
+        left_padding = 11,
         'branch',
       },
     },

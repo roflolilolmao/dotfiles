@@ -39,6 +39,9 @@ Q.m('n', '<Leader>N', [[<Cmd>lua Q.cn(-1)<CR>]])
 
 Q.m('n', 'gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
+Q.m('n', '<PageUp>', '<C-PageUp>')
+Q.m('n', '<PageDown>', '<C-PageDown>')
+
 Q.m('n', '<F12>', [[<Cmd>so %<CR>]])
 
 Q.m('n', '<F5>', '<Cmd>lua Q.save_all()<CR>')

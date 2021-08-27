@@ -39,7 +39,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = 'number'
 
 vim.opt.wrapmargin = 0
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.showmode = false
 vim.opt.showcmd = false
@@ -93,6 +93,7 @@ vim.cmd 'highlight VertSplit gui=NONE guifg=NONE guibg=NONE'
 vim.cmd 'highlight TODO gui=bold,italic'
 
 vim.cmd 'highlight StatusLine guibg=NONE'
+vim.cmd 'highlight TabLineFill gui=NONE guibg=NONE'
 vim.cmd 'highlight Normal guibg=NONE'
 vim.cmd 'highlight LineNr guibg=NONE'
 vim.cmd 'highlight SignColumn guibg=NONE'
