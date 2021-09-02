@@ -14,13 +14,26 @@
         {
             "command":
             {
-                "action": "copy"
+                "action": "globalSummon",
+                "desktop": "any",
+                "monitor": "any",
+                "name": "commanded"
             },
+            "keys": "f22",
+            "name": ""
+        },
+        {
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "keys": "alt+shift+up",
             "name": ""
         },
         {
             "command": "unbound",
-            "keys": "ctrl+-"
+            "keys": "ctrl+minus"
         },
         {
             "command": "unbound",
@@ -36,7 +49,7 @@
         },
         {
             "command": "unbound",
-            "keys": "ctrl+alt+,"
+            "keys": "ctrl+alt+comma"
         },
         {
             "command": "unbound",
@@ -61,8 +74,10 @@
         {
             "command":
             {
-                "action": "quakeMode"
+                "action": "sendInput",
+                "input": "\u001b[27;2;13~"
             },
+            "keys": "shift+enter",
             "name": ""
         },
         {
@@ -79,35 +94,6 @@
         {
             "command":
             {
-                "action": "openSettings",
-                "target": "defaultsFile"
-            },
-            "keys": "ctrl+alt+s",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "resizePane",
-                "direction": "up"
-            },
-            "keys": "alt+shift+up",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "globalSummon",
-                "desktop": "any",
-                "monitor": "any",
-                "name": "commanded"
-            },
-            "keys": "f22",
-            "name": ""
-        },
-        {
-            "command":
-            {
                 "action": "globalSummon",
                 "desktop": "any",
                 "monitor": "any",
@@ -119,20 +105,10 @@
         {
             "command":
             {
-                "action": "globalSummon",
-                "desktop": "toCurrent",
-                "monitor": "toCurrent",
-                "name": "_quake"
+                "action": "sendInput",
+                "input": "\u001b[27;5;46~"
             },
-            "keys": "win+n",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "nextTab"
-            },
-            "keys": "ctrl+alt+tab",
+            "keys": "ctrl+period",
             "name": ""
         },
         {
@@ -145,7 +121,12 @@
             "name": ""
         },
         {
-            "command": "identifyWindow",
+            "command":
+            {
+                "action": "resizePane",
+                "direction": "left"
+            },
+            "keys": "alt+shift+left",
             "name": ""
         },
         {
@@ -158,41 +139,12 @@
             "name": ""
         },
         {
-            "command": "tabSearch",
-            "name": ""
-        },
-        {
             "command":
             {
-                "action": "splitPane",
-                "split": "vertical"
+                "action": "moveFocus",
+                "direction": "left"
             },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "commandPalette"
-            },
-            "name": ""
-        },
-        {
-            "command": "scrollToTop",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "splitPane",
-                "split": "horizontal"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab"
-            },
+            "keys": "alt+h",
             "name": ""
         },
         {
@@ -217,27 +169,10 @@
         {
             "command":
             {
-                "action": "adjustFontSize",
-                "delta": 1
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
                 "action": "sendInput",
                 "input": "\u001b[27;5;44~"
             },
-            "keys": "ctrl+,",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;5;46~"
-            },
-            "keys": "ctrl+.",
+            "keys": "ctrl+comma",
             "name": ""
         },
         {
@@ -247,30 +182,6 @@
                 "input": "\u001b[27;5;47~"
             },
             "keys": "ctrl+/",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 6
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;2;13~"
-            },
-            "keys": "shift+enter",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "prevTab"
-            },
             "name": ""
         },
         {
@@ -292,12 +203,8 @@
             "name": ""
         },
         {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "left"
-            },
-            "keys": "alt+h",
+            "command": "toggleShaderEffects",
+            "keys": "win+`",
             "name": ""
         },
         {
@@ -307,15 +214,6 @@
                 "direction": "down"
             },
             "keys": "alt+j",
-            "name": ""
-        },
-        {
-            "command": "toggleShaderEffects",
-            "keys": "win+`",
-            "name": ""
-        },
-        {
-            "command": "paste",
             "name": ""
         },
         {
@@ -329,20 +227,7 @@
         },
         {
             "command": "closePane",
-            "keys": "ctrl+shift+,",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "resizePane",
-                "direction": "left"
-            },
-            "keys": "alt+shift+left",
-            "name": ""
-        },
-        {
-            "command": "scrollDownPage",
+            "keys": "ctrl+shift+comma",
             "name": ""
         },
         {
@@ -352,289 +237,6 @@
                 "direction": "right"
             },
             "keys": "alt+shift+right",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "moveFocus",
-                "direction": "previous"
-            },
-            "name": ""
-        },
-        {
-            "command": "resetFontSize",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "adjustFontSize",
-                "delta": -1
-            },
-            "name": ""
-        },
-        {
-            "command": "scrollToBottom",
-            "name": ""
-        },
-        {
-            "command": "scrollUpPage",
-            "name": ""
-        },
-        {
-            "command": "openNewTabDropdown",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "scrollDown"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "scrollUp"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 3
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 3
-            },
-            "name": ""
-        },
-        {
-            "command": "toggleReadOnlyMode",
-            "name": ""
-        },
-        {
-            "command": "openWindowRenamer",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "moveTab",
-                "direction": "forward"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "renameWindow"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newWindow"
-            },
-            "name": ""
-        },
-        {
-            "command": "closeWindow",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "moveTab",
-                "direction": "backward"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "setTabColor"
-            },
-            "name": ""
-        },
-        {
-            "command": "openTabColorPicker",
-            "name": ""
-        },
-        {
-            "command": "openTabRenamer",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "renameTab"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 0
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 1
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 2
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 4
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 5
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 7
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "newTab",
-                "index": 8
-            },
-            "name": ""
-        },
-        {
-            "command": "duplicateTab",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "closeTabsAfter"
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "closeTab"
-            },
-            "name": ""
-        },
-        {
-            "command": "toggleAlwaysOnTop",
-            "name": ""
-        },
-        {
-            "command": "toggleFullscreen",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "openSettings"
-            },
-            "name": ""
-        },
-        {
-            "command": "find",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 0
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 1
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 2
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 4
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 5
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 6
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "switchToTab",
-                "index": 8
-            },
             "name": ""
         }
     ],
@@ -650,9 +252,9 @@
         "Windows.Terminal.Azure",
         "Windows.Terminal.PowershellCore"
     ],
-    "initialCols": 82,
+    "initialCols": 107,
     "initialPosition": "2560,-320",
-    "initialRows": 68,
+    "initialRows": 58,
     "largePasteWarning": false,
     "launchMode": "focus",
     "multiLinePasteWarning": false,
@@ -670,8 +272,13 @@
             {
                 "face": "FiraCode NF"
             },
+            "intenseTextStyle": "bold",
             "padding": "2",
             "scrollbarState": "hidden",
+            "unfocusedAppearance":
+            {
+                "experimental.retroTerminalEffect": true
+            },
             "useAcrylic": true
         },
         "list":
