@@ -28,11 +28,9 @@
 [submodule "nvim-treesitter"]
     path = nvim/pack/plugins/start/nvim-treesitter
     url = https://github.com/nvim-treesitter/nvim-treesitter
-    branch = 0.5-compat
 [submodule "nvim-treesitter-textobjects"]
     path = nvim/pack/plugins/start/nvim-treesitter-textobjects
     url = https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    branch = 0.5-compat
 [submodule "nvim-ts-context-commentstring"]
     path = nvim/pack/plugins/start/nvim-ts-context-commentstring
     url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring.git
@@ -100,5 +98,5 @@
     path = nvim/pack/plugins/start/vim-python-pep8-indent
     url = https://github.com/Vimjas/vim-python-pep8-indent
 [submodule "impatient"]
-	path = nvim/pack/plugins/start/impatient.nvim
-	url = https://github.com/lewis6991/impatient.nvim
+    path = nvim/pack/plugins/start/impatient.nvim
+    url = https://github.com/lewis6991/impatient.nvim

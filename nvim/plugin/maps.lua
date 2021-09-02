@@ -13,19 +13,15 @@ Q.m('n', '<PageDown>', '<C-PageDown>')
 
 Q.m('i', 'ZZ', '<Esc>ZZ')
 
-Q.m('i', '<C-u>', '<C-g>u<C-u>')  -- undo friendly C-u
-Q.m('i', '<C-w>', '<C-g>u<C-w>')  -- undo friendly C-w
+Q.m('n', '<CR>', '{-> v:hlsearch ? "\\<C-l>" : "\\<CR>"}()', {expr = true, silent = true, noremap = false})
+Q.m('n', '<C-/>', '<C-l>', {noremap = false})
 
--- Enter clears highlight in normal mode
-Q.m('n', '<CR>', '{-> v:hlsearch ? ":nohl\\<CR>" : "\\<CR>"}()', {expr = true, silent = true})
-
-Q.m('n', 'Y', 'y$')
 Q.m('n', '<leader>y', '"+y')
 
-Q.m('n', '<leader>o', 'm`o<Esc>``')  -- insert a newline without entering insert
+Q.m('n', '<leader>o', 'm`o<Esc>``')
 Q.m('n', '<leader>O', 'm`O<Esc>``<C-e>')
 
-Q.m('i', '<C-CR>', '<C-o>o')  -- newlines in insert
+Q.m('i', '<C-CR>', '<C-o>o')
 Q.m('i', '<S-CR>', '<C-o>O')
 
 -- Command line maps to insert the current filename or complete path.
