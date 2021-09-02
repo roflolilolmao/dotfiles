@@ -12,6 +12,7 @@ vim.opt.smartcase = true
 vim.opt.gdefault = true
 vim.opt.joinspaces = false
 vim.opt.shortmess:append 'c'
+vim.opt.shortmess:remove{'t', 'T'}
 vim.opt.backspace = {'indent', 'eol', 'start'}
 
 vim.opt.shiftround = true
@@ -34,9 +35,7 @@ vim.opt.formatoptions = vim.opt.formatoptions
 
 vim.opt.spelllang = 'en'
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.signcolumn = 'number'
+vim.opt.signcolumn = 'yes'
 
 vim.opt.wrapmargin = 0
 vim.opt.wrap = false

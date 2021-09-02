@@ -5,6 +5,11 @@ local function escape(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+local check_back_space = function()
+  local col = vim.fn.col '.' - 1
+  return col == 0 or vim.fn.getline'.':sub(col, col):match'%s' ~= nil
+end
+
 cmp.setup{
   snippet = {
     expand = function(args)
@@ -20,16 +25,18 @@ cmp.setup{
   },
 
   mapping = {
-    ['<Tab>'] = function (fallback)
+    ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(escape'<C-n>', 'n')
       elseif luasnip.expand_or_jumpable() then
         vim.fn.feedkeys(escape'<Plug>luasnip-expand-or-jump', '')
+      elseif check_back_space() then
+        vim.fn.feedkeys(escape'<Tab>', 'n')
       else
         fallback()
       end
     end,
-    ['<S-Tab>'] = function (fallback)
+    ['<S-Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(escape'<C-p>', 'n')
       elseif luasnip.jumpable(-1) then
@@ -40,7 +47,14 @@ cmp.setup{
     end,
     ['<CR>'] = cmp.mapping.confirm(),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<Esc>'] = cmp.mapping(function(fallback)
+      if vim.fn.pumvisible() == 1 then
+        cmp.mapping.close()()
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
   },
 
   sources = {

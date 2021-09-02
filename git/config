@@ -31,8 +31,6 @@
     diffFilter = delta --color-only
 [pull]
     rebase = true
-[help]
-    autoCorrect = 1
 [push]
     default = current
 [branch]
@@ -47,7 +45,5 @@
     tool = nvimdiff1
 [mergetool]
     keepBackup = false
-[submodule]
-	recurse = true
 [status]
-	submodulesummary = 1
+    submodulesummary = 1

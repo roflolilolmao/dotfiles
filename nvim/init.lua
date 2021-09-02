@@ -7,6 +7,7 @@ local disabled_built_ins = {
   'gzip',
   'logipat',
   'matchit',
+  'matchparen',
   'netrw',
   'netrwFileHandlers',
   'netrwPlugin',

@@ -96,9 +96,9 @@ end
 
 Q.lsp_signs = {
   Error = '⁉',
-  Warn = '🚭',
+  Warning = '🚭',
   Hint = '💯',
-  Info = '🚮',
+  Information = '🚮',
 }
 
 for type, icon in pairs(Q.lsp_signs) do
