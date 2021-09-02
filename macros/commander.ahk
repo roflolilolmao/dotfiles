@@ -8,4 +8,4 @@ if (!WinExist("commander"))
 
 WinWait("commander")
 WinActivate("commander")
-SendEvent("a./command{Enter}")
+SendEvent("a~/command.zsh{Enter}")
