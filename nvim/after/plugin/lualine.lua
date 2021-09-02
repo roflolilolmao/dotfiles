@@ -1,18 +1,18 @@
 local oceanic_next = require'lualine.themes.OceanicNext'
 
-oceanic_next['inactive']['a']['bg'] = nil
+oceanic_next.inactive.a.bg = nil
 
-oceanic_next['insert']['b']['bg'] = nil
-oceanic_next['normal']['b']['bg'] = nil
-oceanic_next['inactive']['b']['bg'] = nil
-oceanic_next['visual']['b']['bg'] = nil
-oceanic_next['replace']['b']['bg'] = nil
+oceanic_next.insert.b.bg = nil
+oceanic_next.normal.b.bg = nil
+oceanic_next.inactive.b.bg = nil
+oceanic_next.visual.b.bg = nil
+oceanic_next.replace.b.bg = nil
 
-oceanic_next['insert']['c']['bg'] = nil
-oceanic_next['normal']['c']['bg'] = nil
-oceanic_next['inactive']['c']['bg'] = nil
-oceanic_next['visual']['c']['bg'] = nil
-oceanic_next['replace']['c']['bg'] = nil
+oceanic_next.insert.c.bg = nil
+oceanic_next.normal.c.bg = nil
+oceanic_next.inactive.c.bg = nil
+oceanic_next.visual.c.bg = nil
+oceanic_next.replace.c.bg = nil
 
 local empty = {{'" "', padding = 0}}
 

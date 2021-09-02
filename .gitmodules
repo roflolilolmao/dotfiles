@@ -99,3 +99,6 @@
 [submodule "vim-python-pep8-indent"]
     path = nvim/pack/plugins/start/vim-python-pep8-indent
     url = https://github.com/Vimjas/vim-python-pep8-indent
+[submodule "impatient"]
+	path = nvim/pack/plugins/start/impatient.nvim
+	url = https://github.com/lewis6991/impatient.nvim

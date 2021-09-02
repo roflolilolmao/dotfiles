@@ -1,3 +1,5 @@
+require'impatient'
+
 vim.g['python3_host_prog'] = 'python'
 
 local disabled_built_ins = {

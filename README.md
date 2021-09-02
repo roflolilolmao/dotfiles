@@ -129,7 +129,7 @@ mv /tmp/win32yank.exe ~/.local/bin
 
 python -m ensurepip
 python -m pip install --upgrade pip
-python -m pip install pipx pipenv rich
+python -m pip install pipx pipenv
 
 sudo npm i -g markdownlint-cli
 sudo npm i -g write-good
