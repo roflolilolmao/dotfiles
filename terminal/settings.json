@@ -660,21 +660,19 @@
     {
         "defaults":
         {
-            "acrylicOpacity": 0.71999999999999997,
+            "acrylicOpacity": 0.75,
             "altGrAliasing": false,
             "backgroundImage": null,
             "bellStyle": "none",
             "colorScheme": "Oceanic Next",
-            "cursorColor": "#FFFFFF",
-            "cursorShape": "filledBox",
+            "cursorShape": "emptyBox",
             "font":
             {
-                "face": "FiraCode NF",
-                "size": 16
+                "face": "FiraCode NF"
             },
-            "padding": "0, 0, 0, 0",
+            "padding": "2",
             "scrollbarState": "hidden",
-            "useAcrylic": false
+            "useAcrylic": true
         },
         "list":
         [
@@ -722,14 +720,14 @@
             "brightRed": "#E74856",
             "brightWhite": "#F2F2F2",
             "brightYellow": "#F9F1A5",
-            "cursorColor": "#FFFFFF",
+            "cursorColor": "#BA1552",
             "cyan": "#3A96DD",
-            "foreground": "#CCCCCC",
+            "foreground": "#D1D1D1",
             "green": "#13A10E",
             "name": "Campbell",
             "purple": "#881798",
             "red": "#C50F1F",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#CFA6D9",
             "white": "#CCCCCC",
             "yellow": "#C19C00"
         },
@@ -760,7 +758,7 @@
             "background": "#1B2B34",
             "black": "#1B2B34",
             "blue": "#6699CC",
-            "brightBlack": "#343D46",
+            "brightBlack": "#98B1CC",
             "brightBlue": "#6699CC",
             "brightCyan": "#5FB3B3",
             "brightGreen": "#99C794",
@@ -768,14 +766,14 @@
             "brightRed": "#EC5F67",
             "brightWhite": "#D8DEE9",
             "brightYellow": "#FAC863",
-            "cursorColor": "#FFFFFF",
+            "cursorColor": "#876DA6",
             "cyan": "#5FB3B3",
             "foreground": "#D8DEE9",
             "green": "#99C794",
             "name": "Oceanic Next",
             "purple": "#C594C5",
             "red": "#EC5F67",
-            "selectionBackground": "#FFFFFF",
+            "selectionBackground": "#1AFFDA",
             "white": "#A7ADBA",
             "yellow": "#FAC863"
         },
