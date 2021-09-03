@@ -48,13 +48,6 @@ cmp.setup{
     ['<CR>'] = cmp.mapping.confirm(),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<Esc>'] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        cmp.mapping.close()()
-      else
-        fallback()
-      end
-    end, {'i', 's'}),
   },
 
   sources = {

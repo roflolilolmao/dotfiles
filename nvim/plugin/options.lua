@@ -1,4 +1,5 @@
 vim.opt.ff = 'unix'
+vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.shada = {'!', "'1000", '<50', 's10', 'h'}
 vim.opt.updatetime = 1000

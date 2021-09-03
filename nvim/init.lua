@@ -33,6 +33,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 Q = {
+  map = function(mode, lhs, rhs, opts)
+    vim.api.nvim_set_keymap(mode, lhs, rhs, opts or {})
+  end;
   m = function(mode, lhs, rhs, opts)
     local options = {noremap = true}
 

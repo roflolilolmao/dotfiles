@@ -138,6 +138,7 @@ pipx install jedi-language-server
 
 pipx install black
 pipx install isort
+pipx install flake8
 
 cd ~
 rm .bash*

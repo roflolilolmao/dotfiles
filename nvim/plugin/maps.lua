@@ -13,8 +13,8 @@ Q.m('n', '<PageDown>', '<C-PageDown>')
 
 Q.m('i', 'ZZ', '<Esc>ZZ')
 
-Q.m('n', '<CR>', '{-> v:hlsearch ? "\\<C-l>" : "\\<CR>"}()', {expr = true, silent = true, noremap = false})
-Q.m('n', '<C-/>', '<C-l>', {noremap = false})
+Q.m('n', '<C-/>', '<Cmd>nohlsearch<Bar>diffupdate<CR>')
+Q.map('n', '<CR>', '{-> v:hlsearch ? "\\<C-/>" : "\\<CR>"}()', {expr = true, silent = true})
 
 Q.m('n', '<leader>y', '"+y')
 
