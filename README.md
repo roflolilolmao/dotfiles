@@ -102,20 +102,21 @@ git submodule update --init
 exit
 wsl -d q
 
+cd ~/dotfiles
+
+./zsh/plugins/fzf/install --bin
+
+yay -S man unzip neovim python-pynvim
+
 # Don't add to path
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 cargo install ripgrep
 cargo install fd-find
 cargo install lsd
-cargo install --locked bat
+cargo install bat
 cargo install git-delta
-
-cd ~/dotfiles
-
-./zsh/plugins/fzf/install --bin
-
-yay -S man unzip neovim python-pynvim nodejs npm
+cargo install fnm
 
 # Clipboard provider for nvim: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
@@ -131,14 +132,22 @@ python -m ensurepip
 python -m pip install --upgrade pip
 python -m pip install pipx pipenv
 
-sudo npm i -g markdownlint-cli
-sudo npm i -g write-good
-
 pipx install jedi-language-server
 
 pipx install black
 pipx install isort
 pipx install flake8
+
+fnm install --lts
+npm i -g markdownlint-cli
+npm i -g write-good
+
+# At least I don't have to sudo install these programs :-|
+# https://github.com/Schniz/fnm/issues/475
+# https://github.com/Schniz/fnm/issues/486
+ln -s "$(realpath $(which node))" ~/.local/bin/node
+ln -s "$(realpath $(which write-good))" ~/.local/bin/write-good
+ln -s "$(realpath $(which markdownlint))" ~/.local/bin/markdownlint
 
 cd ~
 rm .bash*
@@ -213,15 +222,12 @@ Some resources:
 
 - Automated install. I.e. run the scripts in this file and install all the shit
   I use daily with choco.
+- Automated upgrade.
 - Neovim:
-  - lsp:
-    - lsputil can be replaced by telescope
-    - add server for md
-    - look up alternatives for python
   - study ideas:
     - Mapping/functions:
       - :m, :d, :y, :t, :c, :i, :a normal mode shortcuts?
       - add matching lines to qf:
         :g/mypattern/caddexpr expand("%") . ":" . line(".") .  ":" . getline(".")
     - Syntax:
-      - Todo highlight group case insensitive
+      - Todo highlight group: case insensitive; treesitter breaks it
