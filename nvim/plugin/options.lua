@@ -1,7 +1,7 @@
 vim.opt.ff = 'unix'
 vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.shada = {'!', "'1000", '<50', 's10', 'h'}
+vim.opt.shada = { '!', "'1000", '<50', 's10', 'h' }
 vim.opt.updatetime = 1000
 vim.opt.autowrite = true
 vim.opt.modeline = false
@@ -10,8 +10,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.gdefault = true
 vim.opt.shortmess:append 'c'
-vim.opt.shortmess:remove{'t', 'T'}
-vim.opt.backspace = {'indent', 'eol', 'start'}
+vim.opt.shortmess:remove { 't', 'T' }
+vim.opt.backspace = { 'indent', 'eol', 'start' }
 
 vim.opt.shiftround = true
 vim.opt.expandtab = true
@@ -24,12 +24,7 @@ vim.opt.linebreak = true
 vim.opt.showbreak = ' ↳ '
 
 vim.opt.textwidth = 79
-vim.opt.formatoptions = vim.opt.formatoptions
-  - 't'
-  + 'r'
-  + 'n'
-  + '1'
-  + 'p'
+vim.opt.formatoptions = vim.opt.formatoptions - 't' + 'r' + 'n' + '1' + 'p'
 
 vim.opt.spelllang = 'en'
 

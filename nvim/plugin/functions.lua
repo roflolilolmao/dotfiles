@@ -3,12 +3,12 @@ local c = vim.cmd
 local f = vim.fn
 
 local home = '~/'
-if f.has('win32') ~= 0 then
-  home = '\\\\wsl$/q/home/q/'  -- TODO: use wslpath+wslenv
+if f.has 'win32' ~= 0 then
+  home = '\\\\wsl$/q/home/q/' -- TODO: use wslpath+wslenv
 end
 
 function Q.dump(...)
-  print(unpack(vim.tbl_map(vim.inspect, {...})))
+  print(unpack(vim.tbl_map(vim.inspect, { ... })))
   return ...
 end
 
@@ -17,27 +17,24 @@ function Q.set_wrap()
 end
 
 function Q.syntax_sync()
-  c('syntax sync fromstart')
+  c 'syntax sync fromstart'
 end
 
 Q.cn = function(direction)
-  local index = f.getqflist{idx=0}.idx
+  local index = f.getqflist({ idx = 0 }).idx
   if index == 0 then
     return
   end
 
-  local filtered = f.filter(
-    f.getqflist(),
-    function(i)
-      return i ~= index - 1
-    end
-  )
+  local filtered = f.filter(f.getqflist(), function(i)
+    return i ~= index - 1
+  end)
 
-  local title = f.getqflist{title=0}.title
-  f.setqflist({}, ' ', {title=title, items=filtered})
+  local title = f.getqflist({ title = 0 }).title
+  f.setqflist({}, ' ', { title = title, items = filtered })
 
   if not next(filtered) then
-    c('cclose')
+    c 'cclose'
     return
   end
 
@@ -47,67 +44,67 @@ end
 Q.save_if_file_exists = function()
   local filename = a.nvim_buf_get_name(0)
 
-  if filename ~= nil and filename ~= ''  then
-    c('update')
+  if filename ~= nil and filename ~= '' then
+    c 'update'
   end
 end
 
 Q.save_all = function()
   local view = f.winsaveview()
-  c('mark Z')
-  c('bufdo lua Q.save_if_file_exists()')
-  c('silent! normal! `Z')
+  c 'mark Z'
+  c 'bufdo lua Q.save_if_file_exists()'
+  c 'silent! normal! `Z'
   f.winrestview(view)
 end
 
 Q.get_highlight = function()
   -- TODO: this doesn't seem to work with tree-sitter highlighting
 
-  local id = f.synID(f.line('.'), f.col('.'), 1)
+  local id = f.synID(f.line '.', f.col '.', 1)
   local highlight = (
-    f.synIDattr(id, 'name')
-    .. ' -> '
-    .. f.synIDattr(f.synIDtrans(id), 'name')
-  )
+      f.synIDattr(id, 'name')
+      .. ' -> '
+      .. f.synIDattr(f.synIDtrans(id), 'name')
+    )
   Q.dump(highlight)
   return highlight
 end
 
-local config = f.stdpath('config') .. '/'
+local config = f.stdpath 'config' .. '/'
 
 local set_dir = function(directory)
   a.nvim_set_current_dir(directory)
-  c('pwd')
+  c 'pwd'
 end
 
 Q.dirs = {
   c = function()
     set_dir(config .. '..')
-  end;
+  end,
 
   n = function()
     set_dir(config)
-  end;
+  end,
 
   d = function()
     set_dir(home .. 'dev')
-  end;
+  end,
 
   t = function()
     set_dir(home .. 'dev/tree-sitter-markdown')
-  end;
+  end,
 
   v = function()
     set_dir(home .. 'dev/Valo')
-  end;
+  end,
 
   o = function()
     set_dir(config .. 'pack/plugins/start/oceanic-next-nvim')
-  end;
+  end,
 
   g = function()
     set_dir(config .. 'pack/plugins/start/nvim-fixity')
-  end;
+  end,
 }
 
 Q.replace = function(arg)
@@ -117,29 +114,29 @@ Q.replace = function(arg)
     block = [[`[\<C-v>`]\"zc]],
   }
 
-  c([[let @v=@"]])
+  c [[let @v=@"]]
   c('exe "normal! ' .. selection[arg] .. [[\<C-r>v\<Esc>"]])
-  c([[let @"=@v]])
+  c [[let @"=@v]]
 end
 
-Q.I = function ()
-  local insert = f.input('Insert: ')
+Q.I = function()
+  local insert = f.input 'Insert: '
 
-  local start_line = f.line("'[")
+  local start_line = f.line "'["
 
   for index, line in ipairs(f.getline("'[", "']")) do
     local current_line = start_line + index - 1
-    local indent, text = line:match('^(%s*)(.*)$')
+    local indent, text = line:match '^(%s*)(.*)$'
     f.setline(current_line, indent .. insert .. text)
   end
 end
 
-Q.A = function ()
+Q.A = function()
   -- Idea: this could work charwise; for example: `<Leader>AiW`.
 
-  local append = f.input('Append:')
+  local append = f.input 'Append:'
 
-  local start_line = f.line("'[")
+  local start_line = f.line "'["
 
   for index, line in ipairs(f.getline("'[", "']")) do
     local current_line = start_line + index - 1
@@ -149,11 +146,11 @@ end
 
 Q.toggle_comment = function()
   require('ts_context_commentstring.internal').update_commentstring()
-  local comment_string = vim.o.commentstring:gsub(vim.pesc('%s'), '')
+  local comment_string = vim.o.commentstring:gsub(vim.pesc '%s', '')
 
-  local start_line_number = f.line("'[")
+  local start_line_number = f.line "'["
   local start_line = f.getline(start_line_number)
-  local indent = start_line:match('^(%s*).*$')
+  local indent = start_line:match '^(%s*).*$'
 
   local change
 
@@ -166,7 +163,7 @@ Q.toggle_comment = function()
     change = function(line)
       local text = line:match('^' .. indent .. '(.*)$')
       if text == nil then
-        text = line:match('^%s*(.*)$')
+        text = line:match '^%s*(.*)$'
       end
       if text == '' then
         return ''

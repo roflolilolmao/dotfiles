@@ -1,8 +1,8 @@
-if vim.fn.has('win32') == 1 then
+if vim.fn.has 'win32' == 1 then
   return
 end
 
-require'neuron'.setup {
+require('neuron').setup {
   neuron_dir = '~/neuron',
   mappings = true,
   leader = '<Leader>e',

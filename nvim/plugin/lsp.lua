@@ -1,22 +1,28 @@
 Q.capabilities = vim.lsp.protocol.make_client_capabilities()
-Q.capabilities.textDocument.completion.completionItem.documentationFormat = {'markdown'}
+Q.capabilities.textDocument.completion.completionItem.documentationFormat = {
+  'markdown',
+}
 Q.capabilities.textDocument.completion.completionItem.snippetSupport = true
 Q.capabilities.textDocument.completion.completionItem.preselectSupport = true
-Q.capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+Q.capabilities.textDocument.completion.completionItem.insertReplaceSupport =
+  true
 Q.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
 Q.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-Q.capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-Q.capabilities.textDocument.completion.completionItem.tagSupport = {valueSet = {1}}
+Q.capabilities.textDocument.completion.completionItem.commitCharactersSupport =
+  true
+Q.capabilities.textDocument.completion.completionItem.tagSupport = {
+  valueSet = { 1 },
+}
 Q.capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
     'documentation',
     'detail',
     'additionalTextEdits',
-  }
+  },
 }
 
 Q.lsp_on_attach = function(_, bufnr)
-  local opts = {noremap=true, silent=true}
+  local opts = { noremap = true, silent = true }
 
   local function buf_map(map, func)
     vim.api.nvim_buf_set_keymap(
@@ -103,7 +109,7 @@ Q.lsp_signs = {
 
 for type, icon in pairs(Q.lsp_signs) do
   local hl = 'LspDiagnosticsSign' .. type
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ''})
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
 -- Show diagnostics source

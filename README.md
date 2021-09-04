@@ -117,6 +117,7 @@ cargo install lsd
 cargo install bat
 cargo install git-delta
 cargo install fnm
+cargo install stylua
 
 # Clipboard provider for nvim: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip

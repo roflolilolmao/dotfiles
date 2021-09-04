@@ -1,16 +1,22 @@
-require'gitsigns'.setup {
+require('gitsigns').setup {
   signs = {
-    add = {hl = 'DiffAdd', text = '+'},
-    change = {hl = 'DiffChange', text= '~'},
-    delete = {hl = 'DiffDelete', text = '-'},
-    topdelete = {hl = 'DiffDelete'},
-    changedelete = {hl = 'DiffDelete', text = '!'},
+    add = { hl = 'DiffAdd', text = '+' },
+    change = { hl = 'DiffChange', text = '~' },
+    delete = { hl = 'DiffDelete', text = '-' },
+    topdelete = { hl = 'DiffDelete' },
+    changedelete = { hl = 'DiffDelete', text = '!' },
   },
   keymaps = {
     noremap = true,
 
-    ['n <Leader>hn'] = {expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-    ['n <Leader>hp'] = {expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+    ['n <Leader>hn'] = {
+      expr = true,
+      "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'",
+    },
+    ['n <Leader>hp'] = {
+      expr = true,
+      "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'",
+    },
 
     ['n <leader>hs'] = '<Cmd>lua require"gitsigns".stage_hunk()<CR>',
     ['v <leader>hs'] = '<Cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
@@ -22,6 +28,6 @@ require'gitsigns'.setup {
     ['n <leader>hb'] = '<Cmd>lua require"gitsigns".blame_line(true)<CR>',
 
     ['o ih'] = ':<C-u>lua require"gitsigns.actions".select_hunk()<CR>',
-    ['x ih'] = ':<C-u>lua require"gitsigns.actions".select_hunk()<CR>'
+    ['x ih'] = ':<C-u>lua require"gitsigns.actions".select_hunk()<CR>',
   },
 }

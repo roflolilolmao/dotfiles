@@ -1,4 +1,4 @@
-require'zen-mode'.setup{
+require('zen-mode').setup {
   window = {
     -- height and width can be:
     -- * an absolute number of cells when > 1

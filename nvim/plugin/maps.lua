@@ -14,7 +14,12 @@ Q.m('n', '<PageDown>', '<C-PageDown>')
 Q.m('i', 'ZZ', '<Esc>ZZ')
 
 Q.m('n', '<C-/>', '<Cmd>nohlsearch<Bar>diffupdate<CR>')
-Q.map('n', '<CR>', '{-> v:hlsearch ? "\\<C-/>" : "\\<CR>"}()', {expr = true, silent = true})
+Q.map(
+  'n',
+  '<CR>',
+  '{-> v:hlsearch ? "\\<C-/>" : "\\<CR>"}()',
+  { expr = true, silent = true }
+)
 
 Q.m('n', '<leader>y', '"+y')
 
@@ -41,11 +46,7 @@ Q.m('n', '<Leader>n', [[<Cmd>lua Q.cn(0)<CR>]])
 Q.m('n', '<Leader>N', [[<Cmd>lua Q.cn(-1)<CR>]])
 
 for key, _ in pairs(Q.dirs) do
-  Q.m(
-    'n',
-    '<Leader>a' .. key,
-    [[<Cmd>lua Q.dirs.]] .. key .. [[()<CR>]]
-  )
+  Q.m('n', '<Leader>a' .. key, [[<Cmd>lua Q.dirs.]] .. key .. [[()<CR>]])
 end
 
 Q.m('n', '<Leader>aa', '<Cmd>pwd<CR>')
@@ -75,15 +76,15 @@ Q.m('x', '_', 'f_oT_o')
 Q.m('x', 'a_', 'f_oF_o')
 Q.m('x', 'i_', 't_oT_o')
 
-Q.m('n', 'R', [[Q_Replace()]], {expr = true})
-Q.m('n', 'RR', [[Q_Replace() .. '_']], {expr = true})
-Q.m('n', '<Leader>A', [[Q_Append()]], {expr = true})
-Q.m('n', '<Leader>AA', [[Q_Append() .. '_']], {expr = true})
-Q.m('n', '<Leader>I', [[Q_Insert()]], {expr = true})
-Q.m('n', '<Leader>II', [[Q_Insert() .. '_']], {expr = true})
+Q.m('n', 'R', [[Q_Replace()]], { expr = true })
+Q.m('n', 'RR', [[Q_Replace() .. '_']], { expr = true })
+Q.m('n', '<Leader>A', [[Q_Append()]], { expr = true })
+Q.m('n', '<Leader>AA', [[Q_Append() .. '_']], { expr = true })
+Q.m('n', '<Leader>I', [[Q_Insert()]], { expr = true })
+Q.m('n', '<Leader>II', [[Q_Insert() .. '_']], { expr = true })
 
-Q.m('n', '<Leader>c', [[Q_ToggleComment()]], {expr = true})
-Q.m('n', '<Leader>cc', [[Q_ToggleComment() .. '_']], {expr = true})
+Q.m('n', '<Leader>c', [[Q_ToggleComment()]], { expr = true })
+Q.m('n', '<Leader>cc', [[Q_ToggleComment() .. '_']], { expr = true })
 
 Q.m('n', '<Leader>r', 's')
 Q.m('v', '<Leader>r', 's')

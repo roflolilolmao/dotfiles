@@ -1,4 +1,4 @@
-local oceanic_next = require'lualine.themes.OceanicNext'
+local oceanic_next = require 'lualine.themes.OceanicNext'
 
 oceanic_next.inactive.a.bg = nil
 
@@ -14,9 +14,9 @@ oceanic_next.inactive.c.bg = nil
 oceanic_next.visual.c.bg = nil
 oceanic_next.replace.c.bg = nil
 
-local empty = {{'" "', padding = 0}}
+local empty = { { '" "', padding = 0 } }
 
-require'lualine'.setup{
+require('lualine').setup {
   options = {
     theme = oceanic_next,
   },
@@ -24,9 +24,9 @@ require'lualine'.setup{
     'quickfix',
     {
       sections = {
-        lualine_a = {'mode'},
+        lualine_a = { 'mode' },
       },
-      filetypes = {'gitcommit'},
+      filetypes = { 'gitcommit' },
     },
   },
   sections = {
@@ -43,15 +43,15 @@ require'lualine'.setup{
       },
       {
         'diff',
-        color_modified = {fg = '#ffffff'},
-        color_added = {fg = '#00ff00'},
-        color_removed = {fg = '#ff0000'},
+        color_modified = { fg = '#ffffff' },
+        color_added = { fg = '#00ff00' },
+        color_removed = { fg = '#ff0000' },
       },
     },
     lualine_x = {
       {
         'diagnostics',
-        sources = {'nvim_lsp'},
+        sources = { 'nvim_lsp' },
         symbols = Q.lsp_signs,
       },
       {

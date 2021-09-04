@@ -49,7 +49,7 @@ map_function('lsp_workspace_diagnostics', 'dwo')
 
 local actions = require 'telescope.actions'
 
-require'telescope'.setup{
+require('telescope').setup {
   defaults = {
     mappings = {
       n = {
@@ -67,16 +67,16 @@ require'telescope'.setup{
     layout_strategy = 'flex',
   },
   pickers = {
-    commands = require'telescope.themes'.get_dropdown {},
-    command_history = require'telescope.themes'.get_dropdown {},
-    current_buffer_fuzzy_find = require'telescope.themes'.get_dropdown {},
-    loclist = require'telescope.themes'.get_dropdown {},
-    quickfix = require'telescope.themes'.get_dropdown {},
-    builtin = require'telescope.themes'.get_dropdown {
+    commands = require('telescope.themes').get_dropdown {},
+    command_history = require('telescope.themes').get_dropdown {},
+    current_buffer_fuzzy_find = require('telescope.themes').get_dropdown {},
+    loclist = require('telescope.themes').get_dropdown {},
+    quickfix = require('telescope.themes').get_dropdown {},
+    builtin = require('telescope.themes').get_dropdown {
       previewer = false,
     },
-    lsp_code_actions = require'telescope.themes'.get_cursor {},
-    lsp_range_code_actions = require'telescope.themes'.get_cursor {},
+    lsp_code_actions = require('telescope.themes').get_cursor {},
+    lsp_range_code_actions = require('telescope.themes').get_cursor {},
     buffers = {
       sort_lastused = true,
       mappings = {
@@ -91,4 +91,4 @@ require'telescope'.setup{
   },
 }
 
-require'telescope'.load_extension'fzf'
+require('telescope').load_extension 'fzf'
