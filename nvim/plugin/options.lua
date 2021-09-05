@@ -83,6 +83,7 @@ vim.opt.fillchars = { vert = ' ', eob = ' ' }
 vim.cmd 'highlight VertSplit gui=NONE guifg=NONE guibg=NONE'
 vim.cmd 'highlight TODO gui=bold,italic'
 
+vim.cmd 'highlight Pmenu guibg=NONE'
 vim.cmd 'highlight StatusLine guibg=NONE'
 vim.cmd 'highlight TabLineFill gui=NONE guibg=NONE'
 vim.cmd 'highlight Normal guibg=NONE'

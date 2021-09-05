@@ -24,6 +24,11 @@ cmp.setup {
     end,
   },
 
+  documentation = {
+    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
+  },
+
   mapping = {
     ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
@@ -45,7 +50,10 @@ cmp.setup {
         fallback()
       end
     end,
-    ['<CR>'] = cmp.mapping.confirm(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
   },
