@@ -9,16 +9,15 @@ Q.capabilities.textDocument.completion.completionItem.documentationFormat = {
 Q.lsp_on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
 
-  local function buf_map(map, func, args)
-    args = args or {}
+  local function buf_map(map, func, mode, args)
     vim.api.nvim_buf_set_keymap(
       bufnr,
-      'n',
+      mode or 'n',
       map,
       string.format(
         [[<Cmd>lua vim.lsp.%s(%s)<CR>]],
         func,
-        vim.inspect(args, { newline = '', indent = '' })
+        vim.inspect(args or {}, { newline = '', indent = '' })
       ),
       opts
     )
@@ -37,14 +36,7 @@ Q.lsp_on_attach = function(_, bufnr)
   -- vim.lsp.buf.workspace_symbol
   -- vim.lsp.buf.code_action
 
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    'i',
-    '<C-k>',
-    '<Cmd>lua vim.lsp.buf.signature_help()<CR>',
-    opts
-  )
-
+  buf_map('<C-k>', 'buf.signature_help', 'i')
   buf_map('K', 'buf.signature_help')
   buf_map('X', 'buf.hover')
 
@@ -53,7 +45,12 @@ Q.lsp_on_attach = function(_, bufnr)
   --buf_map('<Leader>dwl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
   buf_map('<Leader>df', 'buf.formatting')
-  buf_map('<Leader>de', 'diagnostic.show_line_diagnostics', { border = Q.border })
+  buf_map(
+    '<Leader>de',
+    'diagnostic.show_line_diagnostics',
+    'n',
+    { border = Q.border }
+  )
   buf_map('<Leader>dn', 'diagnostic.goto_next')
   buf_map('<Leader>dp', 'diagnostic.goto_prev')
 
