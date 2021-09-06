@@ -6,10 +6,18 @@ Q.capabilities.textDocument.completion.completionItem.documentationFormat = {
   'markdown',
 }
 
+Q.lsp_flags = {
+  debounce_text_changes = 250,
+}
+
 Q.lsp_on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
 
   local function buf_map(map, func, mode, args)
+    if args then
+      args = vim.inspect(args or {}, { newline = '', indent = '' })
+    end
+
     vim.api.nvim_buf_set_keymap(
       bufnr,
       mode or 'n',
@@ -17,7 +25,7 @@ Q.lsp_on_attach = function(_, bufnr)
       string.format(
         [[<Cmd>lua vim.lsp.%s(%s)<CR>]],
         func,
-        vim.inspect(args or {}, { newline = '', indent = '' })
+        args or ''
       ),
       opts
     )
@@ -119,5 +127,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
       spacing = 8,
     },
     severity_sort = true,
+    underline = false,
   }
 )

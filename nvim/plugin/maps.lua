@@ -82,7 +82,7 @@ local function make_operator(prefix, key, func_name)
   )
   Q.m(
     string.format('%s%s%s', prefix, key, key),
-    string.format('Q_%s()_', func_name),
+    string.format('Q_%s().."_"', func_name),
     'n',
     options
   )

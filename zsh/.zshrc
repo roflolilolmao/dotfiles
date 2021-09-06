@@ -38,7 +38,7 @@ export COLORTERM=truecolor
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
-export MANPAGER="nvim --cmd 'runtime! plugin/man.vim' +Man!"
+export MANPAGER="nvim +Man!"
 
 export BROWSER="/mnt/c/Users/kelst/AppData/Local/BraveSoftware/Brave-Browser/Application/brave.exe"
 export OPENER="$BROWSER"
