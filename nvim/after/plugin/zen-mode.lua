@@ -14,4 +14,4 @@ require('zen-mode').setup {
   },
 }
 
-Q.m('n', '<F11>', [[<Cmd>ZenMode<CR>]])
+Q.m('<F11>', [[<Cmd>ZenMode<CR>]])

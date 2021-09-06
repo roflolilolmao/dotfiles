@@ -46,17 +46,11 @@ vim.g.maplocalleader = ' '
 Q = {
   border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
 
-  map = function(mode, lhs, rhs, opts)
-    vim.api.nvim_set_keymap(mode, lhs, rhs, opts or {})
-  end,
-
-  m = function(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-
-    if opts then
-      options = vim.tbl_extend('force', options, opts)
+  m = function(lhs, rhs, modes, options)
+    options = options or { noremap = true }
+    modes = modes or 'n'
+    for _, mode in ipairs(vim.split(modes, '')) do
+      vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
-
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
   end,
 }

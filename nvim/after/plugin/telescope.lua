@@ -4,7 +4,6 @@ local function map_function(name, key, arg)
   end
 
   Q.m(
-    'n',
     '<Leader>' .. key,
     [[<Cmd>lua require'telescope.builtin'.]] .. name .. '(' .. arg .. ')<CR>'
   )

@@ -9,13 +9,8 @@ require('neuron').setup {
 }
 
 Q.m(
-  'n',
   '<Leader>en',
   [[<Cmd>lua require'neuron/cmd'.new_edit(require'neuron'.config.neuron_dir)<CR>]]
 )
 
-Q.m(
-  'n',
-  '<Leader>ee',
-  [[<Cmd>lua require'neuron/telescope'.find_zettels()<CR>]]
-)
+Q.m('<Leader>ee', [[<Cmd>lua require'neuron/telescope'.find_zettels()<CR>]])
