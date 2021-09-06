@@ -9,7 +9,6 @@ null_ls.config {
     null_ls.builtins.diagnostics.write_good,
     null_ls.builtins.diagnostics.markdownlint,
   },
-  diagnostics_format = '[#{c}] #{m}',
 }
 
 require('lspconfig')['null-ls'].setup {

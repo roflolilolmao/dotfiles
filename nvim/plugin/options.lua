@@ -2,7 +2,7 @@ vim.opt.ff = 'unix'
 vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.shada = { '!', "'1000", '<50', 's10', 'h' }
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 200
 vim.opt.autowrite = true
 vim.opt.modeline = false
 
@@ -80,6 +80,9 @@ vim.cmd 'colorscheme OceanicNext'
 vim.opt.list = true
 vim.opt.fillchars = { vert = ' ', eob = ' ' }
 
+vim.cmd 'highlight NonText guifg=#C594C5'
+vim.cmd 'highlight FloatBorder guifg=#5FB3B3'
+
 vim.cmd 'highlight VertSplit gui=NONE guifg=NONE guibg=NONE'
 vim.cmd 'highlight TODO gui=bold,italic'
 
@@ -90,4 +93,3 @@ vim.cmd 'highlight Normal guibg=NONE'
 vim.cmd 'highlight LineNr guibg=NONE'
 vim.cmd 'highlight SignColumn guibg=NONE'
 vim.cmd 'highlight EndOfBuffer guibg=NONE'
-vim.cmd 'highlight NonText guifg=#C594C5'

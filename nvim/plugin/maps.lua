@@ -102,6 +102,8 @@ Q.diff_mode = function()
   end
 end
 
+Q.m('n', '<Leader>m', '<Cmd>messages<CR>')
+
 Q.m('n', '<leader><leader>d', '<Cmd>lua Q.diff_mode()<CR>')
 Q.m('n', '<Leader><Leader>w', '<Cmd>lua Q.set_wrap()<CR>')
 Q.m('n', '<Leader><Leader>s', '<Cmd>lua Q.syntax_sync()<CR>')

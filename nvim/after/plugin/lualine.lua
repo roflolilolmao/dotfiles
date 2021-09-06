@@ -52,7 +52,12 @@ require('lualine').setup {
       {
         'diagnostics',
         sources = { 'nvim_lsp' },
-        symbols = Q.lsp_signs,
+        symbols = {
+          error = Q.lsp_signs.Error,
+          warn = Q.lsp_signs.Warning,
+          hint = Q.lsp_signs.Hint,
+          info = Q.lsp_signs.Information,
+        }
       },
       {
         'filename',

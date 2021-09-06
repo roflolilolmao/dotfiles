@@ -28,6 +28,12 @@ for _, plugin in pairs(disabled_built_ins) do
   vim.g['loaded_' .. plugin] = 1
 end
 
+local disabled_providers = { 'python', 'ruby', 'perl' }
+
+for _, provider in pairs(disabled_providers) do
+  vim.g['loaded_' .. provider .. '_provider'] = 0
+end
+
 vim.api.nvim_set_keymap(
   '',
   '<Space>',
@@ -38,9 +44,12 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 Q = {
+  border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+
   map = function(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts or {})
   end,
+
   m = function(mode, lhs, rhs, opts)
     local options = { noremap = true }
 

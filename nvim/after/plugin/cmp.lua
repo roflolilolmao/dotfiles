@@ -25,7 +25,7 @@ cmp.setup {
   },
 
   documentation = {
-    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+    border = Q.border,
     winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
   },
 

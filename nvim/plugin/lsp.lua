@@ -1,35 +1,25 @@
-Q.capabilities = vim.lsp.protocol.make_client_capabilities()
+Q.capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
 Q.capabilities.textDocument.completion.completionItem.documentationFormat = {
   'markdown',
-}
-Q.capabilities.textDocument.completion.completionItem.snippetSupport = true
-Q.capabilities.textDocument.completion.completionItem.preselectSupport = true
-Q.capabilities.textDocument.completion.completionItem.insertReplaceSupport =
-  true
-Q.capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-Q.capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-Q.capabilities.textDocument.completion.completionItem.commitCharactersSupport =
-  true
-Q.capabilities.textDocument.completion.completionItem.tagSupport = {
-  valueSet = { 1 },
-}
-Q.capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  },
 }
 
 Q.lsp_on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true }
 
-  local function buf_map(map, func)
+  local function buf_map(map, func, args)
+    args = args or {}
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'n',
       map,
-      [[<Cmd>lua vim.lsp.]] .. func .. [[()<CR>]],
+      string.format(
+        [[<Cmd>lua vim.lsp.%s(%s)<CR>]],
+        func,
+        vim.inspect(args, { newline = '', indent = '' })
+      ),
       opts
     )
   end
@@ -55,14 +45,15 @@ Q.lsp_on_attach = function(_, bufnr)
     opts
   )
 
-  buf_map('K', 'buf.hover')
+  buf_map('K', 'buf.signature_help')
+  buf_map('X', 'buf.hover')
 
   buf_map('<Leader>dwa', 'buf.add_workspace_folder')
   buf_map('<Leader>dwr', 'buf.remove_workspace_folder')
   --buf_map('<Leader>dwl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
   buf_map('<Leader>df', 'buf.formatting')
-  buf_map('<Leader>de', 'diagnostic.show_line_diagnostics')
+  buf_map('<Leader>de', 'diagnostic.show_line_diagnostics', { border = Q.border })
   buf_map('<Leader>dn', 'diagnostic.goto_next')
   buf_map('<Leader>dp', 'diagnostic.goto_prev')
 
@@ -81,7 +72,7 @@ local icons = {
   Field = ' ',
   File = ' ',
   Folder = ' ',
-  Function = ' ',
+  Function = ' ',
   Interface = 'ﰮ ',
   Keyword = ' ',
   Method = 'ƒ ',
@@ -101,9 +92,9 @@ for i, kind in ipairs(kinds) do
 end
 
 Q.lsp_signs = {
-  Error = '⁉',
+  Error = '💯',
   Warning = '🚭',
-  Hint = '💯',
+  Hint = '⁉',
   Information = '🚮',
 }
 
@@ -112,35 +103,24 @@ for type, icon in pairs(Q.lsp_signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  { border = Q.border }
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  { border = Q.border }
+)
+
 -- Show diagnostics source
-vim.lsp.handlers['textDocument/publishDiagnostics'] =
-  function(_, _, params, client_id, _)
-    local config = {
-      underline = false,
-      virtual_text = false,
-      signs = true,
-      update_in_insert = false,
-      severity_sort = true,
-    }
-
-    local uri = params.uri
-    local bufnr = vim.uri_to_bufnr(uri)
-
-    if not bufnr then
-      return
-    end
-
-    local diagnostics = params.diagnostics
-
-    for i, v in ipairs(diagnostics) do
-      diagnostics[i].message = string.format('%s: %s', v.source, v.message)
-    end
-
-    vim.lsp.diagnostic.save(diagnostics, bufnr, client_id)
-
-    if not vim.api.nvim_buf_is_loaded(bufnr) then
-      return
-    end
-
-    vim.lsp.diagnostic.display(diagnostics, bufnr, client_id, config)
-  end
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
+    virtual_text = {
+      prefix = '',
+      spacing = 8,
+    },
+    severity_sort = true,
+  }
+)
