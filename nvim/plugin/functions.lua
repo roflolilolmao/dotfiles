@@ -8,7 +8,11 @@ if f.has 'win32' ~= 0 then
 end
 
 function Q.dump(...)
-  print(unpack(vim.tbl_map(vim.inspect, { ... })))
+  local args = ...
+  if type(args) ~= table then
+    args = {...}
+  end
+  print(unpack(vim.tbl_map(vim.inspect, args)))
   return ...
 end
 
