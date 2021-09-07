@@ -1,7 +1,3 @@
-local a = vim.api
-local c = vim.cmd
-local f = vim.fn
-
 function Q.dump(...)
   local args = ...
   if type(args) ~= table then
@@ -11,59 +7,51 @@ function Q.dump(...)
   return ...
 end
 
-function Q.set_wrap()
-  vim.wo.wrap = not vim.wo.wrap
-end
-
-function Q.syntax_sync()
-  c 'syntax sync fromstart'
-end
-
 Q.cn = function(direction)
-  local index = f.getqflist({ idx = 0 }).idx
+  local index = vim.fn.getqflist({ idx = 0 }).idx
   if index == 0 then
     return
   end
 
-  local filtered = f.filter(f.getqflist(), function(i)
+  local filtered = vim.fn.filter(vim.fn.getqflist(), function(i)
     return i ~= index - 1
   end)
 
-  local title = f.getqflist({ title = 0 }).title
-  f.setqflist({}, ' ', { title = title, items = filtered })
+  local title = vim.fn.getqflist({ title = 0 }).title
+  vim.fn.setqflist({}, ' ', { title = title, items = filtered })
 
   if not next(filtered) then
-    c 'cclose'
+    vim.cmd 'cclose'
     return
   end
 
-  c(index + direction .. 'cc')
+  vim.cmd(index + direction .. 'cc')
 end
 
 Q.save_if_file_exists = function()
-  local filename = a.nvim_buf_get_name(0)
+  local filename = vim.api.nvim_buf_get_name(0)
 
   if filename ~= nil and filename ~= '' then
-    c 'update'
+    vim.cmd 'update'
   end
 end
 
 Q.save_all = function()
-  local view = f.winsaveview()
-  c 'mark Z'
-  c 'bufdo lua Q.save_if_file_exists()'
-  c 'silent! normal! `Z'
-  f.winrestview(view)
+  local view = vim.fn.winsaveview()
+  vim.cmd 'mark Z'
+  vim.cmd 'bufdo lua Q.save_if_file_exists()'
+  vim.cmd 'silent! normal! `Z'
+  vim.fn.winrestview(view)
 end
 
 Q.get_highlight = function()
   -- TODO: this doesn't seem to work with tree-sitter highlighting
 
-  local id = f.synID(f.line '.', f.col '.', 1)
+  local id = vim.fn.synID(vim.fn.line '.', vim.fn.col '.', 1)
   local highlight = (
-      f.synIDattr(id, 'name')
+      vim.fn.synIDattr(id, 'name')
       .. ' -> '
-      .. f.synIDattr(f.synIDtrans(id), 'name')
+      .. vim.fn.synIDattr(vim.fn.synIDtrans(id), 'name')
     )
   Q.dump(highlight)
   return highlight
@@ -76,33 +64,33 @@ Q.replace = function(type)
     block = [[`[\<C-v>`]\"zc]],
   }
 
-  c [[let @v=@"]]
-  c('exe "normal! ' .. selection[type] .. [[\<C-r>v\<Esc>"]])
-  c [[let @"=@v]]
+  vim.cmd [[let @v=@"]]
+  vim.cmd('exe "normal! ' .. selection[type] .. [[\<C-r>v\<Esc>"]])
+  vim.cmd [[let @"=@v]]
 end
 
 Q.insert = function()
-  local insert = f.input 'Insert: '
+  local insert = vim.fn.input 'Insert: '
 
-  local start_line = f.line "'["
+  local start_line = vim.fn.line "'["
 
-  for index, line in ipairs(f.getline("'[", "']")) do
+  for index, line in ipairs(vim.fn.getline("'[", "']")) do
     local current_line = start_line + index - 1
     local indent, text = line:match '^(%s*)(.*)$'
-    f.setline(current_line, indent .. insert .. text)
+    vim.fn.setline(current_line, indent .. insert .. text)
   end
 end
 
 Q.append = function()
   -- Idea: this could work charwise; for example: `<Leader>AiW`.
 
-  local append = f.input 'Append:'
+  local append = vim.fn.input 'Append:'
 
-  local start_line = f.line "'["
+  local start_line = vim.fn.line "'["
 
-  for index, line in ipairs(f.getline("'[", "']")) do
+  for index, line in ipairs(vim.fn.getline("'[", "']")) do
     local current_line = start_line + index - 1
-    f.setline(current_line, line .. append)
+    vim.fn.setline(current_line, line .. append)
   end
 end
 
@@ -110,8 +98,8 @@ Q.toggle_comment = function()
   require('ts_context_commentstring.internal').update_commentstring()
   local comment_string = vim.o.commentstring:gsub(vim.pesc '%s', '')
 
-  local start_line_number = f.line "'["
-  local start_line = f.getline(start_line_number)
+  local start_line_number = vim.fn.line "'["
+  local start_line = vim.fn.getline(start_line_number)
   local indent = start_line:match '^(%s*).*$'
 
   local change
@@ -134,7 +122,7 @@ Q.toggle_comment = function()
     end
   end
 
-  for index, line in ipairs(f.getline("'[", "']")) do
-    f.setline(start_line_number + index - 1, change(line))
+  for index, line in ipairs(vim.fn.getline("'[", "']")) do
+    vim.fn.setline(start_line_number + index - 1, change(line))
   end
 end
