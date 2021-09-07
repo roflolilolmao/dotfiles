@@ -2,7 +2,7 @@ GIT_LOG_ALL='git log --color --graph --oneline --decorate --branches --remotes'
 alias ggg="watch -c $GIT_LOG_ALL"
 alias gg=$GIT_LOG_ALL
 
-alias gd='git show'
+alias gd='git show --compact-summary'
 alias gf='git fetch --prune --all'
 alias gs='git status'
 
