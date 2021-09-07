@@ -111,7 +111,7 @@ Q.dirs = {
   end,
 }
 
-Q.replace = function(arg)
+Q.replace = function(type)
   local selection = {
     line = [['[V']\"zygv\"vp]],
     char = [[`[v`]\"zc]],
@@ -119,11 +119,11 @@ Q.replace = function(arg)
   }
 
   c [[let @v=@"]]
-  c('exe "normal! ' .. selection[arg] .. [[\<C-r>v\<Esc>"]])
+  c('exe "normal! ' .. selection[type] .. [[\<C-r>v\<Esc>"]])
   c [[let @"=@v]]
 end
 
-Q.I = function()
+Q.insert = function()
   local insert = f.input 'Insert: '
 
   local start_line = f.line "'["
@@ -135,7 +135,7 @@ Q.I = function()
   end
 end
 
-Q.A = function()
+Q.append = function()
   -- Idea: this could work charwise; for example: `<Leader>AiW`.
 
   local append = f.input 'Append:'
@@ -180,44 +180,3 @@ Q.toggle_comment = function()
     f.setline(start_line_number + index - 1, change(line))
   end
 end
-
-a.nvim_exec(
-  [[
-  function! Q_Replace(type = '')
-    if a:type == ''
-      set opfunc=Q_Replace
-      return 'g@'
-    endif
-
-    exe "lua Q.replace('" .. a:type .. "')"
-  endfunction
-
-  function! Q_ToggleComment(type = '')
-    if a:type == ''
-      set opfunc=Q_ToggleComment
-      return 'g@'
-    endif
-
-    exe "lua Q.toggle_comment()"
-  endfunction
-
-  function! Q_Insert(type = '')
-    if a:type == ''
-      set opfunc=Q_Insert
-      return 'g@'
-    endif
-
-    exe "lua Q.I('" .. a:type .. "')"
-  endfunction
-
-  function! Q_Append(type = '')
-    if a:type == ''
-      set opfunc=Q_Append
-      return 'g@'
-    endif
-
-    exe "lua Q.A('" .. a:type .. "')"
-  endfunction
-  ]],
-  false
-)
