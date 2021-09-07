@@ -2,11 +2,6 @@ local a = vim.api
 local c = vim.cmd
 local f = vim.fn
 
-local home = '~/'
-if f.has 'win32' ~= 0 then
-  home = '\\\\wsl$/q/home/q/' -- TODO: use wslpath+wslenv
-end
-
 function Q.dump(...)
   local args = ...
   if type(args) ~= table then
@@ -73,43 +68,6 @@ Q.get_highlight = function()
   Q.dump(highlight)
   return highlight
 end
-
-local config = f.stdpath 'config' .. '/'
-
-local set_dir = function(directory)
-  a.nvim_set_current_dir(directory)
-  c 'pwd'
-end
-
-Q.dirs = {
-  c = function()
-    set_dir(config .. '..')
-  end,
-
-  n = function()
-    set_dir(config)
-  end,
-
-  d = function()
-    set_dir(home .. 'dev')
-  end,
-
-  t = function()
-    set_dir(home .. 'dev/tree-sitter-markdown')
-  end,
-
-  v = function()
-    set_dir(home .. 'dev/Valo')
-  end,
-
-  o = function()
-    set_dir(config .. 'pack/plugins/start/oceanic-next-nvim')
-  end,
-
-  g = function()
-    set_dir(config .. 'pack/plugins/start/nvim-fixity')
-  end,
-}
 
 Q.replace = function(type)
   local selection = {
