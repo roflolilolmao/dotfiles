@@ -12,7 +12,9 @@ Set-ExecutionPolicy RemoteSigned -Scope User
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-choco install -y git.install --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
+choco install `
+    -y git.install `
+    --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
 
 choco install -y mingw
 choco install -y rust
@@ -192,10 +194,9 @@ git submodule update --remote --merge
 
 ### Terminals Input
 
-Terminals handle input in a very technical debt fashion. Nvim in the Windows
-Terminal would not receive some inputs because of how all terminals work. For
-example, `<C-CR>` would be received as `<CR>`. After hours of research and
-experiment, I have found the following escape sequences that can be added in
+Terminals handle input in a specialized way. Nvim in the Windows Terminal would
+not receive some inputs because of how all terminals work. For example,
+`<C-CR>` would send `<CR>` to nvim. Adding the following escape sequences in
 the terminal settings to send the input regardless of the standards:
 
 | output | input |
@@ -205,19 +206,18 @@ the terminal settings to send the input regardless of the standards:
 
 Where `x` is the wanted char and `X` its ascii code.
 
-I have no clue what's really going on or what the escape sequence would look
+I have no clue what's going on or what the escape sequence would look
 like for something like `<C-S-Tab>`.
 
 Some resources:
 
-- https://www.man7.org/linux/man-pages/man5/terminfo.5.html
-- https://en.wikipedia.org/wiki/Terminfo
-- https://github.com/microsoft/terminal/issues/8931
-- https://github.com/microsoft/terminal/pull/8330
-- https://unix.stackexchange.com/questions/238406/why-does-shift-tab-result-in-escape-in-the-terminal
-- https://www.asciitable.com/
-- https://support.microfocus.com/kb/doc.php?id=7021621
-- https://stackoverflow.com/questions/7767702/what-is-terminal-escape-sequence-for-ctrl-arrow-left-right-in-term-linu
+- [man terminfo](http://www.man7.org/linux/man-pages/man5/terminfo.5.html)
+- [wiki terminfo](https://en.wikipedia.org/wiki/Terminfo)
+- [WT issue](https://github.com/microsoft/terminal/issues/8931)
+- [WT PR](https://github.com/microsoft/terminal/pull/8330)
+- [stackexchange](https://unix.stackexchange.com/questions/238406/why-does-shift-tab-result-in-escape-in-the-terminal)
+- [stackoverflow](https://stackoverflow.com/questions/7767702/what-is-terminal-escape-sequence-for-ctrl-arrow-left-right-in-term-linu)
+- [some other site](https://support.microfocus.com/kb/doc.php?id=7021621)
 
 ## TODO
 
