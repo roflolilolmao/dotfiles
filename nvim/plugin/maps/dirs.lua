@@ -24,9 +24,7 @@ end
 for key, dir in pairs(dirs) do
   Q.m(
     '<Leader>a' .. key,
-    [[v:lua.Q.change_directory("]] .. dir .. [[")]],
-    'n',
-    { noremap = true, expr = true }
+    [[<Cmd>lua Q.change_directory("]] .. dir .. [[")<CR>]]
   )
 end
 

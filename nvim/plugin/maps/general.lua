@@ -33,11 +33,6 @@ Q.m('<S-CR>', '<C-o>O', 'i')
 
 Q.m('gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
-Q.m('<F5>', '<Esc><Cmd>lua Q.save_all()<CR>', 'ni')
-
-Q.m('<Leader>n', [[<Cmd>lua Q.cn(0)<CR>]])
-Q.m('<Leader>N', [[<Cmd>lua Q.cn(-1)<CR>]])
-
 Q.m('<F12>', [[<Cmd>so %<CR>]])
 
 Q.m('<Leader>w', '<Cmd>set wrap!<CR>')
