@@ -15,3 +15,4 @@ Q.save_all = function()
 end
 
 Q.m('<F5>', '<Cmd>lua Q.save_all()<CR>', 'ni')
+Q.m('ZZ', '<Esc>ZZ', 'i')

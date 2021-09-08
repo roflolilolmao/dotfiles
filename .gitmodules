@@ -100,3 +100,6 @@
 [submodule "impatient"]
     path = nvim/pack/plugins/start/impatient.nvim
     url = https://github.com/lewis6991/impatient.nvim
+[submodule "repeat"]
+	path = nvim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
