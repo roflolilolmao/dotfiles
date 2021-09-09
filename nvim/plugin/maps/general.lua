@@ -12,6 +12,7 @@ Q.m('<S-Tab>', '<Cmd>bprevious<CR>')
 Q.m('<PageUp>', '<C-PageUp>')
 Q.m('<PageDown>', '<C-PageDown>')
 
+Q.m(',', '<C-o>')
 Q.m(';', ':')
 Q.m(':', '@:')
 Q.m('Q', '@@')
