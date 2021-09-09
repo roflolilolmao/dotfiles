@@ -13,7 +13,7 @@ Q.m('<PageUp>', '<C-PageUp>')
 Q.m('<PageDown>', '<C-PageDown>')
 
 Q.m(',', '<C-o>')
-Q.m(';', ':')
+Q.m(';', ':', 'nv')
 Q.m(':', '@:')
 Q.m('Q', '@@')
 
@@ -31,7 +31,7 @@ Q.m('<Leader>w', '<Cmd>set wrap!<CR>')
 
 Q.m('gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
-Q.m('<F12>', [[<Cmd>so %<CR>]])
+Q.m('<F12>', [[<Cmd>runtime! plugin/**/*.lua<CR>]])
 
 -- Command line maps to insert the current filename or complete path.
 -- Taken from
