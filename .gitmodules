@@ -103,3 +103,6 @@
 [submodule "repeat"]
 	path = nvim/pack/plugins/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "sandwich"]
+	path = nvim/pack/plugins/start/vim-sandwich
+	url = https://github.com/machakann/vim-sandwich
