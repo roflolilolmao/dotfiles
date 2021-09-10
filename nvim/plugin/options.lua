@@ -3,7 +3,6 @@ vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.shada = { '!', "'1000", '<50', 's10', 'h' }
 vim.opt.updatetime = 200
-vim.opt.autowrite = true
 vim.opt.modeline = false
 
 vim.opt.ignorecase = true
