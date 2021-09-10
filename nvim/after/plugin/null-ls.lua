@@ -11,8 +11,4 @@ null_ls.config {
   },
 }
 
-require('lspconfig')['null-ls'].setup {
-  capabilities = Q.capabilities,
-  on_attach = Q.lsp_on_attach,
-  flags = Q.lsp_flags,
-}
+require('lspconfig')['null-ls'].setup(vim.deepcopy(Q.lsp))

@@ -20,18 +20,17 @@ local lua_settings = {
   },
 }
 
+local lspinstall = require 'lspinstall'
+
 -- lsp-install
 local function setup_servers()
-  require('lspinstall').setup()
+  lspinstall.setup()
 
   -- get all installed servers
-  local servers = require('lspinstall').installed_servers()
+  local servers = lspinstall.installed_servers()
 
   for _, server in pairs(servers) do
-    local config = {
-      capabilities = Q.lsp_capabilities,
-      on_attach = Q.lsp_on_attach,
-    }
+    local config = vim.deepcopy(Q.lsp)
 
     -- language specific config
     if server == 'lua' then
@@ -45,7 +44,7 @@ end
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require('lspinstall').post_install_hook = function()
+lspinstall.post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd 'bufdo e'
 end

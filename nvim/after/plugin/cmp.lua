@@ -1,13 +1,12 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
-local function escape(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col '.' - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' ~= nil
+local function feed(map, mode)
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes(map, true, true, true),
+    mode,
+    true
+  )
 end
 
 cmp.setup {
@@ -30,40 +29,39 @@ cmp.setup {
   },
 
   mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
     ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(escape '<C-n>', 'n')
+        feed('<C-n>', 'n')
       elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(escape '<Plug>luasnip-expand-or-jump', '')
-      elseif check_back_space() then
-        vim.fn.feedkeys(escape '<Tab>', 'n')
+        feed('<Plug>luasnip-expand-or-jump', '')
       else
         fallback()
       end
     end,
     ['<S-Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(escape '<C-p>', 'n')
+        feed('<C-p>', 'n')
       elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(escape '<Plug>luasnip-jump-prev', '')
+        feed('<Plug>luasnip-jump-prev', '')
       else
         fallback()
       end
     end,
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
   },
 
   sources = {
-    { name = 'path' },
-    { name = 'luasnip' },
     { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'path' },
   },
 }
-
-require('cmp_nvim_lsp').setup {}
-require 'cmp_luasnip'

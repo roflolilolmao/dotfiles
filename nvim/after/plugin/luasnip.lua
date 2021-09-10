@@ -1,8 +1,21 @@
 local luasnip = require 'luasnip'
+local types = require 'luasnip.util.types'
 
-luasnip.config.set_config {
+luasnip.config.setup {
   history = false,
   region_check_events = 'InsertEnter',
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = { { '●', 'Constant' } },
+      },
+    },
+    [types.insertNode] = {
+      active = {
+        virt_text = { { '●', 'Identifier' } },
+      },
+    },
+  },
 }
 
 luasnip.snippets = {
@@ -14,7 +27,7 @@ luasnip.snippets = {
       luasnip.insert_node(2),
       luasnip.text_node ')',
       luasnip.insert_node(0),
-    })
+    }),
   },
   python = {
     luasnip.snippet('rich', {

@@ -31,7 +31,7 @@ Q.m('<Leader>w', '<Cmd>set wrap!<CR>')
 
 Q.m('gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
-Q.m('<F12>', [[<Cmd>runtime! plugin/**/*.lua<CR>]])
+Q.m('<F12>', [[<Cmd>runtime! plugin/**/*.{lua,vim}<CR>]])
 
 -- Command line maps to insert the current filename or complete path.
 -- Taken from
