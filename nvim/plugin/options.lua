@@ -57,6 +57,9 @@ vim.opt.listchars = { -- '‹ ›⊳⋙⨌⨞⨠⩥⩤⨵⨴⪢⫸⫷⇶◁▷',
 vim.opt.inccommand = 'nosplit'
 vim.opt.incsearch = true
 
+vim.opt.path:append '**'
+vim.opt.path:remove '/usr/include'
+
 vim.opt.wildmode = 'longest,full'
 vim.opt.wildoptions = ''
 
