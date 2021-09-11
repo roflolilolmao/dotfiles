@@ -189,7 +189,7 @@ git submodule deinit -f zsh/plugins/zsh-bd zsh/plugins/zsh-syntax-highlighting
 ### Update Submodules
 
 ```zsh
-git submodule update --remote --merge
+git submodule update --remote
 ```
 
 ### Terminals Input
