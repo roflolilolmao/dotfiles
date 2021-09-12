@@ -49,6 +49,10 @@ submodules: .make/changes
     && git show --no-patch
 	@touch $@
 
+# TODO:
+# ./zsh/plugins/fzf/install --bin
+# (cd $(git config -f .gitmodules --get submodule.telescope-fzf-native.path); make)
+
 .git/modules/%/index: force
 	@git submodule update --remote $(call module_path,$*)
 
@@ -91,10 +95,7 @@ first_install: $(LINKS) $(PROGRAMS) all
 
 /usr/sbin/yay: $(DEV_DIR)
 	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu --noconfirm
-	sudo pacman -S --needed git base-devel --noconfirm
-	cd $< && git clone https://aur.archlinux.org/yay.git
-	cd $</yay && makepkg -si --noconfirm
-	rm -rf $</yay
+	sudo pacman -S --needed --noconfirm git base-devel yay
 
 /bin/zsh: /usr/sbin/yay
 	yay -S zsh
