@@ -14,7 +14,7 @@ neovim: $(NEOVIM_INSTALL_PREFIX)/.installed_nvim
 neovimclean:
 	cd $(NEOVIM_DIR) && $(MAKE) distclean
 
-$(NEOVIM_INSTALL_PREFIX)/.installed_nvim: $(NEOVIM_DIR)/.git/index
+$(NEOVIM_INSTALL_PREFIX)/.installed_nvim: $(NEOVIM_DIR)/.git/index $(LOCAL)
 	cd $(NEOVIM_DIR) \
     && $(MAKE) -s $(NEOVIM_FLAGS) nvim > /dev/null \
     && $(MAKE) -s install > /dev/null \
@@ -27,7 +27,7 @@ $(NEOVIM_DIR)/.git/index: $(NEOVIM_DIR) force
 $(NEOVIM_DIR): $(DEV_DIR)
 	cd $< && git clone https://github.com/neovim/neovim
 
-$(DEV_DIR) .make:
+$(DEV_DIR) .make $(LOCAL):
 	mkdir -p $@
 
 SM_NAMES := $(shell git submodule --quiet foreach 'printf "$$name "')
@@ -108,7 +108,7 @@ $(HOME)/.zshenv /etc/wsl.conf $(HOME)/.ssh &: /bin/zsh
 	sudo ln -sf wsl.conf /etc/wsl.conf
 	sudo ln -s /mnt/c/Users/kelst/.ssh $(HOME)/.ssh
 
-$(LOCAL)/bin/win32yank.exe: /usr/sbin/unzip
+$(LOCAL)/bin/win32yank.exe: /usr/sbin/unzip $(LOCAL)
 	curl -sLo/tmp/win32yank.zip https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
 	unzip -p /tmp/win32yank.zip win32yank.exe > /tmp/win32yank.exe
 	chmod +x /tmp/win32yank.exe
