@@ -12,39 +12,19 @@ Set-ExecutionPolicy RemoteSigned -Scope User
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+choco install microsoft-windows-terminal
 choco install `
     -y git.install `
     --params "/GitOnlyOnPath /WindowsTerminal /NoGuiHereIntegration /NoCredentialManager"
 
-choco install -y mingw
-choco install -y rust
-choco install -y nodejs -y
-choco install -y bat -y
-choco install -y delta -y
-choco install -y streamdeck
+git clone git@github.com:roflolilolmao/dotfiles "$Home\dotfiles"
 
-cargo install ripgrep
-cargo install fd-find
-cargo install lsd
-
-git clone --recursive git@github.com:roflolilolmao/dotfiles
-
-New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$Home\dotfiles\nvim"
-New-Item `
-    -ItemType SymbolicLink `
-    -Force `
-    -Path "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState\settings.json" `
-    -Target ./terminal/settings.json
-
-Install-Module posh-git -Scope CurrentUser
-Install-Module oh-my-posh -Scope CurrentUser
-
-New-Item `
-    -ItemType SymbolicLink `
-    -Force `
-    -Path "$PROFILE" `
-    -Target ./powershell/profile.ps1
+& "$Home\dotfiles\powershell\upgrade.ps1"
+& "$Home\dotfiles\powershell\links.ps1"
+& "$Home\dotfiles\powershell\install.ps1"
 ```
+
+<!--choco upgrade -y streamdeck-->
 
 ### Environment Variables
 
