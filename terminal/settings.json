@@ -1,35 +1,34 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
+    "actions": 
     [
         {
-            "command":
+            "command": 
             {
-                "action": "moveFocus",
-                "direction": "up"
+                "action": "globalSummon",
+                "desktop": "any",
+                "monitor": "any",
+                "name": "nvim-win"
             },
-            "keys": "alt+k",
-            "name": ""
+            "keys": "f21"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "globalSummon",
                 "desktop": "any",
                 "monitor": "any",
                 "name": "commanded"
             },
-            "keys": "f22",
-            "name": ""
+            "keys": "f22"
         },
         {
-            "command":
+            "command": 
             {
-                "action": "resizePane",
+                "action": "moveFocus",
                 "direction": "up"
             },
-            "keys": "alt+shift+up",
-            "name": ""
+            "keys": "alt+k"
         },
         {
             "command": "unbound",
@@ -72,172 +71,162 @@
             "keys": "alt+up"
         },
         {
-            "command":
+            "command": "unbound",
+            "keys": "win+n"
+        },
+        {
+            "command": 
+            {
+                "action": "resizePane",
+                "direction": "up"
+            },
+            "keys": "alt+shift+up"
+        },
+        {
+            "command": 
             {
                 "action": "sendInput",
                 "input": "\u001b[27;2;13~"
             },
-            "keys": "shift+enter",
-            "name": ""
+            "keys": "shift+enter"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "quakeMode"
+            },
+            "keys": "f13"
+        },
+        {
+            "command": 
             {
                 "action": "globalSummon",
                 "desktop": "any",
                 "monitor": "any",
                 "name": "nvim-wsl"
             },
-            "keys": "f20",
-            "name": ""
+            "keys": "f20"
         },
         {
-            "command":
-            {
-                "action": "globalSummon",
-                "desktop": "any",
-                "monitor": "any",
-                "name": "nvim-win"
-            },
-            "keys": "f21",
-            "name": ""
-        },
-        {
-            "command":
+            "command": 
             {
                 "action": "sendInput",
                 "input": "\u001b[27;5;46~"
             },
-            "keys": "ctrl+period",
-            "name": ""
+            "keys": "ctrl+period"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "down"
             },
-            "keys": "alt+shift+down",
-            "name": ""
+            "keys": "alt+shift+down"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "left"
             },
-            "keys": "alt+shift+left",
-            "name": ""
+            "keys": "alt+shift+left"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "right"
             },
-            "keys": "alt+l",
-            "name": ""
+            "keys": "alt+l"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "left"
             },
-            "keys": "alt+h",
-            "name": ""
+            "keys": "alt+h"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "splitPane",
                 "split": "auto",
                 "splitMode": "duplicate"
             },
-            "keys": "alt+shift+d",
-            "name": ""
+            "keys": "alt+shift+d"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "sendInput",
                 "input": "\u001b[27;2;9~"
             },
-            "keys": "shift+tab",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;5;44~"
-            },
-            "keys": "ctrl+comma",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;5;47~"
-            },
-            "keys": "ctrl+/",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;5;13~"
-            },
-            "keys": "ctrl+enter",
-            "name": ""
-        },
-        {
-            "command":
-            {
-                "action": "sendInput",
-                "input": "\u001b[27;5;9~"
-            },
-            "keys": "ctrl+tab",
-            "name": ""
+            "keys": "shift+tab"
         },
         {
             "command": "toggleShaderEffects",
-            "keys": "win+`",
-            "name": ""
+            "keys": "win+`"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "moveFocus",
                 "direction": "down"
             },
-            "keys": "alt+j",
-            "name": ""
+            "keys": "alt+j"
         },
         {
-            "command":
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[27;5;44~"
+            },
+            "keys": "ctrl+comma"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[27;5;47~"
+            },
+            "keys": "ctrl+/"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[27;5;13~"
+            },
+            "keys": "ctrl+enter"
+        },
+        {
+            "command": 
+            {
+                "action": "sendInput",
+                "input": "\u001b[27;5;9~"
+            },
+            "keys": "ctrl+tab"
+        },
+        {
+            "command": 
             {
                 "action": "openSettings",
                 "target": "settingsUI"
             },
-            "keys": "ctrl+shift+s",
-            "name": ""
+            "keys": "ctrl+shift+s"
         },
         {
             "command": "closePane",
-            "keys": "ctrl+shift+comma",
-            "name": ""
+            "keys": "ctrl+shift+comma"
         },
         {
-            "command":
+            "command": 
             {
                 "action": "resizePane",
                 "direction": "right"
             },
-            "keys": "alt+shift+right",
-            "name": ""
+            "keys": "alt+shift+right"
         }
     ],
     "alwaysShowTabs": false,
@@ -246,7 +235,7 @@
     "copyOnSelect": false,
     "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
     "disableAnimations": true,
-    "disabledProfileSources":
+    "disabledProfileSources": 
     [
         "Windows.Terminal.Wsl",
         "Windows.Terminal.Azure",
@@ -258,9 +247,9 @@
     "largePasteWarning": false,
     "launchMode": "focus",
     "multiLinePasteWarning": false,
-    "profiles":
+    "profiles": 
     {
-        "defaults":
+        "defaults": 
         {
             "acrylicOpacity": 0.75,
             "altGrAliasing": false,
@@ -268,20 +257,16 @@
             "bellStyle": "none",
             "colorScheme": "Oceanic Next",
             "cursorShape": "emptyBox",
-            "font":
+            "font": 
             {
                 "face": "FiraCode NF"
             },
             "intenseTextStyle": "bold",
             "padding": "2",
             "scrollbarState": "hidden",
-            "unfocusedAppearance":
-            {
-                "experimental.retroTerminalEffect": true
-            },
             "useAcrylic": true
         },
-        "list":
+        "list": 
         [
             {
                 "commandline": "wsl ~",
@@ -313,7 +298,7 @@
             }
         ]
     },
-    "schemes":
+    "schemes": 
     [
         {
             "background": "#000000",
