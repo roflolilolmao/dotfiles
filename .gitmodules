@@ -35,9 +35,9 @@
     path = nvim/pack/plugins/start/nvim-ts-context-commentstring
     url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring.git
 
-[submodule "nvim-fixity"]
-    path = nvim/pack/plugins/start/nvim-fixity
-    url = git@github.com:roflolilolmao/nvim-fixity
+[submodule "fixity"]
+    path = nvim/pack/plugins/start/fixity.nvim
+    url = https://github.com/roflolilolmao/fixity.nvim
 [submodule "vim-fugitive"]
     path = nvim/pack/plugins/start/vim-fugitive
     url = https://github.com/tpope/vim-fugitive
@@ -81,9 +81,9 @@
     path = nvim/pack/plugins/start/zen-mode.nvim
     url = https://github.com/folke/zen-mode.nvim.git
 
-[submodule "oceanic-next-nvim"]
-    path = nvim/pack/plugins/start/oceanic-next-nvim
-    url = https://github.com/roflolilolmao/oceanic-next-nvim
+[submodule "oceanic-next"]
+    path = nvim/pack/plugins/start/oceanic-next.nvim
+    url = https://github.com/roflolilolmao/oceanic-next.nvim
 [submodule "lualine"]
     path = nvim/pack/plugins/start/lualine.nvim
     url = https://github.com/shadmansaleh/lualine.nvim.git
@@ -101,8 +101,8 @@
     path = nvim/pack/plugins/start/impatient.nvim
     url = https://github.com/lewis6991/impatient.nvim
 [submodule "repeat"]
-	path = nvim/pack/plugins/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat
+    path = nvim/pack/plugins/start/vim-repeat
+    url = https://github.com/tpope/vim-repeat
 [submodule "sandwich"]
-	path = nvim/pack/plugins/start/vim-sandwich
-	url = https://github.com/machakann/vim-sandwich
+    path = nvim/pack/plugins/start/vim-sandwich
+    url = https://github.com/machakann/vim-sandwich
