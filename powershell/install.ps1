@@ -2,22 +2,31 @@ $uri = "https://github.com/sileshn/ManjaroWSL/releases/download/20210830/Manjaro
 $zip = "$Home/manjaro.zip"
 $destination = "$Home/manjaro-wsl"
 
-Invoke-WebRequest -Uri $uri -OutFile $zip
+# .net thingy
+(New-Object System.Net.WebClient).DownloadFile($url, $destination)
 Expand-Archive $zip -DestinationPath $destination
 rm $zip
 
 cd $destination
 
-$user = q
-$name = salut
+$user = "q"
+$name = "salut"
+$cmd = ".\$name.exe"
 
-mv .\Manjaro.exe $name.exe
+mv .\"Manjaro.exe" "$name.exe"
 
-.\$name.exe
-.\$name.exe run passwd
-.\$name.exe run useradd -m -G wheel -s /bin/bash $user
-.\$name.exe run passwd $user
+& $cmd
+& $cmd run passwd
+& $cmd run useradd -m -G wheel -s /bin/bash $user
+& $cmd run passwd $user
 
-.\$name.exe config --append-path false
-.\$name.exe config --default-user $user
-.\$name.exe config --default-term wt
+& $cmd config --append-path false
+& $cmd config --default-user $user
+& $cmd config --default-term wt
+
+wsl -d $name -- sh -c '
+cd ~
+git clone --recurse https://github.com/roflolilolmao/dotfiles
+cd dotfiles
+make first_install
+'
