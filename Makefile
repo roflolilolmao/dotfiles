@@ -164,15 +164,17 @@ $(LOCAL_BIN)/win32yank.exe: | /usr/sbin/unzip $(LOCAL_BIN)
 	chmod +x /tmp/win32yank.exe
 	mv /tmp/win32yank.exe $(LOCAL_BIN)/
 
-$(FZF_NATIVE_PATH)/build/libfzf.so:
-	cd $(FZF_NATIVE_PATH) && $(MAKE)
+$(FZF_NATIVE_PATH)/build/libfzf.so: .git/modules/telescope-fzf-native/index
+	cd $(FZF_NATIVE_PATH) && $(MAKE) clean && $(MAKE)
 
 $(LOCAL_BIN)/neuron: | $(LOCAL_BIN)/pip
 	python download_latest_github_release.py srid/neuron neuron
 	chmod u+x $@
 
-zsh/plugins/fzf/bin/fzf: | $(LINKS)
+zsh/plugins/fzf/bin/fzf: .git/modules/fzf/index | $(LINKS)
+	rm $@
 	zsh/plugins/fzf/install --bin
+	touch $@
 
 force: ;
 .PHONY: upgrade neovim submodules cargo yay all neovimclean
