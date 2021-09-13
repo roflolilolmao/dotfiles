@@ -28,7 +28,7 @@ Q.m('<C-CR>', '<C-o>o', 'i')
 Q.m('<S-CR>', '<C-o>O', 'i')
 
 Q.m('<Leader>w', '<Cmd>set wrap!<CR>')
-Q.m('<Leader><Esc>', [[<C-\><C-n>]], 't')
+Q.m('<Leader>`', [[<C-\><C-n>]], 't')
 
 Q.m('gx', [[<Cmd>silent! !$BROWSER <cWORD><CR>]])
 
