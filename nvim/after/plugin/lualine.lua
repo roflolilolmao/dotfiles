@@ -33,7 +33,7 @@ require('lualine').setup {
     lualine_a = {
       {
         'mode',
-        left_padding = 4,
+        padding = { left = 4 },
       },
     },
     lualine_b = empty,
@@ -43,9 +43,11 @@ require('lualine').setup {
       },
       {
         'diff',
-        color_modified = { fg = '#ffffff' },
-        color_added = { fg = '#00ff00' },
-        color_removed = { fg = '#ff0000' },
+        diff_color = {
+          modified = { fg = '#ffffff' },
+          added = { fg = '#00ff00' },
+          removed = { fg = '#ff0000' },
+        },
       },
     },
     lualine_x = {
@@ -57,7 +59,7 @@ require('lualine').setup {
           warn = Q.lsp_signs.Warning,
           hint = Q.lsp_signs.Hint,
           info = Q.lsp_signs.Information,
-        }
+        },
       },
       {
         'filename',
@@ -73,7 +75,7 @@ require('lualine').setup {
     lualine_z = {
       {
         'encoding',
-        right_padding = 0,
+        padding = { right = 0 },
         separator = '',
       },
       {
@@ -86,7 +88,7 @@ require('lualine').setup {
     lualine_b = empty,
     lualine_c = {
       {
-        left_padding = 11,
+        padding = { left = 11 },
         'branch',
       },
     },
@@ -108,7 +110,7 @@ require('lualine').setup {
         -- empty components are ignored, an empty string will force lualine to
         -- use the padding regardless of the presence of a file type or not
         '" "',
-        right_padding = 7,
+        padding = { right = 7 },
       },
     },
   },

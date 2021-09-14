@@ -73,6 +73,7 @@ neovim: $(NEOVIM_INSTALL_PREFIX)/.installed_nvim
 
 neovimclean:
 	cd $(NEOVIM_DIR) && $(MAKE) distclean
+	rm $(NEOVIM_INSTALL_PREFIX)/.installed_nvim
 
 $(NEOVIM_INSTALL_PREFIX)/.installed_nvim: $(NEOVIM_DIR)/.git/index | $(LOCAL)
 	cd $(NEOVIM_DIR) \
