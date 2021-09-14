@@ -11,8 +11,8 @@ local dirs = {
   d = home .. 'dev',
   t = home .. 'dev/tree-sitter-markdown',
   v = home .. 'dev/Valo',
-  o = config .. 'pack/plugins/start/oceanic-next-nvim',
-  g = config .. 'pack/plugins/start/nvim-fixity',
+  o = config .. 'pack/plugins/start/oceanic-next.nvim',
+  g = config .. 'pack/plugins/start/fixity.nvim',
 }
 
 Q.change_directory = function(directory)

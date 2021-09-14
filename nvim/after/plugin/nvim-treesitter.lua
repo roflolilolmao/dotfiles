@@ -22,6 +22,8 @@ require('nvim-treesitter.configs').setup {
         ['ic'] = '@class.inner',
         ['ai'] = '@call.outer',
         ['ii'] = '@call.inner',
+        ['al'] = '@loop.outer',
+        ['il'] = '@loop.inner',
       },
     },
     swap = {
@@ -31,12 +33,14 @@ require('nvim-treesitter.configs').setup {
         ['<Leader>sf'] = '@function.outer',
         ['<Leader>sc'] = '@class.outer',
         ['<Leader>si'] = '@call.outer',
+        ['<Leader>sl'] = '@loop.outer',
       },
       swap_previous = {
         ['<Leader>Sa'] = '@parameter.inner',
         ['<Leader>Sf'] = '@function.outer',
         ['<Leader>Sc'] = '@class.outer',
         ['<Leader>Si'] = '@call.outer',
+        ['<Leader>Sl'] = '@loop.outer',
       },
     },
   },

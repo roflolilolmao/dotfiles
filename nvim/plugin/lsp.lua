@@ -4,7 +4,7 @@ Q.lsp = {
   ),
 
   flags = {
-    debounce_text_changes = 250,
+    debounce_text_changes = 500,
   },
 
   on_attach = function(_, bufnr)
