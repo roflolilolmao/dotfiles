@@ -77,8 +77,8 @@ neovimclean:
 
 $(NEOVIM_INSTALL_PREFIX)/.installed_nvim: $(NEOVIM_DIR)/.git/index | $(LOCAL)
 	cd $(NEOVIM_DIR) \
-    && $(MAKE) -s $(NEOVIM_FLAGS) nvim > /dev/null \
-    && $(MAKE) -s install > /dev/null
+    && $(MAKE) -s $(NEOVIM_FLAGS) nvim \
+    && $(MAKE) -s install
 	-@cd $(NEOVIM_DIR) && git log "@{1}.." --oneline --no-decorate
 	@touch $@
 

@@ -33,7 +33,7 @@ require('lualine').setup {
     lualine_a = {
       {
         'mode',
-        padding = { left = 4 },
+        padding = { left = 4, right = 1 },
       },
     },
     lualine_b = empty,
@@ -75,7 +75,7 @@ require('lualine').setup {
     lualine_z = {
       {
         'encoding',
-        padding = { right = 0 },
+        padding = { right = 0, left = 1 },
         separator = '',
       },
       {
@@ -88,8 +88,8 @@ require('lualine').setup {
     lualine_b = empty,
     lualine_c = {
       {
-        padding = { left = 11 },
         'branch',
+        padding = { left = 11, right = 1 },
       },
     },
     lualine_x = {
@@ -110,7 +110,7 @@ require('lualine').setup {
         -- empty components are ignored, an empty string will force lualine to
         -- use the padding regardless of the presence of a file type or not
         '" "',
-        padding = { right = 7 },
+        padding = { right = 7, left = 1 },
       },
     },
   },
