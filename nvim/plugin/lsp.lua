@@ -7,6 +7,13 @@ Q.lsp = {
     debounce_text_changes = 500,
   },
 
+  signs = {
+    Error = '💯',
+    Warn = '🚭',
+    Info = '🚮',
+    Hint = '⁉',
+  },
+
   on_attach = function(_, bufnr)
     local opts = { noremap = true, silent = true }
 
@@ -22,6 +29,11 @@ Q.lsp = {
         string.format([[<Cmd>lua vim.lsp.%s(%s)<CR>]], func, args or ''),
         opts
       )
+    end
+
+    for type, icon in pairs(Q.lsp.signs) do
+      local hl = 'DiagnosticSign' .. type
+      vim.fn.sign_define(hl, { text = icon, numhl = '' })
     end
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -88,18 +100,6 @@ local icons = {
 local kinds = vim.lsp.protocol.CompletionItemKind
 for i, kind in ipairs(kinds) do
   kinds[i] = icons[kind] or kind
-end
-
-Q.lsp_signs = {
-  Error = '💯',
-  Warning = '🚭',
-  Hint = '⁉',
-  Information = '🚮',
-}
-
-for type, icon in pairs(Q.lsp_signs) do
-  local hl = 'LspDiagnosticsSign' .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(

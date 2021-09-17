@@ -8,7 +8,7 @@ vim.opt.modeline = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.gdefault = true
-vim.opt.shortmess:append 'c'
+vim.opt.shortmess:append 'a'
 vim.opt.shortmess:remove { 't', 'T' }
 vim.opt.backspace = { 'indent', 'eol', 'start' }
 
@@ -23,7 +23,7 @@ vim.opt.linebreak = true
 vim.opt.showbreak = ' ↳ '
 
 vim.opt.textwidth = 79
-vim.opt.formatoptions = vim.opt.formatoptions - 't' + 'r' + 'n' + '1' + 'p'
+vim.opt.formatoptions = 'jnq1rc'
 
 vim.opt.spelllang = 'en'
 
@@ -53,13 +53,11 @@ vim.opt.listchars = { -- '‹ ›⊳⋙⨌⨞⨠⩥⩤⨵⨴⪢⫸⫷⇶◁▷',
   conceal = '◌',
 }
 
-vim.opt.inccommand = 'nosplit'
 vim.opt.incsearch = true
 
 vim.opt.completeopt = {
   'menu',
   'menuone',
-  'noselect',
 }
 
 vim.opt.path:append '**'

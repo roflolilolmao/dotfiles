@@ -55,10 +55,10 @@ require('lualine').setup {
         'diagnostics',
         sources = { 'nvim_lsp' },
         symbols = {
-          error = Q.lsp_signs.Error,
-          warn = Q.lsp_signs.Warning,
-          hint = Q.lsp_signs.Hint,
-          info = Q.lsp_signs.Information,
+          error = Q.lsp.signs.Error,
+          warn = Q.lsp.signs.Warn,
+          info = Q.lsp.signs.Info,
+          hint = Q.lsp.signs.Hint,
         },
       },
       {

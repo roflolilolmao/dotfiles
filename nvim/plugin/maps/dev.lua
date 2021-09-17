@@ -1,14 +1,14 @@
 Q.get_highlight = function()
   -- TODO: this doesn't seem to work with tree-sitter highlighting
 
-  local id = vim.fn.synID(vim.fn.line '.', vim.fn.col '.', 1)
-  local highlight = (
+  for i, id in pairs(vim.fn.synstack(vim.fn.line '.', vim.fn.col '.')) do
+    local highlight = (
       vim.fn.synIDattr(id, 'name')
       .. ' -> '
       .. vim.fn.synIDattr(vim.fn.synIDtrans(id), 'name')
     )
-  Q.dump(highlight)
-  return highlight
+    Q.dump(i, highlight)
+  end
 end
 
 Q.m('<Leader>,', [[<Cmd>call fixity#dev()<CR>]])
