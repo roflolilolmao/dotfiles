@@ -5,7 +5,7 @@ vim.opt.shada = { '!', "'1000", '<50', 's10', 'h' }
 vim.opt.updatetime = 200
 vim.opt.modeline = false
 
-vim.opt.grepprg = 'rg --vimgrep --no-heading'
+vim.opt.grepprg = 'rg --vimgrep'
 vim.opt.grepformat = '%f:%l:%c:%m,%f:%l:%m'
 
 vim.opt.keywordprg = ':help'
@@ -33,8 +33,6 @@ vim.opt.formatoptions = 'jnq1rc'
 vim.opt.spelllang = 'en'
 
 vim.opt.signcolumn = 'yes'
-
-vim.opt.foldmethod = 'syntax'
 
 vim.opt.wrapmargin = 0
 vim.opt.wrap = false
