@@ -21,6 +21,7 @@
 [submodule "telescope"]
     path = nvim/pack/plugins/start/telescope.nvim
     url = https://github.com/nvim-telescope/telescope.nvim
+    update = rebase
 [submodule "telescope-fzf-native"]
     path = nvim/pack/plugins/start/telescope-fzf-native.nvim
     url = https://github.com/nvim-telescope/telescope-fzf-native.nvim.git
@@ -38,6 +39,7 @@
 [submodule "fixity"]
     path = nvim/pack/plugins/start/fixity.nvim
     url = https://github.com/roflolilolmao/fixity.nvim
+    update = rebase
 [submodule "vim-fugitive"]
     path = nvim/pack/plugins/start/vim-fugitive
     url = https://github.com/tpope/vim-fugitive

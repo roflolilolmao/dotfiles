@@ -3,6 +3,13 @@ LOCAL_BIN := $(LOCAL)/bin
 DEV_DIR := $(HOME)/dev
 HERE := $(shell pwd)
 
+SM_NAMES := $(shell git submodule --quiet foreach 'printf "$$name "')
+SM_INDEXES := $(foreach name,$(SM_NAMES),.git/modules/$(name)/index)
+module_path = $(shell git config -f .gitmodules --get submodule.$1.path)
+module_paths = $(foreach name,$1,$(call module_path,$(name)))
+
+FZF_NATIVE_PATH := $(call module_path,telescope-fzf-native)
+
 NEOVIM_DIR := $(DEV_DIR)/neovim
 NEOVIM_INSTALL_PREFIX := $(LOCAL)
 NEOVIM_FLAGS := -j32
@@ -142,13 +149,6 @@ $(LOCAL_BIN)/neuron: | $(LOCAL_BIN)/pip
 	python download_latest_github_release.py srid/neuron neuron
 	chmod u+x $@
 
-SM_NAMES := $(shell git submodule --quiet foreach 'printf "$$name "')
-SM_INDEXES := $(foreach name,$(SM_NAMES),.git/modules/$(name)/index)
-module_path = $(shell git config -f .gitmodules --get submodule.$1.path)
-module_paths = $(foreach name,$1,$(call module_path,$(name)))
-
-FZF_NATIVE_PATH := $(call module_path,telescope-fzf-native)
-
 submodules: .make/changes
 
 .make/changes: COMMIT := $(shell mktemp)
@@ -164,7 +164,7 @@ submodules: .make/changes
 	@touch $@
 
 .git/modules/%/index: force
-	@git submodule update --remote $(call module_path,$*)
+	git submodule update --remote $(call module_path,$*)
 
 $(FZF_NATIVE_PATH)/build/libfzf.so: .git/modules/telescope-fzf-native/index
 	cd $(FZF_NATIVE_PATH) && $(MAKE) clean && $(MAKE)
