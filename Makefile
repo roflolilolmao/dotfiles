@@ -9,32 +9,9 @@ NEOVIM_FLAGS := -j32
 NEOVIM_FLAGS += CMAKE_BUILD_TYPE=Release
 NEOVIM_FLAGS += CMAKE_INSTALL_PREFIX=$(NEOVIM_INSTALL_PREFIX)
 
-SM_NAMES := $(shell git submodule --quiet foreach 'printf "$$name "')
-SM_INDEXES := $(foreach name,$(SM_NAMES),.git/modules/$(name)/index)
-module_path = $(shell git config -f .gitmodules --get submodule.$1.path)
-module_paths = $(foreach name,$1,$(call module_path,$(name)))
+CARGO_BIN := $(HOME)/.cargo/bin
 
-FZF_NATIVE_PATH := $(call module_path,telescope-fzf-native)
-
-CARGO_BIN = $(HOME)/.cargo/bin
-
-define CARGO_template =
-CARGO_PROGRAMS += $$(CARGO_BIN)/$1
-$$(CARGO_BIN)/$1: force | $$(CARGO_BIN)/cargo
-	@cargo install $2
-endef
-
-CARGO_BINARIES := \
-    rg,ripgrep \
-    delta,git-delta \
-    fd,fd-find \
-    lsd,lsd \
-    bat,bat \
-    stylua,stylua \
-    fnm,fnm
-
-$(foreach pair,$(CARGO_BINARIES),$($(eval $($(call CARGO_template,$(pair))))))
-
+CARGO_PROGRAMS := $(addprefix $(CARGO_BIN)/,rg delta fd lsd bat stylua fnm)
 PYTHON := $(addprefix $(LOCAL_BIN)/,pip pipx pipenv)
 PIPX := $(addprefix $(LOCAL_BIN)/,jedi-language-server black isort flake8)
 
@@ -69,6 +46,12 @@ all: \
 
 upgrade: yay submodules neovim
 
+$(DEV_DIR) .make $(LOCAL_BIN):
+	mkdir -p $@
+
+yay: /usr/sbin/yay
+	yay -Syu --noconfirm
+
 neovim: $(NEOVIM_INSTALL_PREFIX)/.installed_nvim
 
 neovimclean:
@@ -88,33 +71,23 @@ $(NEOVIM_DIR)/.git/index: force | $(NEOVIM_DIR)
 $(NEOVIM_DIR): | $(DEV_DIR)
 	cd $(DEV_DIR) && git clone https://github.com/neovim/neovim
 
-$(DEV_DIR) .make $(LOCAL_BIN):
-	mkdir -p $@
-
-submodules: .make/changes
-
-.make/changes: COMMIT := $(shell mktemp)
-.make/changes: $(SM_INDEXES) | .make
-	@echo "Automated submodules update." > $(COMMIT)
-	@echo "" >> $(COMMIT)
-	@git submodule summary >> $(COMMIT)
-	-git commit \
-        -F $(COMMIT) \
-        $(call module_paths,$(patsubst .git/modules/%/index,%,$?)) \
-        > /dev/null \
-    && git show --no-patch
-	@touch $@
-
-.git/modules/%/index: force
-	@git submodule update --remote $(call module_path,$*)
-
-yay: /usr/sbin/yay
-	yay -Syu --noconfirm
-
 cargo: $(CARGO_PROGRAMS)
 
 $(CARGO_BIN)/cargo:
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
+define CARGO_template =
+$(CARGO_BIN)/$(1): force | $(CARGO_BIN)/cargo
+	@cargo install $(2)
+endef
+
+$(eval $(call CARGO_template,rg,ripgrep))
+$(eval $(call CARGO_template,delta,git-delta))
+$(eval $(call CARGO_template,fd,fd-find))
+$(eval $(call CARGO_template,lsd,lsd))
+$(eval $(call CARGO_template,bat,bat))
+$(eval $(call CARGO_template,stylua,stylua))
+$(eval $(call CARGO_template,fnm,fnm))
 
 $(LOCAL_BIN)/pip: | $(LOCAL_BIN)
 	python -m ensurepip
@@ -165,12 +138,36 @@ $(LOCAL_BIN)/win32yank.exe: | /usr/sbin/unzip $(LOCAL_BIN)
 	chmod +x /tmp/win32yank.exe
 	mv /tmp/win32yank.exe $(LOCAL_BIN)/
 
-$(FZF_NATIVE_PATH)/build/libfzf.so: .git/modules/telescope-fzf-native/index
-	cd $(FZF_NATIVE_PATH) && $(MAKE) clean && $(MAKE)
-
 $(LOCAL_BIN)/neuron: | $(LOCAL_BIN)/pip
 	python download_latest_github_release.py srid/neuron neuron
 	chmod u+x $@
+
+SM_NAMES := $(shell git submodule --quiet foreach 'printf "$$name "')
+SM_INDEXES := $(foreach name,$(SM_NAMES),.git/modules/$(name)/index)
+module_path = $(shell git config -f .gitmodules --get submodule.$1.path)
+module_paths = $(foreach name,$1,$(call module_path,$(name)))
+
+FZF_NATIVE_PATH := $(call module_path,telescope-fzf-native)
+
+submodules: .make/changes
+
+.make/changes: COMMIT := $(shell mktemp)
+.make/changes: $(SM_INDEXES) | .make
+	@echo "Automated submodules update." > $(COMMIT)
+	@echo "" >> $(COMMIT)
+	@git submodule summary >> $(COMMIT)
+	-git commit \
+        -F $(COMMIT) \
+        $(call module_paths,$(patsubst .git/modules/%/index,%,$?)) \
+        > /dev/null \
+    && git show --no-patch
+	@touch $@
+
+.git/modules/%/index: force
+	@git submodule update --remote $(call module_path,$*)
+
+$(FZF_NATIVE_PATH)/build/libfzf.so: .git/modules/telescope-fzf-native/index
+	cd $(FZF_NATIVE_PATH) && $(MAKE) clean && $(MAKE)
 
 zsh/plugins/fzf/bin/fzf: .git/modules/fzf/index | $(LINKS)
 	rm $@

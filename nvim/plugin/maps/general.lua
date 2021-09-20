@@ -47,3 +47,6 @@ Q.m(
   'n',
   { expr = true, silent = true }
 )
+
+vim.cmd('silent! iunmap <C-u>')
+vim.cmd('silent! iunmap <C-w>')

@@ -18,6 +18,7 @@ local empty = { { '" "', padding = 0 } }
 
 require('lualine').setup {
   options = {
+    disabled_filetypes = {'fixity'},
     theme = oceanic_next,
   },
   extensions = {
@@ -33,7 +34,7 @@ require('lualine').setup {
     lualine_a = {
       {
         'mode',
-        padding = { left = 4, right = 1 },
+        padding = { left = 1, right = 1 },
       },
     },
     lualine_b = empty,
@@ -53,7 +54,7 @@ require('lualine').setup {
     lualine_x = {
       {
         'diagnostics',
-        sources = { 'nvim_lsp' },
+        sources = { 'nvim' },
         symbols = {
           error = Q.lsp.signs.Error,
           warn = Q.lsp.signs.Warn,
