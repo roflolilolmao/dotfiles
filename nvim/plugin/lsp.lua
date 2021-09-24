@@ -14,26 +14,20 @@ Q.lsp = {
     Hint = '⁉',
   },
 
+  show_line_diagnostics = function()
+    vim.diagnostic.show_line_diagnostics({border = Q.border, focusable = false})
+  end,
+
   on_attach = function(_, bufnr)
-    local opts = { noremap = true, silent = true }
-
-    local function buf_map(map, func, mode, args)
-      if args then
-        args = vim.inspect(args or {}, { newline = '', indent = '' })
-      end
-
+    local function buf_map(map, func, args, mode)
+      args = vim.inspect(args or {}, { newline = '', indent = '' })
       vim.api.nvim_buf_set_keymap(
         bufnr,
         mode or 'n',
         map,
-        string.format([[<Cmd>lua vim.lsp.%s(%s)<CR>]], func, args or ''),
-        opts
+        string.format([[<Cmd>lua %s(%s)<CR>]], func, args or ''),
+        { noremap = true, silent = true }
       )
-    end
-
-    for type, icon in pairs(Q.lsp.signs) do
-      local hl = 'DiagnosticSign' .. type
-      vim.fn.sign_define(hl, { text = icon, numhl = '' })
     end
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -49,26 +43,22 @@ Q.lsp = {
     -- vim.lsp.buf.workspace_symbol
     -- vim.lsp.buf.code_action
 
-    buf_map('<C-k>', 'buf.signature_help', 'i')
-    buf_map('K', 'buf.signature_help')
-    buf_map('X', 'buf.hover')
+    buf_map('<C-k>', 'vim.lsp.buf.signature_help', nil, 'i')
+    buf_map('K', 'vim.lsp.buf.signature_help')
+    buf_map('X', 'vim.lsp.buf.hover')
 
-    buf_map('<Leader>dwa', 'buf.add_workspace_folder')
-    buf_map('<Leader>dwr', 'buf.remove_workspace_folder')
+    buf_map('<Leader>dwa', 'vim.lsp.buf.add_workspace_folder')
+    buf_map('<Leader>dwr', 'vim.lsp.buf.remove_workspace_folder')
     --buf_map('<Leader>dwl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
-    buf_map('<Leader>df', 'buf.formatting')
-    buf_map(
-      '<Leader>de',
-      'diagnostic.show_line_diagnostics',
-      'n',
-      { border = Q.border }
-    )
-    buf_map('<Leader>dn', 'diagnostic.goto_next')
-    buf_map('<Leader>dp', 'diagnostic.goto_prev')
+    buf_map('<Leader>df', 'vim.lsp.buf.formatting')
+    buf_map('<F2>', 'vim.lsp.buf.rename')
 
-    buf_map('<F2>', 'buf.rename')
-    buf_map('<Leader>q', 'diagnostic.set_loclist')
+    local opts = {border = Q.border, focusable = false}
+    buf_map('<Leader>de', 'Q.lsp.show_line_diagnostics', opts)
+    buf_map('<Leader>dn', 'vim.lsp.diagnostic.goto_next', {popup_opts = opts})
+    buf_map('<Leader>dp', 'vim.lsp.diagnostic.goto_prev', {popup_opts = opts})
+    buf_map('<Leader>dq', 'vim.lsp.diagnostic.set_loclist')
   end,
 }
 
@@ -102,6 +92,11 @@ for i, kind in ipairs(kinds) do
   kinds[i] = icons[kind] or kind
 end
 
+for type, icon in pairs(Q.lsp.signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, numhl = '' })
+end
+
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover,
   { border = Q.border }
@@ -118,6 +113,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   {
     virtual_text = false,
     severity_sort = true,
-    underline = false,
+    underline = true,
   }
 )
