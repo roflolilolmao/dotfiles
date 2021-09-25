@@ -40,9 +40,6 @@
     path = nvim/pack/plugins/start/fixity.nvim
     url = https://github.com/roflolilolmao/fixity.nvim
     update = rebase
-[submodule "vim-fugitive"]
-    path = nvim/pack/plugins/start/vim-fugitive
-    url = https://github.com/tpope/vim-fugitive
 [submodule "gitsigns"]
     path = nvim/pack/plugins/start/gitsigns.nvim
     url = https://github.com/lewis6991/gitsigns.nvim.git
