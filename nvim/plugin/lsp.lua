@@ -20,7 +20,10 @@ Q.lsp = {
 
   on_attach = function(_, bufnr)
     local function buf_map(map, func, args, mode)
-      args = vim.inspect(args or {}, { newline = '', indent = '' })
+      if args then
+        args = vim.inspect(args, { newline = '', indent = '' })
+      end
+
       vim.api.nvim_buf_set_keymap(
         bufnr,
         mode or 'n',
