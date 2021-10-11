@@ -1,3 +1,5 @@
+local float_opts = {border = Q.border, focusable = false}
+
 Q.lsp = {
   capabilities = require('cmp_nvim_lsp').update_capabilities(
     vim.lsp.protocol.make_client_capabilities()
@@ -15,7 +17,7 @@ Q.lsp = {
   },
 
   show_line_diagnostics = function()
-    vim.diagnostic.show_line_diagnostics({border = Q.border, focusable = false})
+    vim.diagnostic.show_line_diagnostics(float_opts)
   end,
 
   on_attach = function(_, bufnr)
@@ -57,10 +59,9 @@ Q.lsp = {
     buf_map('<Leader>df', 'vim.lsp.buf.formatting')
     buf_map('<F2>', 'vim.lsp.buf.rename')
 
-    local opts = {border = Q.border, focusable = false}
-    buf_map('<Leader>de', 'Q.lsp.show_line_diagnostics', opts)
-    buf_map('<Leader>dn', 'vim.lsp.diagnostic.goto_next', {popup_opts = opts})
-    buf_map('<Leader>dp', 'vim.lsp.diagnostic.goto_prev', {popup_opts = opts})
+    buf_map('<Leader>de', 'Q.lsp.show_line_diagnostics', float_opts)
+    buf_map('<Leader>dn', 'vim.lsp.diagnostic.goto_next', {popup_opts = float_opts})
+    buf_map('<Leader>dp', 'vim.lsp.diagnostic.goto_prev', {popup_opts = float_opts})
     buf_map('<Leader>dq', 'vim.lsp.diagnostic.set_loclist')
   end,
 }
@@ -102,12 +103,12 @@ end
 
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
   vim.lsp.handlers.hover,
-  { border = Q.border }
+  float_opts
 )
 
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   vim.lsp.handlers.signature_help,
-  { border = Q.border }
+  float_opts
 )
 
 -- Show diagnostics source
