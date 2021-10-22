@@ -85,7 +85,7 @@
     url = https://github.com/roflolilolmao/oceanic-next.nvim
 [submodule "lualine"]
     path = nvim/pack/plugins/start/lualine.nvim
-    url = https://github.com/shadmansaleh/lualine.nvim.git
+    url = https://github.com/nvim-lualine/lualine.nvim
 [submodule "nvim-web-devicons"]
     path = nvim/pack/plugins/start/nvim-web-devicons
     url = https://github.com/kyazdani42/nvim-web-devicons.git

@@ -16,10 +16,6 @@ Q.lsp = {
     Hint = '⁉',
   },
 
-  show_line_diagnostics = function()
-    vim.diagnostic.show_line_diagnostics(float_opts)
-  end,
-
   on_attach = function(_, bufnr)
     local function buf_map(map, func, args, mode)
       if args then
@@ -59,10 +55,10 @@ Q.lsp = {
     buf_map('<Leader>df', 'vim.lsp.buf.formatting')
     buf_map('<F2>', 'vim.lsp.buf.rename')
 
-    buf_map('<Leader>de', 'Q.lsp.show_line_diagnostics', float_opts)
-    buf_map('<Leader>dn', 'vim.lsp.diagnostic.goto_next', {popup_opts = float_opts})
-    buf_map('<Leader>dp', 'vim.lsp.diagnostic.goto_prev', {popup_opts = float_opts})
-    buf_map('<Leader>dq', 'vim.lsp.diagnostic.set_loclist')
+    buf_map('<Leader>de', 'vim.diagnostic.open_float')
+    buf_map('<Leader>dn', 'vim.diagnostic.goto_next')
+    buf_map('<Leader>dp', 'vim.diagnostic.goto_prev')
+    buf_map('<Leader>dq', 'vim.diagnostic.set_loclist')
   end,
 }
 
@@ -111,12 +107,9 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
   float_opts
 )
 
--- Show diagnostics source
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    virtual_text = false,
-    severity_sort = true,
-    underline = true,
-  }
-)
+vim.diagnostic.config {
+  virtual_text = false,
+  severity_sort = true,
+  float = float_opts,
+  source = true,
+}

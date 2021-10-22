@@ -1,4 +1,4 @@
-GIT_LOG_ALL='git log --color --graph --oneline --decorate --branches --remotes'
+GIT_LOG_ALL='git log --color --graph --oneline --decorate --branches --remotes HEAD'
 alias ggg="watch -c $GIT_LOG_ALL"
 alias gg=$GIT_LOG_ALL
 
