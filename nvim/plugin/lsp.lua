@@ -17,11 +17,7 @@ Q.lsp = {
   },
 
   on_attach = function(_, bufnr)
-    local function buf_map(map, func, args, mode)
-      if args then
-        args = vim.inspect(args, { newline = '', indent = '' })
-      end
-
+    local function buf_map(map, func, mode, args)
       vim.api.nvim_buf_set_keymap(
         bufnr,
         mode or 'n',
@@ -44,7 +40,7 @@ Q.lsp = {
     -- vim.lsp.buf.workspace_symbol
     -- vim.lsp.buf.code_action
 
-    buf_map('<C-k>', 'vim.lsp.buf.signature_help', nil, 'i')
+    buf_map('<C-k>', 'vim.lsp.buf.signature_help', 'i')
     buf_map('K', 'vim.lsp.buf.signature_help')
     buf_map('X', 'vim.lsp.buf.hover')
 
@@ -55,7 +51,7 @@ Q.lsp = {
     buf_map('<Leader>df', 'vim.lsp.buf.formatting')
     buf_map('<F2>', 'vim.lsp.buf.rename')
 
-    buf_map('<Leader>de', 'vim.diagnostic.open_float')
+    buf_map('<Leader>de', 'vim.diagnostic.open_float', nil, "nil, { scope = 'line' }")
     buf_map('<Leader>dn', 'vim.diagnostic.goto_next')
     buf_map('<Leader>dp', 'vim.diagnostic.goto_prev')
     buf_map('<Leader>dq', 'vim.diagnostic.set_loclist')

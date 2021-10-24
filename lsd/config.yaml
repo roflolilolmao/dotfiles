@@ -7,3 +7,4 @@ ignore-globs:
   - pack
   - plugins
   - node_modules
+  - target
