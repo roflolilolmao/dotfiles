@@ -109,3 +109,6 @@
 [submodule "sandwich"]
     path = nvim/pack/plugins/start/vim-sandwich
     url = https://github.com/machakann/vim-sandwich
+[submodule "nvim-tree"]
+	path = nvim/pack/plugins/start/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua
