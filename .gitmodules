@@ -47,6 +47,7 @@
 [submodule "nvim-lspconfig"]
     path = nvim/pack/plugins/start/nvim-lspconfig
     url = https://github.com/neovim/nvim-lspconfig
+    ignore = untracked
 [submodule "nvim-lspinstall"]
     path = nvim/pack/plugins/start/nvim-lspinstall
     url = https://github.com/kabouzeid/nvim-lspinstall
@@ -69,10 +70,12 @@
 [submodule "LuaSnip"]
     path = nvim/pack/plugins/start/LuaSnip
     url = https://github.com/L3MON4D3/LuaSnip.git
+    ignore = untracked
 
 [submodule "lightspeed"]
     path = nvim/pack/plugins/start/lightspeed.nvim
     url = https://github.com/ggandor/lightspeed.nvim.git
+    ignore = untracked
 [submodule "neuron"]
     path = nvim/pack/plugins/start/neuron.nvim
     url = https://github.com/oberblastmeister/neuron.nvim.git
@@ -92,6 +95,7 @@
 [submodule "nvim-colorizer.lua"]
     path = nvim/pack/plugins/start/nvim-colorizer.lua
     url = https://github.com/norcalli/nvim-colorizer.lua.git
+    ignore = untracked
 
 [submodule "vim-python-pep8-indent"]
     path = nvim/pack/plugins/start/vim-python-pep8-indent
