@@ -112,3 +112,12 @@
 [submodule "nvim-tree"]
 	path = nvim/pack/plugins/start/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "rust-tools"]
+	path = nvim/pack/plugins/start/rust-tools.nvim
+	url = https://github.com/simrat39/rust-tools.nvim
+[submodule "dap"]
+	path = nvim/pack/plugins/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule "dap-ui"]
+	path = nvim/pack/plugins/start/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
