@@ -58,5 +58,5 @@ Q.scratch = function()
   )
 end
 
-Q.m('<F6>', '<Cmd>lua Q.term()<CR>')
-Q.m('<F7>', '<Cmd>lua Q.scratch()<CR>')
+Q.m('<F1>', '<Cmd>lua Q.term()<CR>')
+Q.m('<F3>', '<Cmd>lua Q.scratch()<CR>')

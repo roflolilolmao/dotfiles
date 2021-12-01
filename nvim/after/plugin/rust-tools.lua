@@ -1,3 +1,6 @@
+vim.g.rust_recommended_style = 0
+vim.g.rustfmt_autosave = 1
+
 local lsp_config = vim.deepcopy(Q.lsp)
 
 lsp_config.settings = {

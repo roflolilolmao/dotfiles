@@ -32,6 +32,7 @@ PROGRAMS := \
     /usr/sbin/man \
     /usr/sbin/unzip \
     /usr/sbin/rust-analyzer \
+    /usr/sbin/lldb \
     $(LOCAL_BIN)/win32yank.exe \
     $(CARGO_BIN)/cargo \
     $(FZF_NATIVE_PATH)/build/libfzf.so \

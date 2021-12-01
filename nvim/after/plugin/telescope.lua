@@ -74,6 +74,9 @@ require('telescope').setup {
     builtin = require('telescope.themes').get_dropdown {
       previewer = false,
     },
+    find_files = {
+      hidden = true,
+    },
     lsp_code_actions = require('telescope.themes').get_cursor {},
     lsp_range_code_actions = require('telescope.themes').get_cursor {},
     buffers = {

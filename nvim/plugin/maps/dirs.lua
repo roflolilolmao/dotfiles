@@ -11,6 +11,7 @@ local dirs = {
   d = home .. 'dev',
   t = home .. 'dev/tree-sitter-markdown',
   v = home .. 'dev/Valo',
+  b = home .. 'dev/backend',
   o = config .. 'pack/plugins/start/oceanic-next.nvim',
   g = config .. 'pack/plugins/start/fixity.nvim',
 }

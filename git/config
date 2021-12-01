@@ -49,3 +49,5 @@
     submodulesummary = -1
 [submodule]
     fetchJobs = 32
+[credential]
+	helper = cache --timeout=86400

@@ -48,9 +48,6 @@
     path = nvim/pack/plugins/start/nvim-lspconfig
     url = https://github.com/neovim/nvim-lspconfig
     ignore = untracked
-[submodule "nvim-lspinstall"]
-    path = nvim/pack/plugins/start/nvim-lspinstall
-    url = https://github.com/kabouzeid/nvim-lspinstall
 [submodule "null-ls"]
     path = nvim/pack/plugins/start/null-ls.nvim
     url = https://github.com/jose-elias-alvarez/null-ls.nvim
@@ -121,3 +118,6 @@
 [submodule "dap-ui"]
 	path = nvim/pack/plugins/start/nvim-dap-ui
 	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "nvim-lsp-installer"]
+	path = nvim/pack/plugins/start/nvim-lsp-installer
+	url = https://github.com/williamboman/nvim-lsp-installer
