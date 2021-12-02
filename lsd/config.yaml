@@ -2,9 +2,5 @@
 
 ignore-globs:
   - .git
-  - undo
-  - swap
-  - pack
-  - plugins
   - node_modules
   - target

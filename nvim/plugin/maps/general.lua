@@ -3,6 +3,11 @@ Q.m('<C-j>', '<C-w><C-j>')
 Q.m('<C-k>', '<C-w><C-k>')
 Q.m('<C-l>', '<C-w><C-l>')
 
+Q.m('<C-Up>', '5<C-w>-')
+Q.m('<C-Down>', '5<C-w>+')
+Q.m('<C-Left>', '5<C-w>>')
+Q.m('<C-Right>', '5<C-w><')
+
 Q.m('<C-q>', '<C-w><C-q>')
 Q.m('<C-,>', '<Cmd>bd<CR>')
 
