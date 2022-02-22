@@ -1,6 +1,6 @@
 require('nvim-tree').setup {
   diagnostics = {
-    enable = true,
+    enable = false,
     icons = {
       error = Q.lsp.signs.Error,
       warn = Q.lsp.signs.Warn,

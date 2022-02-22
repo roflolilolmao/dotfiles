@@ -121,3 +121,6 @@
 [submodule "nvim-lsp-installer"]
 	path = nvim/pack/plugins/start/nvim-lsp-installer
 	url = https://github.com/williamboman/nvim-lsp-installer
+[submodule "darcula"]
+	path = nvim/pack/plugins/start/darcula
+	url = https://github.com/doums/darcula

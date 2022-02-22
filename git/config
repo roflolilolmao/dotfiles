@@ -4,6 +4,9 @@
 [user]
     email = qjeanmon@gmail.com
     name = roflolilolmao
+    signingkey = A01BD7A6E1A70F94
+[gpg]
+    program = gpg
 [core]
     autocrlf = input
     eol = lf
@@ -50,4 +53,4 @@
 [submodule]
     fetchJobs = 32
 [credential]
-	helper = cache --timeout=86400
+    helper = store

@@ -55,7 +55,7 @@ require('lualine').setup {
     lualine_x = {
       {
         'diagnostics',
-        sources = { 'nvim' },
+        sources = { 'nvim_diagnostic' },
         symbols = {
           error = Q.lsp.signs.Error,
           warn = Q.lsp.signs.Warn,

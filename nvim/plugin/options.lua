@@ -32,6 +32,8 @@ vim.opt.formatoptions = 'jnq1rc'
 
 vim.opt.spelllang = 'en'
 
+vim.opt.mouse = 'a'
+
 vim.opt.signcolumn = 'yes'
 
 vim.opt.wrapmargin = 0

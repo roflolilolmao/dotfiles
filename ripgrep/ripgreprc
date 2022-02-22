@@ -1,3 +1,5 @@
 --smart-case
 
 --no-require-git
+
+--glob=!*.map
