@@ -124,3 +124,6 @@
 [submodule "darcula"]
 	path = nvim/pack/plugins/start/darcula
 	url = https://github.com/doums/darcula
+[submodule "polyglot"]
+	path = nvim/pack/plugins/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
