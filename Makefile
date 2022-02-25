@@ -25,7 +25,8 @@ PIPX := $(addprefix $(LOCAL_BIN)/,jedi-language-server black isort flake8)
 # At least I don't have to sudo install these programs :-|
 # https://github.com/Schniz/fnm/issues/475
 # https://github.com/Schniz/fnm/issues/486
-NODE := $(addprefix $(LOCAL_BIN)/,node markdownlint write-good stylelint)
+NODE := $(addprefix $(LOCAL_BIN)/,node stylelint eslint_d)
+NODE_PROGRAMS := $(addprefix $(LOCAL_BIN)/,markdownlint write-good npx svelte prettier)
 
 PROGRAMS := \
     /bin/zsh \
@@ -51,6 +52,7 @@ all: \
     $(PYTHON) \
     $(PIPX) \
     $(NODE) \
+    $(NODE_PROGRAMS) \
     $(NEOVIM_INSTALL_PREFIX)/.installed_nvim
 
 upgrade: yay all submodules neovim
@@ -114,17 +116,17 @@ $(LOCAL_BIN)/node: | $(CARGO_BIN)/fnm $(LOCAL_BIN)
 	fnm install --lts
 	ln -sf "$$(realpath $$(which node))" $@
 
-$(LOCAL_BIN)/markdownlint: | $(LOCAL_BIN)/node
-	npm i -g markdownlint-cli
-	ln -sf "$$(realpath $$(which markdownlint))" $@
-
-$(LOCAL_BIN)/write-good: | $(LOCAL_BIN)/node
-	npm i -g write-good
-	ln -sf "$$(realpath $$(which write-good))" $@
-
 $(LOCAL_BIN)/stylelint: | $(LOCAL_BIN)/node
-	npm i -g stylelint postcss-scss stylelint-config-sass-guidelines
-	ln -sf "$$(realpath $$(which stylelint))" $@
+	npm install --force -g stylelint postcss-scss stylelint-config-sass-guidelines
+	ln -sf "$$(realpath $$(which $(@F)))" $@
+
+$(LOCAL_BIN)/eslint_d: | $(LOCAL_BIN)/node
+	npm install --force -g eslint_d eslint-config-prettier eslint-plugin-prettier eslint-plugin-svelte3
+	ln -sf "$$(realpath $$(which $(@F)))" $@
+
+$(NODE_PROGRAMS): | $(LOCAL_BIN)/node
+	npm install --force -g $(@F)
+	-ln -sf "$$(realpath $$(which $(@F)))" $@
 
 /usr/sbin/yay: | $(DEV_DIR)
 	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu --noconfirm

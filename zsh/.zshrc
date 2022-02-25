@@ -54,7 +54,7 @@ ssh-add ~/.ssh/id_ed25519 2> /dev/null
 export GPG_TTY=$(tty)
 
 export FNM_DIR="$HOME/.local"
-eval "$(fnm env)"
+eval "$(fnm env --use-on-cd)"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme

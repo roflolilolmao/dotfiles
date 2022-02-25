@@ -124,6 +124,12 @@
 [submodule "darcula"]
 	path = nvim/pack/plugins/start/darcula
 	url = https://github.com/doums/darcula
-[submodule "polyglot"]
-	path = nvim/pack/plugins/start/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
+[submodule "html5"]
+	path = nvim/pack/plugins/start/html5.vim
+	url = https://github.com/othree/html5.vim
+[submodule "javascript"]
+	path = nvim/pack/plugins/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "svelte"]
+	path = nvim/pack/plugins/start/vim-svelte
+	url = https://github.com/evanleck/vim-svelte
