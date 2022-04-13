@@ -26,7 +26,7 @@ PIPX := $(addprefix $(LOCAL_BIN)/,jedi-language-server black isort flake8)
 # https://github.com/Schniz/fnm/issues/475
 # https://github.com/Schniz/fnm/issues/486
 NODE := $(addprefix $(LOCAL_BIN)/,node stylelint eslint_d)
-NODE_PROGRAMS := $(addprefix $(LOCAL_BIN)/,markdownlint write-good npx svelte prettier)
+NODE_PROGRAMS := $(addprefix $(LOCAL_BIN)/,markdownlint write-good npx svelte prettier webpack-cli webpack-dev-server)
 
 PROGRAMS := \
     /bin/zsh \

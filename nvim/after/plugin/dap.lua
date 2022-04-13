@@ -27,7 +27,8 @@ dap.configurations.rust = {{
 
 dapui.setup {}
 
-Q.m('<Leader>.', [[<Cmd>lua require'dapui'.toggle()<CR>]])
+-- Q.m('<Leader>.', [[<Cmd>lua require'dapui'.toggle()<CR>]])
+Q.m('<F4>.', [[<Cmd>lua require'dapui'.toggle()<CR>]])
 Q.m('<F6>', [[<Cmd>lua require'dap'.toggle_breakpoint()<CR>]])
 Q.m('<F7>', [[<Cmd>lua require'dap'.continue()<CR>]])
 Q.m('<F8>', [[<Cmd>lua require'dap'.step_over()<CR>]])
