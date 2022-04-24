@@ -51,7 +51,7 @@ Q.lsp = {
     buf_map('<Leader>df', 'vim.lsp.buf.formatting')
     buf_map('<F2>', 'vim.lsp.buf.rename')
 
-    buf_map('<Leader>de', 'vim.diagnostic.open_float', nil, "nil, { scope = 'line' }")
+    buf_map('<Leader>de', 'vim.diagnostic.open_float', nil, "{ scope = 'line' }")
     buf_map('<Leader>dn', 'vim.diagnostic.goto_next')
     buf_map('<Leader>dp', 'vim.diagnostic.goto_prev')
     buf_map('<Leader>dq', 'vim.diagnostic.set_loclist')

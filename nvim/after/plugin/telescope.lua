@@ -9,7 +9,6 @@ local function map_function(name, key, arg)
   )
 end
 
-map_function('file_browser', 'tf')
 map_function('find_files', 'ts')
 map_function('grep_string', 'tG')
 map_function('live_grep', 'tg')
@@ -40,11 +39,11 @@ map_function('lsp_code_actions', 'da')
 map_function('lsp_range_code_actions', 'dA')
 
 map_function('lsp_document_symbols', 'ds')
-map_function('lsp_document_diagnostics', 'do')
+map_function('diagnostics', 'do', '{bufnr=0}')
 
 map_function('lsp_workspace_symbols', 'dws')
 map_function('lsp_dynamic_workspace_symbols', 'dwS')
-map_function('lsp_workspace_diagnostics', 'dwo')
+map_function('diagnostics', 'dwo')
 
 local actions = require 'telescope.actions'
 

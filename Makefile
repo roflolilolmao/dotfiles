@@ -18,7 +18,7 @@ NEOVIM_FLAGS += CMAKE_INSTALL_PREFIX=$(NEOVIM_INSTALL_PREFIX)
 
 CARGO_BIN := $(HOME)/.cargo/bin
 
-CARGO_PROGRAMS := $(addprefix $(CARGO_BIN)/,rg delta fd lsd bat stylua fnm)
+CARGO_PROGRAMS := $(addprefix $(CARGO_BIN)/,rg delta fd lsd bat stylua fnm wgsl_analyzer)
 PYTHON := $(addprefix $(LOCAL_BIN)/,pip pipx pipenv)
 PIPX := $(addprefix $(LOCAL_BIN)/,jedi-language-server black isort flake8)
 
@@ -100,6 +100,9 @@ $(eval $(call CARGO_template,lsd,lsd))
 $(eval $(call CARGO_template,bat,bat))
 $(eval $(call CARGO_template,stylua,stylua))
 $(eval $(call CARGO_template,fnm,fnm))
+
+$(CARGO_BIN)/wgsl_analyzer: force | $(CARGO_BIN)/cargo
+	@cargo install --git https://github.com/wgsl-analyzer/wgsl-analyzer wgsl_analyzer
 
 $(LOCAL_BIN)/pip: | $(LOCAL_BIN)
 	python -m ensurepip

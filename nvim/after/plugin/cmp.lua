@@ -23,9 +23,11 @@ cmp.setup {
     end,
   },
 
-  documentation = {
-    border = Q.border,
-    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
+  window = {
+    documentation = {
+      border = Q.border,
+      winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
+    },
   },
 
   mapping = {
@@ -39,24 +41,24 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        feed('<C-n>', 'n')
+        cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
-        feed('<Plug>luasnip-expand-or-jump', '')
+        luasnip.expand_or_jump()
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        feed('<C-p>', 'n')
+        cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
-        feed('<Plug>luasnip-jump-prev', '')
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end,
+    end, { 'i', 's' }),
   },
 
   sources = {
