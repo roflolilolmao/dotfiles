@@ -3,13 +3,10 @@ require('nvim-tree').setup {
     enable = false,
     icons = {
       error = Q.lsp.signs.Error,
-      warn = Q.lsp.signs.Warn,
+      warning = Q.lsp.signs.Warn,
       info = Q.lsp.signs.Info,
       hint = Q.lsp.signs.Hint,
     },
-  },
-  view = {
-    auto_resize = true,
   },
 }
 

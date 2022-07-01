@@ -18,7 +18,7 @@ vim.opt.shortmess:remove { 't', 'T' }
 vim.opt.backspace = { 'indent', 'eol', 'start' }
 
 vim.g.xml_syntax_folding = 1
-vim.opt.foldmethod = 'syntax'
+vim.opt.foldmethod = 'manual'
 
 vim.opt.shiftround = true
 vim.opt.expandtab = true

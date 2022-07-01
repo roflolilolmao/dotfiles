@@ -48,13 +48,16 @@ Q.lsp = {
     buf_map('<Leader>dwr', 'vim.lsp.buf.remove_workspace_folder')
     --buf_map('<Leader>dwl', '<Cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 
-    buf_map('<Leader>df', 'vim.lsp.buf.formatting')
+    buf_map('<Leader>df', 'vim.lsp.buf.format', nil, "{ async = true }")
     buf_map('<F2>', 'vim.lsp.buf.rename')
 
     buf_map('<Leader>de', 'vim.diagnostic.open_float', nil, "{ scope = 'line' }")
     buf_map('<Leader>dn', 'vim.diagnostic.goto_next')
     buf_map('<Leader>dp', 'vim.diagnostic.goto_prev')
     buf_map('<Leader>dq', 'vim.diagnostic.set_loclist')
+
+    buf_map('<Leader>da', 'vim.lsp.buf.code_action')
+    buf_map('<Leader>dA', 'vim.lsp.buf.range_code_action')
   end,
 }
 

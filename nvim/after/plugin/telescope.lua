@@ -35,8 +35,6 @@ map_function('git_bcommits', 'gc')
 
 map_function('lsp_references', 'dr')
 map_function('lsp_definitions', 'dd')
-map_function('lsp_code_actions', 'da')
-map_function('lsp_range_code_actions', 'dA')
 
 map_function('lsp_document_symbols', 'ds')
 map_function('diagnostics', 'do', '{bufnr=0}')
