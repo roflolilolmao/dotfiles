@@ -6,7 +6,8 @@ local lsp_config = vim.deepcopy(Q.lsp)
 lsp_config.settings = {
   ['rust-analyzer'] = {
     assist = {
-      importGranularity = 'module',
+      importPrefix = 'crate',
+      importGranularity = 'crate',
       importEnforceGranularity = true,
     },
     checkOnSave = {

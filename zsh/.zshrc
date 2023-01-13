@@ -66,4 +66,3 @@ source "$ZDOTDIR/plugins/fzf/shell/key-bindings.zsh"
 source "$ZDOTDIR/fzf.zsh"
 
 vim-mode-bindkey viins vicmd -- fzf-history-widget '^R'
-vim-mode-bindkey viins vicmd -- fzf-history-widget '^S'

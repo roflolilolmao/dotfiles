@@ -133,3 +133,6 @@
 [submodule "svelte"]
 	path = nvim/pack/plugins/start/vim-svelte
 	url = https://github.com/evanleck/vim-svelte
+[submodule "vim-mustache-handlebars"]
+	path = nvim/pack/plugins/start/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars

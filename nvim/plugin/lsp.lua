@@ -1,7 +1,7 @@
 local float_opts = {border = Q.border, focusable = false}
 
 Q.lsp = {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(
+  capabilities = require('cmp_nvim_lsp').default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
   ),
 
@@ -56,8 +56,8 @@ Q.lsp = {
     buf_map('<Leader>dp', 'vim.diagnostic.goto_prev')
     buf_map('<Leader>dq', 'vim.diagnostic.set_loclist')
 
-    buf_map('<Leader>da', 'vim.lsp.buf.code_action')
-    buf_map('<Leader>dA', 'vim.lsp.buf.range_code_action')
+    buf_map('<Leader>a', 'vim.lsp.buf.code_action')
+    buf_map('<Leader>a', 'vim.lsp.buf.range_code_action', 'v')
   end,
 }
 

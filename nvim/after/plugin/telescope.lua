@@ -72,7 +72,7 @@ require('telescope').setup {
       previewer = false,
     },
     find_files = {
-      hidden = true,
+      hidden = false,
     },
     lsp_code_actions = require('telescope.themes').get_cursor {},
     lsp_range_code_actions = require('telescope.themes').get_cursor {},
